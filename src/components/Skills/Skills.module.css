@@ -1,0 +1,120 @@
+.skills {
+  background-color: var(--bg-dark);
+  padding: 80px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--font-accent);
+}
+
+.accentLine {
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gradient-accent);
+  margin-top: -32px; /* tighten gap from title */
+}
+
+.subtitle {
+  font-size: var(--font-size-md);
+  color: var(--font-secondary);
+  max-width: 680px;
+  margin-top: -32px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-glass);
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0;
+}
+
+.categoryLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--font-primary);
+}
+
+.labelAccent {
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--bg-glass);
+  color: var(--font-secondary);
+  border: 1px solid var(--border-glass);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.chip:hover {
+  border-color: rgba(45, 124, 246, 0.4);
+  color: var(--font-primary);
+}
+
+.chipActive {
+  background: linear-gradient(270deg, #2D7CF6 0%, #38BDF8 100%);
+  color: var(--font-primary);
+  border-color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.chipActive:hover {
+  border-color: var(--accent-cyan);
+  color: var(--font-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .skills {
+    padding: 80px 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .skills {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 60px 24px;
+    gap: 32px;
+  }
+  .subtitle {
+    margin-top: -16px;
+  }
+  .accentLine {
+    margin-top: -16px;
+  }
+}

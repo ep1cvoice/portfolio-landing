@@ -1,0 +1,62 @@
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(45, 124, 246, 0.1);
+}
+
+/* Highlighted card — gradient border */
+.highlighted {
+  background: rgba(26, 32, 64, 0.87);
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(45, 124, 246, 0.25);
+}
+
+.highlighted::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: linear-gradient(0deg, var(--accent-blue), var(--accent-cyan));
+  z-index: -1;
+  border-radius: var(--radius-lg);
+}
+
+/* Icon */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #2D7CF6 0%, #38BDF8 100%);
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--font-primary);
+}
+
+.desc {
+  font-size: var(--font-size-sm);
+  color: var(--font-secondary);
+  line-height: 1.6;
+}
