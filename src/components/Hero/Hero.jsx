@@ -45,10 +45,10 @@ function Hero() {
         </div>
       </div>
 
-      <div className={styles.scrollDown}>
-        <ChevronDown size={16} />
-        <span>Scroll down</span>
-      </div>
+      <a href="#about" className={styles.scrollDown}>
+        <span className={styles.scrollDownLabel}>Scroll down</span>
+        <ChevronDown size={16} className={styles.arrow} />
+      </a>
     </section>
   );
 }

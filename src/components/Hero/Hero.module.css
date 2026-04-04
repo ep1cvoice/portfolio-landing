@@ -92,6 +92,7 @@
   width: 480px;
   height: 520px;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .glow {
@@ -214,12 +215,40 @@
 /* ── Scroll down ── */
 .scrollDown {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding-bottom: 24px;
+  gap: 2px;
+  padding-bottom: 28px;
   color: var(--font-secondary);
   font-size: var(--font-size-xs);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.scrollDown:hover {
+  color: var(--font-primary);
+}
+
+.scrollDownLabel {
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.scrollDown .arrow:nth-child(2) {
+  animation: jumpDown 1.6s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+.scrollDown .arrow:nth-child(3) {
+  animation: jumpDown 1.6s ease-in-out infinite 0.18s;
+  opacity: 0.6;
+}
+
+@keyframes jumpDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
 }
 
 /* ── Responsive ── */
@@ -231,6 +260,18 @@
     width: 400px;
     height: 450px;
   }
+  .portraitFrame {
+    width: 300px;
+    height: 360px;
+    left: 55px;
+    top: 45px;
+  }
+  .glow {
+    width: 360px;
+    height: 360px;
+    left: 10px;
+    top: 40px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -240,6 +281,18 @@
   .right {
     width: 360px;
     height: 420px;
+  }
+  .portraitFrame {
+    width: 270px;
+    height: 320px;
+    left: 45px;
+    top: 40px;
+  }
+  .glow {
+    width: 310px;
+    height: 310px;
+    left: 10px;
+    top: 25px;
   }
   .decoC2,
   .decoSq {

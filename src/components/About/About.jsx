@@ -1,29 +1,30 @@
 import { Briefcase, FolderCheck, Layers, Zap } from 'lucide-react';
 import styles from './About.module.css';
 
-const STATS_ROW1 = [
+const STATS = [
   {
     icon: <Briefcase size={20} />,
-    number: '2+ Years',
+    value: '2+ Years',
     desc: 'Building modern web applications',
+    boxed: false,
   },
   {
     icon: <FolderCheck size={20} />,
-    number: '10+',
+    value: '10+',
     desc: 'Completed for real-world use',
+    boxed: false,
   },
-];
-
-const STATS_ROW2 = [
   {
     icon: <Layers size={18} />,
-    title: 'Modern Stack',
+    value: 'Modern Stack',
     desc: 'React, TypeScript, Next.js',
+    boxed: true,
   },
   {
     icon: <Zap size={18} />,
-    title: 'Performance',
+    value: 'Performance',
     desc: 'Fast and optimized user experiences',
+    boxed: true,
   },
 ];
 
@@ -55,24 +56,16 @@ function About() {
 
         {/* Right — stats grid */}
         <div className={styles.statsGrid}>
-          <div className={styles.statsRow}>
-            {STATS_ROW1.map(({ icon, number, desc }) => (
-              <div key={number} className={styles.statCard}>
-                <span className={styles.statIcon}>{icon}</span>
-                <div className={styles.statNumber}>{number}</div>
-                <p className={styles.statDesc}>{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className={styles.statsRow}>
-            {STATS_ROW2.map(({ icon, title, desc }) => (
-              <div key={title} className={styles.statCard}>
-                <div className={styles.statIconWrap}>{icon}</div>
-                <div className={styles.statTitle}>{title}</div>
-                <p className={styles.statDesc}>{desc}</p>
-              </div>
-            ))}
-          </div>
+          {STATS.map(({ icon, value, desc, boxed }) => (
+            <div key={value} className={styles.statCard}>
+              {boxed
+                ? <div className={styles.statIconWrap}>{icon}</div>
+                : <span className={styles.statIcon}>{icon}</span>
+              }
+              <div className={boxed ? styles.statTitle : styles.statNumber}>{value}</div>
+              <p className={styles.statDesc}>{desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

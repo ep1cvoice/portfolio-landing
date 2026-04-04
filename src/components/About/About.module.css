@@ -38,16 +38,11 @@
 
 /* ── Right — Stats ── */
 .statsGrid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   width: 440px;
   flex-shrink: 0;
-}
-
-.statsRow {
-  display: flex;
-  gap: 16px;
 }
 
 .statCard {
@@ -105,6 +100,7 @@
   }
 }
 
+/* iPad mini → iPad Pro: body stacks, 4 cards in a single row */
 @media (max-width: 1024px) {
   .about {
     padding: 60px 40px;
@@ -114,14 +110,25 @@
   }
   .statsGrid {
     width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile: 2 rows × 2 cards */
+@media (max-width: 767px) {
   .about {
     padding: 60px 24px;
   }
-  .statsRow {
-    flex-direction: column;
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* Small mobile: single column */
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
   }
 }
