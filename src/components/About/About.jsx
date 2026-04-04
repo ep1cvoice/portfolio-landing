@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import { Briefcase, FolderCheck, Layers, Zap } from 'lucide-react';
 import styles from './About.module.css';
 
@@ -29,10 +30,31 @@ const STATS = [
 ];
 
 function About() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className={styles.about}>
+    <section
+      id="about"
+      ref={sectionRef}
+      className={`${styles.about} ${visible ? styles.visible : ''}`}
+    >
       <div className={styles.body}>
-        {/* Left — text */}
+        {/* Left — slides in from the left */}
         <div className={styles.left}>
           <h2 className={styles.title}>About Me</h2>
           <div className={styles.accentLine} />
@@ -54,7 +76,7 @@ function About() {
           </p>
         </div>
 
-        {/* Right — stats grid */}
+        {/* Right — slides in from the right, cards stagger up */}
         <div className={styles.statsGrid}>
           {STATS.map(({ icon, value, desc, boxed }) => (
             <div key={value} className={styles.statCard}>

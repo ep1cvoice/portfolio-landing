@@ -1,10 +1,11 @@
 .services {
   background-color: var(--bg-section);
-  padding: 80px 120px;
+  padding: 80px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  overflow: hidden;
 }
 
 /* ── Header ── */
@@ -15,6 +16,7 @@
   gap: 16px;
   text-align: center;
   width: 100%;
+  padding: 0 120px;
 }
 
 .label {
@@ -44,42 +46,76 @@
   width: 100%;
 }
 
+/* ── Row wrapper — handles the fade-out edges ── */
 .row {
-  display: flex;
-  gap: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.row::before,
+.row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.row::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-section) 10%, transparent 100%);
+}
+
+.row::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-section) 10%, transparent 100%);
+}
+
+/* ── Swiper instance ── */
+.swiper {
+  width: 100%;
+  /* Swiper sets overflow:hidden internally — that's fine */
+}
+
+/* ── Each slide ── */
+.slide {
+  width: 280px !important;
+  height: auto !important;
 }
 
 /* ── Responsive ── */
 @media (max-width: 1200px) {
-  .services {
-    padding: 80px 60px;
+  .header {
+    padding: 0 60px;
   }
 }
 
 @media (max-width: 1024px) {
-  .services {
-    padding: 60px 40px;
+  .header {
+    padding: 0 40px;
   }
-  .row {
-    flex-wrap: wrap;
-  }
-  .row > * {
-    flex: 1 1 calc(50% - 12px);
+  .slide {
+    width: 260px !important;
   }
 }
 
 @media (max-width: 768px) {
   .services {
-    padding: 60px 24px;
     gap: 32px;
   }
-  .row {
-    flex-direction: column;
-  }
-  .row > * {
-    flex: unset;
+  .header {
+    padding: 0 24px;
   }
   .title {
     font-size: 36px;
+  }
+  .slide {
+    width: 240px !important;
+  }
+  .row::before,
+  .row::after {
+    width: 60px;
   }
 }

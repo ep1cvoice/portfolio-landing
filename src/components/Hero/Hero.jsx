@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import WaveBackground from './WaveBackground';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
 import styles from './Hero.module.css';
 
-const LINE1 = "Hello, my name's Pavel";
+const LINE1_PART1 = "Hello, my name's ";
+const NAME = 'Pavel';
 
 const PHRASES = [
 	"I'm a frontend developer",
@@ -34,10 +36,13 @@ function Hero() {
 	useEffect(() => {
 		if (isLine1Finished) return;
 
-		if (line1Text.length < LINE1.length) {
+		if (line1Text.length < (LINE1_PART1 + NAME).length) {
+			const fullText = LINE1_PART1 + NAME;
+
 			const t = setTimeout(() => {
-				setLine1Text(LINE1.slice(0, line1Text.length + 1));
+				setLine1Text(fullText.slice(0, line1Text.length + 1));
 			}, randType());
+
 			return () => clearTimeout(t);
 		} else {
 			setIsLine1Finished(true);
@@ -82,13 +87,25 @@ function Hero() {
 
 	return (
 		<section id='home' className={styles.hero}>
+			<div className={styles.canvasBg}>
+				<WaveBackground />
+			</div>
 			<div className={styles.content}>
 				{/* Left */}
 				<div className={styles.left}>
 					<div className={styles.typewriterBlock}>
 						{/* Line 1 — types once, stays */}
 						<div className={styles.typewriterLine}>
-							<span className={`${styles.typewriterText} ${styles.typewriterTextMuted}`}>{line1Text}</span>
+							<span className={`${styles.typewriterText} ${styles.typewriterTextMuted}`}>
+								{line1Text.startsWith(LINE1_PART1) ? (
+									<>
+										{line1Text.slice(0, LINE1_PART1.length)}
+										<span className={styles.name}>{line1Text.slice(LINE1_PART1.length)}</span>
+									</>
+								) : (
+									line1Text
+								)}
+							</span>
 							{!isLine1Finished && (
 								<span className={styles.cursor} aria-hidden='true'>
 									|

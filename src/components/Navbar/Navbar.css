@@ -49,3 +49,7 @@
 .nav__menu button:hover {
   color: white;
 }
+
+.nav__menu button:focus {
+  outline: none;
+}
