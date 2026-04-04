@@ -1,37 +1,60 @@
+import { useRef, useEffect, useState } from 'react';
 import { Briefcase, FolderCheck, Layers, Zap } from 'lucide-react';
 import styles from './About.module.css';
 
-const STATS_ROW1 = [
+const STATS = [
   {
     icon: <Briefcase size={20} />,
-    number: '2+ Years',
+    value: '2+ Years',
     desc: 'Building modern web applications',
+    boxed: false,
   },
   {
     icon: <FolderCheck size={20} />,
-    number: '10+',
+    value: '10+',
     desc: 'Completed for real-world use',
+    boxed: false,
   },
-];
-
-const STATS_ROW2 = [
   {
     icon: <Layers size={18} />,
-    title: 'Modern Stack',
+    value: 'Modern Stack',
     desc: 'React, TypeScript, Next.js',
+    boxed: true,
   },
   {
     icon: <Zap size={18} />,
-    title: 'Performance',
+    value: 'Performance',
     desc: 'Fast and optimized user experiences',
+    boxed: true,
   },
 ];
 
 function About() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className={styles.about}>
+    <section
+      id="about"
+      ref={sectionRef}
+      className={`${styles.about} ${visible ? styles.visible : ''}`}
+    >
       <div className={styles.body}>
-        {/* Left — text */}
+        {/* Left — slides in from the left */}
         <div className={styles.left}>
           <h2 className={styles.title}>About Me</h2>
           <div className={styles.accentLine} />
@@ -53,26 +76,18 @@ function About() {
           </p>
         </div>
 
-        {/* Right — stats grid */}
+        {/* Right — slides in from the right, cards stagger up */}
         <div className={styles.statsGrid}>
-          <div className={styles.statsRow}>
-            {STATS_ROW1.map(({ icon, number, desc }) => (
-              <div key={number} className={styles.statCard}>
-                <span className={styles.statIcon}>{icon}</span>
-                <div className={styles.statNumber}>{number}</div>
-                <p className={styles.statDesc}>{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className={styles.statsRow}>
-            {STATS_ROW2.map(({ icon, title, desc }) => (
-              <div key={title} className={styles.statCard}>
-                <div className={styles.statIconWrap}>{icon}</div>
-                <div className={styles.statTitle}>{title}</div>
-                <p className={styles.statDesc}>{desc}</p>
-              </div>
-            ))}
-          </div>
+          {STATS.map(({ icon, value, desc, boxed }) => (
+            <div key={value} className={styles.statCard}>
+              {boxed
+                ? <div className={styles.statIconWrap}>{icon}</div>
+                : <span className={styles.statIcon}>{icon}</span>
+              }
+              <div className={boxed ? styles.statTitle : styles.statNumber}>{value}</div>
+              <p className={styles.statDesc}>{desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
