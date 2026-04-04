@@ -6,7 +6,6 @@ function Footer() {
     <footer className={styles.footer}>
       <a href="#home" className={styles.startOver}>
         <ChevronUp size={16} className={styles.arrow} />
-        <ChevronUp size={16} className={styles.arrow} />
         <span className={styles.startOverLabel}>Start over</span>
       </a>
 
