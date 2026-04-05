@@ -1,0 +1,135 @@
+.services {
+	background-color: var(--bg-section);
+	padding: 80px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 48px;
+	overflow: visible;
+}
+
+/* ── Header ── */
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	text-align: center;
+	width: 100%;
+	padding: 0 120px;
+}
+
+.label {
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	color: var(--accent-cyan);
+	letter-spacing: 3px;
+}
+
+.title {
+	font-size: var(--font-size-xxl);
+	font-weight: 700;
+	color: var(--font-primary);
+}
+
+.desc {
+	font-size: var(--font-size-md);
+	color: var(--font-secondary);
+	max-width: 560px;
+}
+
+/* ── Grid ── */
+.grid {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	width: 100%;
+}
+
+/* ── Row wrapper — handles the fade-out edges ── */
+.row {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.row::before,
+.row::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 140px;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.row::before {
+	left: 0;
+	background: linear-gradient(to right, var(--bg-section) 10%, transparent 100%);
+}
+
+.row::after {
+	right: 0;
+	background: linear-gradient(to left, var(--bg-section) 10%, transparent 100%);
+}
+
+/* ── Swiper instance ── */
+.swiper {
+	width: 100%;
+	overflow: hidden;
+}
+
+/* ── Each slide ── */
+.slide {
+	width: 280px !important;
+	height: auto !important;
+	align-items: stretch;
+}
+
+.slide > * {
+	width: 100%;
+	height: 100%;
+}
+
+/* wysokość kart */
+.slide {
+	height: 260px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+	.header {
+		padding: 0 60px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.header {
+		padding: 0 40px;
+	}
+	.slide {
+		width: 260px !important;
+    height: 220px;
+	}
+}
+
+@media (max-width: 768px) {
+	.services {
+		gap: 32px;
+	}
+	.header {
+		padding: 0 24px;
+	}
+	.title {
+		font-size: 36px;
+	}
+	.slide {
+		width: 240px !important;
+    height: 200px;
+	}
+	.row::before,
+	.row::after {
+		width: 60px;
+	}
+}

@@ -1,0 +1,265 @@
+.about {
+	background-color: var(--bg-section);
+	padding: 80px 120px;
+	overflow: hidden;
+}
+
+.body {
+	display: flex;
+	gap: 48px;
+	align-items: flex-start;
+}
+
+/* ─────────────────────────────────────────────
+   LEFT COLUMN — slides in from the left
+───────────────────────────────────────────── */
+.left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	transform: translateX(-72px);
+	opacity: 0;
+	transition:
+		transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		opacity 0.8s ease;
+}
+
+.visible .left {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.title {
+	font-size: var(--font-size-xl);
+	font-weight: 700;
+	color: var(--font-accent);
+}
+
+/* Accent line draws itself from left → right */
+.accentLine {
+	width: 60px;
+	height: 3px;
+	border-radius: 2px;
+	background: var(--gradient-accent);
+
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.65s;
+}
+
+.visible .accentLine {
+	transform: scaleX(1);
+}
+
+/* Body text fades in slightly after the panel arrives */
+.text {
+	font-size: var(--font-size-md);
+	color: var(--font-secondary);
+	line-height: 1.8;
+
+	opacity: 0;
+	transition: opacity 0.8s ease 0.45s;
+}
+
+.visible .text {
+	opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   RIGHT COLUMN — slides in from the right
+───────────────────────────────────────────── */
+.statsGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+	width: 440px;
+	flex-shrink: 0;
+
+	transform: translateX(72px);
+	opacity: 0;
+	transition:
+		transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+		opacity 0.8s ease 0.1s;
+}
+
+.visible .statsGrid {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   STAT CARDS — stagger up inside the grid
+───────────────────────────────────────────── */
+
+@keyframes glass-shimmer {
+	0%   { transform: translateX(-140%) skewX(-18deg); opacity: 0; }
+	8%   { opacity: 1; }
+	92%  { opacity: 1; }
+	100% { transform: translateX(240%)  skewX(-18deg); opacity: 0; }
+}
+
+.statCard {
+	background: var(--bg-glass);
+	border: 1px solid var(--border-glass);
+	border-radius: var(--radius-lg);
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+
+	transform: translateY(32px) scale(0.97);
+	opacity: 0;
+	filter: blur(3px);
+	transition:
+		transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		opacity   0.6s ease,
+		filter    0.6s ease;
+}
+
+/* glass-edge top highlight */
+.statCard::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.08) 0%,
+		transparent 50%
+	);
+	pointer-events: none;
+}
+
+/* light streak — starts after card fades in */
+.statCard::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		105deg,
+		transparent        30%,
+		rgba(255,255,255,0.05) 42%,
+		rgba(140,180,255,0.13) 50%,
+		rgba(190,130,255,0.09) 56%,
+		rgba(255,255,255,0.04) 62%,
+		transparent        72%
+	);
+	transform: translateX(-140%) skewX(-18deg);
+	opacity: 0;
+	pointer-events: none;
+	/* paused until card is visible */
+	animation: glass-shimmer 3.6s ease-in-out infinite paused;
+}
+
+.visible .statCard:nth-child(1) { transition-delay: 0.20s; }
+.visible .statCard:nth-child(2) { transition-delay: 0.33s; }
+.visible .statCard:nth-child(3) { transition-delay: 0.46s; }
+.visible .statCard:nth-child(4) { transition-delay: 0.59s; }
+
+.visible .statCard {
+	transform: translateY(0) scale(1);
+	opacity: 1;
+	filter: blur(0);
+}
+
+/* run shimmer only after card has appeared — stagger per card */
+.visible .statCard:nth-child(1)::before {
+	animation-play-state: running;
+	animation-delay: 0.85s;
+}
+.visible .statCard:nth-child(2)::before {
+	animation-play-state: running;
+	animation-delay: 1.7s;
+}
+.visible .statCard:nth-child(3)::before {
+	animation-play-state: running;
+	animation-delay: 2.55s;
+}
+.visible .statCard:nth-child(4)::before {
+	animation-play-state: running;
+	animation-delay: 3.4s;
+}
+
+.statIcon {
+	color: var(--accent-cyan);
+	display: flex;
+}
+
+.statNumber {
+	font-size: var(--font-size-xl);
+	font-weight: 700;
+  margin-top: 10px;
+	color: var(--accent-cyan);
+}
+
+.statIconWrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	background: linear-gradient(180deg, rgba(45, 124, 246, 0.13), rgba(56, 189, 248, 0.13));
+	color: var(--accent-cyan);
+}
+
+.statTitle {
+	font-size: 22px;
+	font-weight: 700;
+  margin-top: 20px;
+	color: var(--accent-cyan);
+}
+
+.statDesc {
+	font-size: var(--font-size-sm);
+	color: var(--font-secondary);
+	line-height: 1.4;
+
+	margin-top: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+	.about {
+		padding: 80px 60px;
+	}
+	.statsGrid {
+		width: 360px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.about {
+		padding: 60px 40px;
+	}
+	.body {
+		flex-direction: column;
+	}
+	.statsGrid {
+		width: 100%;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 14px;
+		/* reverse slide direction on stacked layout */
+		transform: translateY(40px);
+	}
+	.visible .statsGrid {
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 767px) {
+	.about {
+		padding: 60px 24px;
+	}
+	.statsGrid {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+}
