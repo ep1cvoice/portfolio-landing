@@ -40,6 +40,7 @@
 .nav__menu button {
   background: none;
   border: none;
+  outline: none;
   color: rgba(255, 255, 255, 0.7);
   font: inherit;
   cursor: pointer;
@@ -48,8 +49,4 @@
 
 .nav__menu button:hover {
   color: white;
-}
-
-.nav__menu button:focus {
-  outline: none;
 }

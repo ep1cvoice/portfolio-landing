@@ -96,12 +96,25 @@
 	color: var(--font-secondary);
 	line-height: 1.6;
 	max-width: 540px;
+	animation: fadeInUp 1s ease-out 1.2s both;
 }
 
 .cta {
 	display: flex;
 	align-items: center;
 	gap: 16px;
+	animation: fadeInUp 1s ease-out 1.4s both;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .btnPrimary {
@@ -151,6 +164,7 @@
 	height: 520px;
 	flex-shrink: 0;
 	overflow: hidden;
+	animation: fadeInUp 1s ease-out 1.4s both;
 }
 
 .glow {

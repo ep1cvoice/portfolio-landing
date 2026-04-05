@@ -50,7 +50,8 @@
 .row {
 	position: relative;
 	width: 100%;
-	overflow: hidden;
+	overflow-x: clip;
+	padding-block: 6px;
 }
 
 .row::before,
@@ -77,7 +78,8 @@
 /* ── Swiper instance ── */
 .swiper {
 	width: 100%;
-	overflow: hidden;
+	overflow-x: clip;
+	overflow-y: visible;
 }
 
 /* ── Each slide ── */
