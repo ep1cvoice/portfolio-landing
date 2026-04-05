@@ -63,7 +63,19 @@
 .lang {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 4px;
+}
+
+.langGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.langSep {
+  font-size: var(--font-size-sm);
+  color: var(--font-secondary);
+  opacity: 0.5;
 }
 
 .langItem {

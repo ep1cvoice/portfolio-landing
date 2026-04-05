@@ -1,10 +1,10 @@
 import Header from '../components/Header';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Skills from '../components/Skills';
-import Projects from '../components/Projects';
-import Services from '../components/Services';
-import Contact from '../components/Contact';
+import Hero from '../sections/Hero';
+import About from '../sections/About';
+import Skills from '../sections/Skills';
+import Projects from '../sections/Projects';
+import Services from '../sections/Services';
+import Contact from '../sections/Contact';
 import Footer from '../components/Footer';
 
 function HomePage() {

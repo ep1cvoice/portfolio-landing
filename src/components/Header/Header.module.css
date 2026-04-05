@@ -4,6 +4,7 @@
 	left: 0;
 	right: 0;
 	z-index: 600;
+	border-bottom: 1px solid transparent;
 	transition:
 		background 0.3s ease,
 		backdrop-filter 0.3s ease,
@@ -13,7 +14,7 @@
 .header.scrolled {
 	background: rgba(10, 14, 26, 0.92);
 	backdrop-filter: blur(12px);
-	border-bottom: 1px solid var(--border-glass);
+	border-bottom-color: var(--border-glass);
 }
 
 /* ── Nav bar ─────────────────────────────────── */

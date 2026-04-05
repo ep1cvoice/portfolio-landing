@@ -14,9 +14,12 @@ function Footer() {
       <div className={styles.content}>
         <p className={styles.copy}>© 2026 Pavel. All rights reserved.</p>
         <div className={styles.lang}>
-          <span className={`${styles.langItem} ${styles.langActive}`}>EN</span>
-          <span className={styles.langItem}>PL</span>
-          <span className={styles.langItem}>RU</span>
+          {['EN', 'PL', 'RU'].map((lang, i) => (
+            <span key={lang} className={styles.langGroup}>
+              {i > 0 && <span className={styles.langSep}>/</span>}
+              <span className={`${styles.langItem} ${lang === 'EN' ? styles.langActive : ''}`}>{lang}</span>
+            </span>
+          ))}
         </div>
       </div>
     </footer>
