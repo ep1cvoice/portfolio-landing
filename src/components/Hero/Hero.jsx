@@ -151,13 +151,19 @@ function Hero() {
 
 				{/* Social links */}
 				<div className={styles.social}>
-					<a href='https://github.com/ep1cvoice' aria-label='GitHub' target='_blank' className={styles.socialIcon}>
+					<a
+						href='https://github.com/ep1cvoice'
+						aria-label='GitHub'
+						target='_blank'
+						rel='noopener noreferrer'
+						className={styles.socialIcon}>
 						<img src={githubIcon} alt='GitHub' width={22} height={22} />
 					</a>
 					<a
 						href='https://www.linkedin.com/in/pavlokovalchuk0510'
 						aria-label='LinkedIn'
 						target='_blank'
+						rel='noopener noreferrer'
 						className={styles.socialIcon}>
 						<img
 							src={linkedinIcon}
