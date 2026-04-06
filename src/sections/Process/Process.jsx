@@ -60,14 +60,19 @@ function Process() {
     const { left, top, width, height } = card.getBoundingClientRect();
     const x = (e.clientX - left) / width  - 0.5;
     const y = (e.clientY - top)  / height - 0.5;
+    // disable transform transition while tracking mouse so tilt is instant
+    card.style.transition = 'border-color 0.25s ease, box-shadow 0.25s ease';
     card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
     const icon = card.querySelector(`.${styles.iconWrap}`);
     if (icon) icon.style.transform = 'rotate(15deg) scale(1.15)';
   }
 
   function handleMouseLeave(e) {
-    e.currentTarget.style.transform = '';
-    const icon = e.currentTarget.querySelector(`.${styles.iconWrap}`);
+    const card = e.currentTarget;
+    // restore smooth return with no delay
+    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.25s ease, box-shadow 0.25s ease';
+    card.style.transform = 'translateY(0)';
+    const icon = card.querySelector(`.${styles.iconWrap}`);
     if (icon) icon.style.transform = '';
   }
 

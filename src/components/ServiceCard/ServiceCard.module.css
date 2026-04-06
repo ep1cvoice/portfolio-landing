@@ -9,13 +9,26 @@
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(45, 124, 246, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 12px 48px rgba(45, 124, 246, 0.15);
 }
 
 /* Icon */
