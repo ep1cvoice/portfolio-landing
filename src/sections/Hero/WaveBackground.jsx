@@ -50,7 +50,7 @@ function Wave() {
 				<bufferAttribute attach='attributes-position' array={positions} count={positions.length / 3} itemSize={3} />
 			</bufferGeometry>
 
-			<pointsMaterial size={0.025} color='#2D7CF6' sizeAttenuation />
+			<pointsMaterial size={0.035} color='#2D7CF6' sizeAttenuation />
 		</points>
 	);
 }

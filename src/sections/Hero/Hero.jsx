@@ -147,9 +147,6 @@ function Hero() {
 					<div className={`${styles.deco} ${styles.decoC2}`} />
 					<div className={`${styles.deco} ${styles.decoSq}`} />
 					<div className={`${styles.deco} ${styles.decoDot}`} />
-				</div>
-
-				{/* Social links */}
 				<div className={styles.social}>
 					<a
 						href='https://github.com/ep1cvoice'
@@ -157,7 +154,7 @@ function Hero() {
 						target='_blank'
 						rel='noopener noreferrer'
 						className={styles.socialIcon}>
-						<img src={githubIcon} alt='GitHub' width={22} height={22} />
+						<img src={githubIcon} alt='GitHub' width={26} height={26} />
 					</a>
 					<a
 						href='https://www.linkedin.com/in/pavlokovalchuk0510'
@@ -169,13 +166,16 @@ function Hero() {
 							src={linkedinIcon}
 							alt='LinkedIn'
 							target='_blank'
-							width={22}
-							height={22}
+							width={26}
+							height={26}
 							className={styles.linkedinIcon}
 						/>
 					</a>
 					<div className={styles.socialLine} />
 				</div>
+				</div>
+
+				{/* Social links */}
 				<a href='#about' className={styles.scrollDown}>
 					<span className={styles.scrollDownLabel}>Scroll down</span>
 					<ChevronDown size={16} className={styles.arrow} />

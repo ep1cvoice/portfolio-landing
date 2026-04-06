@@ -279,7 +279,7 @@
 /* ── Social links ── */
 .social {
 	position: absolute;
-	right: 40px;
+	right: 0px;
 	top: 50%;
 	transform: translateY(-50%);
 	display: flex;

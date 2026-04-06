@@ -54,17 +54,21 @@ function Process() {
     return () => observer.disconnect();
   }, []);
 
-  /* 3-D tilt on card hover */
+  /* 3-D tilt + icon rotation on card hover */
   function handleMouseMove(e) {
     const card = e.currentTarget;
     const { left, top, width, height } = card.getBoundingClientRect();
-    const x = (e.clientX - left) / width  - 0.5;  // -0.5 … 0.5
+    const x = (e.clientX - left) / width  - 0.5;
     const y = (e.clientY - top)  / height - 0.5;
     card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
+    const icon = card.querySelector(`.${styles.iconWrap}`);
+    if (icon) icon.style.transform = 'rotate(15deg) scale(1.15)';
   }
 
   function handleMouseLeave(e) {
     e.currentTarget.style.transform = '';
+    const icon = e.currentTarget.querySelector(`.${styles.iconWrap}`);
+    if (icon) icon.style.transform = '';
   }
 
   return (
