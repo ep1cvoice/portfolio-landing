@@ -126,7 +126,7 @@ function Header() {
 							))}
 						</div>
 
-						<a href='#' className={styles.cvBtn}>
+						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtn}>
 							<span>Download CV</span>
 							<Download size={14} />
 						</a>
@@ -134,7 +134,7 @@ function Header() {
 
 					{/* Mobile controls: [LANGUAGE] [BURGER] */}
 					<div className={styles.mobileControls}>
-						<a href='#' className={styles.cvBtnMobile} aria-label='Download CV'>
+						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtnMobile} aria-label='Download CV'>
 							<span>CV</span>
 							<Download size={14} />
 						</a>
