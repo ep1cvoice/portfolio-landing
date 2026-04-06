@@ -1,6 +1,6 @@
 .about {
 	background-color: var(--bg-section);
-	padding: 80px 120px;
+	padding: 80px max(120px, calc((100% - 1360px) / 2));
 	overflow: hidden;
 }
 
