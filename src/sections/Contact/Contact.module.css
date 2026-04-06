@@ -86,9 +86,22 @@
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   opacity: 0;
   transform: translateY(16px);
-  transition: border-color 0.2s, transform 0.2s, opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.infoCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .body.bodyVisible .infoCard:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
@@ -96,7 +109,8 @@
 .body.bodyVisible .infoCard:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.41s; }
 
 .infoCard:hover {
-  border-color: rgba(45, 124, 246, 0.35);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 12px 48px rgba(45, 124, 246, 0.15);
   transform: translateX(4px);
 }
 
@@ -141,9 +155,22 @@
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transform: translateX(60px);
   opacity: 0;
   transition: opacity 0.8s ease 0.3s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.form::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .body.bodyVisible .form {
@@ -241,10 +268,23 @@
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   text-align: center;
   transform: translateX(60px);
   opacity: 0;
   transition: opacity 0.8s ease 0.3s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.formSuccess::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .body.bodyVisible .formSuccess {

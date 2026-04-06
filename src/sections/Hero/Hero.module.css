@@ -178,9 +178,8 @@
 	pointer-events: none;
 }
 .name {
-	color: var(--accent-cyan); /* например фиолетовый */
+	color: var(--accent-cyan);
 	font-weight: 700;
-	
 }
 
 .portraitFrame {
@@ -217,7 +216,6 @@
 	background-position: center 30%;
 	background-size: cover;
 	background-repeat: no-repeat;
-	overflow: hidden;
 	overflow: hidden;
 }
 
