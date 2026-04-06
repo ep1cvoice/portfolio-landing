@@ -305,12 +305,11 @@
 	}
 }
 
-@media (max-width: 860px) {
+@media (max-width: 819px) {
 	/* Switch to vertical timeline */
 	.timeline {
 		grid-template-columns: 1fr;
 		padding-top: 0;
-		padding-left: 28px;
 	}
 
 	.track {
