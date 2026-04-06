@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--bg-dark);
-  padding: 40px 120px 32px;
+  padding: 40px max(120px, calc((100% - 1360px) / 2)) 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;

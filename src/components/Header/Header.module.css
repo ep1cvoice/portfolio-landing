@@ -24,7 +24,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 20px 80px;
+	padding: 20px max(80px, calc((100% - 1440px) / 2));
 }
 
 .logo {
@@ -95,6 +95,49 @@
 	opacity: 0.5;
 }
 
+/* ── CV Button ───────────────────────────────── */
+.cvBtn {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	padding: 8px 16px;
+	border-radius: 8px;
+	border: 1px solid rgba(45, 124, 246, 0.45);
+	background: rgba(45, 124, 246, 0.08);
+	color: var(--font-primary);
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.cvBtn:hover {
+	background: rgba(45, 124, 246, 0.18);
+	border-color: rgba(45, 124, 246, 0.8);
+	transform: translateY(-1px);
+}
+
+.cvBtnMobile {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 7px 12px;
+	border-radius: 8px;
+	border: 1px solid var(--accent-blue);
+	background: transparent;
+	color: var(--font-primary);
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	text-decoration: none;
+	transition: background 0.2s, transform 0.15s;
+}
+
+.cvBtnMobile:hover {
+	background: rgba(45, 124, 246, 0.12);
+	transform: translateY(-1px);
+}
+
 /* ── Mobile controls: [EN] [BURGER] ─────────── */
 .mobileControls {
 	display: none;
@@ -108,9 +151,9 @@
 	display: flex;
 	align-items: center;
 	gap: 4px;
-	padding: 6px 10px;
+	padding: 7px 12px;
 	border: 1px solid var(--border-glass);
-	border-radius: 6px;
+	border-radius: 8px;
 	cursor: pointer;
 	background: transparent;
 	transition:
@@ -125,7 +168,7 @@
 }
 
 .langBtnText {
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	font-weight: 600;
 	color: var(--font-primary);
 	letter-spacing: 0.06em;

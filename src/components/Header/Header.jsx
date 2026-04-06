@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { Download } from 'lucide-react';
 import styles from './Header.module.css';
 
 const NAV_LINKS = [
@@ -23,7 +24,7 @@ function Header() {
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 40);
-		window.addEventListener('scroll', onScroll);
+		window.addEventListener('scroll', onScroll, { passive: true });
 		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
@@ -124,10 +125,20 @@ function Header() {
 								</span>
 							))}
 						</div>
+
+						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtn}>
+							<span>Download CV</span>
+							<Download size={14} />
+						</a>
 					</div>
 
 					{/* Mobile controls: [LANGUAGE] [BURGER] */}
 					<div className={styles.mobileControls}>
+						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtnMobile} aria-label='Download CV'>
+							<span>CV</span>
+							<Download size={14} />
+						</a>
+
 						<div className={styles.langBtn} ref={langRef} onClick={() => setLangModal((v) => !v)}>
 							<span className={styles.langBtnText}>{activeLang}</span>
 							<svg
