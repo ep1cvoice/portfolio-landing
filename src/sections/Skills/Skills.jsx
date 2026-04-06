@@ -1,3 +1,4 @@
+import { useInView } from '../../hooks/useInView';
 import styles from './Skills.module.css';
 
 const SKILL_CATEGORIES = [
@@ -11,9 +12,8 @@ const SKILL_CATEGORIES = [
       { text: 'TypeScript', active: true },
       { text: 'JavaScript (ES6+)' },
       { text: 'Tailwind CSS' },
-      { text: 'Sass' },
+      { text: 'SASS (SCSS)' },
       { text: 'CSS Modules' },
-      { text: 'Bootstrap' },
     ],
   },
   {
@@ -46,6 +46,7 @@ const SKILL_CATEGORIES = [
       { text: 'GitHub' },
       { text: 'Vite' },
       { text: 'npm' },
+      { text: 'WordPress' },
       { text: 'VS Code' },
       { text: 'Figma' },
     ],
@@ -57,7 +58,7 @@ const SKILL_CATEGORIES = [
     chips: [
       { text: 'Node.js' },
       { text: 'Express' },
-      { text: 'Working with APIs' },
+      { text: `API Integration` },
     ],
   },
 ];
@@ -71,15 +72,18 @@ function Chip({ text, active }) {
 }
 
 function Skills() {
+  const [sectionRef, visible] = useInView(0.1);
+  const [gridRef, gridVisible] = useInView(0.1);
+
   return (
-    <section id="skills" className={styles.skills}>
+    <section id="skills" ref={sectionRef} className={`${styles.skills} ${visible ? styles.visible : ''}`}>
       <h2 className={styles.title}>Tech Stack</h2>
       <div className={styles.accentLine} />
       <p className={styles.subtitle}>
         Technologies I use to build fast and scalable web applications.
       </p>
 
-      <div className={styles.grid}>
+      <div ref={gridRef} className={`${styles.grid} ${gridVisible ? styles.gridVisible : ''}`}>
         {SKILL_CATEGORIES.map((cat, idx) => (
           <div key={cat.id}>
             {idx > 0 && <div className={styles.divider} />}

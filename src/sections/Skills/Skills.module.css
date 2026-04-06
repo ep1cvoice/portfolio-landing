@@ -52,6 +52,14 @@
 	font-size: var(--font-size-xl);
 	font-weight: 700;
 	color: var(--font-accent);
+	opacity: 0;
+	transform: translateX(-40px);
+	transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.visible .title {
+	opacity: 1;
+	transform: translateX(0);
 }
 
 .accentLine {
@@ -59,7 +67,14 @@
 	height: 3px;
 	border-radius: 2px;
 	background: var(--gradient-accent);
-	margin-top: -32px; /* tighten gap from title */
+	margin-top: -32px;
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
+}
+
+.visible .accentLine {
+	transform: scaleX(1);
 }
 
 .subtitle {
@@ -67,12 +82,32 @@
 	color: var(--font-secondary);
 	max-width: 680px;
 	margin-top: -32px;
+	opacity: 0;
+	transition: opacity 0.7s ease 0.4s;
+}
+
+.visible .subtitle {
+	opacity: 1;
 }
 
 .grid {
 	display: flex;
 	flex-direction: column;
 }
+
+.grid > div {
+	opacity: 0;
+	transform: translateY(22px);
+	transition:
+		opacity 0.55s ease,
+		transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.grid.gridVisible > div:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.grid.gridVisible > div:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.17s; }
+.grid.gridVisible > div:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.29s; }
+.grid.gridVisible > div:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.41s; }
+.grid.gridVisible > div:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.53s; }
 
 .divider {
 	height: 1px;

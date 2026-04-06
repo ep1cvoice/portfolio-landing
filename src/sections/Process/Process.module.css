@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════════════ */
 
 .process {
-	background-color: var(--bg-section);
+	background-color: var(--bg-dark);
 	padding: 80px max(120px, calc((100% - 1360px) / 2));
 	overflow: hidden;
 }

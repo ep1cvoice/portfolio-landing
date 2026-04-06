@@ -1,4 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
+import { useInView } from '../../hooks/useInView';
 import { Mail } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
@@ -28,16 +29,18 @@ const CONTACT_CARDS = [
 
 function Contact() {
 	const [state, handleSubmit] = useForm('mlgoaorz');
+	const [sectionRef, visible] = useInView(0.1);
+	const [bodyRef, bodyVisible] = useInView(0.1);
 
 	return (
-		<section id='contact' className={styles.contact}>
+		<section id='contact' ref={sectionRef} className={`${styles.contact} ${visible ? styles.visible : ''}`}>
 			<header className={styles.header}>
 				<span className={styles.label}>CONTACT</span>
 				<h2 className={styles.title}>Get In Touch</h2>
 				<p className={styles.desc}>Have a project in mind or want to collaborate? Let's talk!</p>
 			</header>
 
-			<div className={styles.body}>
+			<div ref={bodyRef} className={`${styles.body} ${bodyVisible ? styles.bodyVisible : ''}`}>
 				{/* Contact info cards */}
 				<div className={styles.info}>
 					{CONTACT_CARDS.map(({ icon, label, value, href, external }) => (

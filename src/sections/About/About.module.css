@@ -84,7 +84,7 @@
 		opacity 0.8s ease 0.1s;
 }
 
-.visible .statsGrid {
+.statsGrid.statsVisible {
 	transform: translateX(0);
 	opacity: 1;
 }
@@ -157,33 +157,33 @@
 	animation: glass-shimmer 3.6s ease-in-out infinite paused;
 }
 
-.visible .statCard:nth-child(1) { transition-delay: 0.20s; }
-.visible .statCard:nth-child(2) { transition-delay: 0.33s; }
-.visible .statCard:nth-child(3) { transition-delay: 0.46s; }
-.visible .statCard:nth-child(4) { transition-delay: 0.59s; }
+.statsGrid.statsVisible .statCard:nth-child(1) { transition-delay: 0.10s; }
+.statsGrid.statsVisible .statCard:nth-child(2) { transition-delay: 0.23s; }
+.statsGrid.statsVisible .statCard:nth-child(3) { transition-delay: 0.36s; }
+.statsGrid.statsVisible .statCard:nth-child(4) { transition-delay: 0.49s; }
 
-.visible .statCard {
+.statsGrid.statsVisible .statCard {
 	transform: translateY(0) scale(1);
 	opacity: 1;
 	filter: blur(0);
 }
 
-/* run shimmer only after card has appeared — stagger per card */
-.visible .statCard:nth-child(1)::before {
+/* run shimmer only after card has appeared */
+.statsGrid.statsVisible .statCard:nth-child(1)::before {
 	animation-play-state: running;
-	animation-delay: 0.85s;
+	animation-delay: 0.65s;
 }
-.visible .statCard:nth-child(2)::before {
+.statsGrid.statsVisible .statCard:nth-child(2)::before {
 	animation-play-state: running;
-	animation-delay: 1.7s;
+	animation-delay: 1.5s;
 }
-.visible .statCard:nth-child(3)::before {
+.statsGrid.statsVisible .statCard:nth-child(3)::before {
 	animation-play-state: running;
-	animation-delay: 2.55s;
+	animation-delay: 2.35s;
 }
-.visible .statCard:nth-child(4)::before {
+.statsGrid.statsVisible .statCard:nth-child(4)::before {
 	animation-play-state: running;
-	animation-delay: 3.4s;
+	animation-delay: 3.2s;
 }
 
 .statIcon {
@@ -248,7 +248,7 @@
 		/* reverse slide direction on stacked layout */
 		transform: translateY(40px);
 	}
-	.visible .statsGrid {
+	.statsGrid.statsVisible {
 		transform: translateY(0);
 	}
 }

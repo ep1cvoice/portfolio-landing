@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useInView } from '../../hooks/useInView';
 import { ArrowUpRight } from 'lucide-react';
 import ProjectCard from '../../components/ProjectCard';
 import ProjectPreviewModal from '../../components/ProjectPreviewModal/ProjectPreviewModal';
@@ -61,13 +62,15 @@ const FILTERS = ['All', 'React', 'Next.js', 'API', 'Landing', 'SPA'];
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [preview, setPreview] = useState(null);
+  const [sectionRef, visible] = useInView(0.1);
+  const [gridRef, gridVisible] = useInView(0.1);
 
   const filtered = activeFilter === 'All'
     ? PROJECTS
     : PROJECTS.filter((p) => p.tags.includes(activeFilter));
 
   return (
-    <section id="projects" className={styles.projects}>
+    <section id="projects" ref={sectionRef} className={`${styles.projects} ${visible ? styles.visible : ''}`}>
       <header className={styles.header}>
         <span className={styles.label}>PORTFOLIO</span>
         <h2 className={styles.title}>Featured Projects</h2>
@@ -88,7 +91,7 @@ function Projects() {
         ))}
       </div>
 
-      <div className={styles.grid}>
+      <div ref={gridRef} className={`${styles.grid} ${gridVisible ? styles.gridVisible : ''}`}>
         {filtered.map((project) => (
           <ProjectCard key={project.id} {...project} onPreview={setPreview} />
         ))}
