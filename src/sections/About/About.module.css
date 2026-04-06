@@ -7,7 +7,7 @@
 .body {
 	display: flex;
 	gap: 48px;
-	align-items: flex-start;
+	align-items: center;
 }
 
 /* ─────────────────────────────────────────────

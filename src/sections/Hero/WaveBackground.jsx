@@ -6,7 +6,6 @@ function Wave() {
 
 	const size = 20;
 	const divisions = 160;
-	const smoothMouse = useRef({ x: 0, y: 0 })
 	
 
 	const positions = useMemo(() => {
