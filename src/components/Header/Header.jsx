@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { Download } from 'lucide-react';
 import styles from './Header.module.css';
 
 const NAV_LINKS = [
@@ -124,10 +125,20 @@ function Header() {
 								</span>
 							))}
 						</div>
+
+						<a href='#' className={styles.cvBtn}>
+							<span>Download CV</span>
+							<Download size={14} />
+						</a>
 					</div>
 
 					{/* Mobile controls: [LANGUAGE] [BURGER] */}
 					<div className={styles.mobileControls}>
+						<a href='#' className={styles.cvBtnMobile} aria-label='Download CV'>
+							<span>CV</span>
+							<Download size={14} />
+						</a>
+
 						<div className={styles.langBtn} ref={langRef} onClick={() => setLangModal((v) => !v)}>
 							<span className={styles.langBtnText}>{activeLang}</span>
 							<svg
