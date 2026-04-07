@@ -30,7 +30,7 @@ function Wave() {
 		let i = 0;
 		for (let x = 0; x < divisions; x++) {
 			for (let y = 0; y < divisions; y++) {
-				const wave = Math.sin(x * 0.15 + t * 1.2) + Math.sin(y * 0.15 + t * 1.2);
+				const wave = Math.sin(x * 0.15 + t * 1.2) + Math.sin(y * 0.15 + t * 3.2);
 
 				pos[i + 1] = wave * 0.25;
 
