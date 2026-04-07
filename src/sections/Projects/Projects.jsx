@@ -9,6 +9,7 @@ import xdetalzImg from '../../assets/projects/xdetalz-website.png';
 import formafitImg from '../../assets/projects/formafit-website.png';
 import swiftrateImg from '../../assets/projects/swiftrate-website.png';
 import nexttodoImg from '../../assets/projects/nexttodo-website.png';
+import checkycardImg from '../../assets/projects/webdev-checky-cards.png';
 
 const PROJECTS = [
   {
@@ -42,6 +43,17 @@ const PROJECTS = [
     image: swiftrateImg,
     github: 'https://github.com/ep1cvoice/swift-rate-app',
     demo: swiftrateImg,
+    demoLabel: 'Preview',
+  },
+  {
+    id: 5,
+    title: 'WebDev Checky Cards',
+    description: 'Flashcard-style web dev theory trainer. Browse Q&A cards with markdown-rendered answers, syntax-highlighted code snippets, dark/light theme, and auth-protected question management backed by a local REST API.',
+    tags: ['React', 'SPA', 'API', 'Auth'],
+    lang: 'PL',
+    image: checkycardImg, 
+    github: 'https://github.com/ep1cvoice/webgdev-checky-cards',
+    demo: checkycardImg,
     demoLabel: 'Preview',
   },
   {
