@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import WaveBackground from './WaveBackground';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
 import styles from './Hero.module.css';
 
-const LINE1_PART1 = "Hello, my name's ";
-const NAME = 'Pavel';
-
-const PHRASES = [
-	"I'm a frontend developer",
-	'I build fast and user-friendly web applications',
-	'I create interfaces that deliver results.',
-];
 
 const TYPE_SPEED_MIN = 40;
 const TYPE_SPEED_MAX = 80;
@@ -25,65 +18,79 @@ function randType() {
 }
 
 function Hero() {
-	const [line1Text, setLine1Text] = useState('');
-	const [line2Text, setLine2Text] = useState('');
+	const { t, i18n } = useTranslation();
+
+	const [line1Text, setLine1Text]                   = useState('');
+	const [line2Text, setLine2Text]                   = useState('');
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-	const [isDeleting, setIsDeleting] = useState(false);
-	const [isLine1Finished, setIsLine1Finished] = useState(false);
-	const [isFinished, setIsFinished] = useState(false);
+	const [isDeleting, setIsDeleting]                 = useState(false);
+	const [isLine1Finished, setIsLine1Finished]       = useState(false);
+	const [isFinished, setIsFinished]                 = useState(false);
+
+	// Read from translations so they update on language change
+	const name = t(`hero.name`);
+	const greeting = t(`hero.greeting`);
+	const phrases  = [t('hero.phrase1'), t('hero.phrase2'), t('hero.phrase3')];
+	const fullLine1 = greeting + name;
+
+	// Reset typewriter whenever language changes
+	useEffect(() => {
+		setLine1Text('');
+		setLine2Text('');
+		setCurrentPhraseIndex(0);
+		setIsDeleting(false);
+		setIsLine1Finished(false);
+		setIsFinished(false);
+	}, [i18n.language]);
 
 	// ── Line 1: type once, never delete ──────────────────────────────
 	useEffect(() => {
 		if (isLine1Finished) return;
 
-		if (line1Text.length < (LINE1_PART1 + NAME).length) {
-			const fullText = LINE1_PART1 + NAME;
-
+		if (line1Text.length < fullLine1.length) {
 			const t = setTimeout(() => {
-				setLine1Text(fullText.slice(0, line1Text.length + 1));
+				setLine1Text(fullLine1.slice(0, line1Text.length + 1));
 			}, randType());
-
 			return () => clearTimeout(t);
 		} else {
 			setIsLine1Finished(true);
 		}
-	}, [line1Text, isLine1Finished]);
+	}, [line1Text, isLine1Finished, fullLine1]);
 
 	// ── Line 2: start after line 1, stop on last phrase ──────────────
 	useEffect(() => {
 		if (!isLine1Finished || isFinished) return;
 
-		const phrase = PHRASES[currentPhraseIndex];
-		const isLast = currentPhraseIndex === PHRASES.length - 1;
+		const phrase = phrases[currentPhraseIndex];
+		const isLast = currentPhraseIndex === phrases.length - 1;
 
 		if (!isDeleting) {
 			if (line2Text.length < phrase.length) {
-				const t = setTimeout(() => {
+				const timer = setTimeout(() => {
 					setLine2Text(phrase.slice(0, line2Text.length + 1));
 				}, randType());
-				return () => clearTimeout(t);
+				return () => clearTimeout(timer);
 			}
-			// Fully typed
 			if (isLast) {
 				setIsFinished(true);
 				return;
 			}
-			const t = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE);
-			return () => clearTimeout(t);
+			const timer = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE);
+			return () => clearTimeout(timer);
 		} else {
 			if (line2Text.length > 0) {
-				const t = setTimeout(() => {
+				const timer = setTimeout(() => {
 					setLine2Text(line2Text.slice(0, -1));
 				}, DELETE_SPEED);
-				return () => clearTimeout(t);
+				return () => clearTimeout(timer);
 			}
-			const t = setTimeout(() => {
+			const timer = setTimeout(() => {
 				setIsDeleting(false);
 				setCurrentPhraseIndex((i) => i + 1);
 			}, PAUSE_BEFORE_TYPE);
-			return () => clearTimeout(t);
+			return () => clearTimeout(timer);
 		}
-	}, [isLine1Finished, isFinished, line2Text, currentPhraseIndex, isDeleting]);
+	}, [isLine1Finished, isFinished, line2Text, currentPhraseIndex, isDeleting, phrases]);
 
 	return (
 		<section id='home' className={styles.hero}>
@@ -97,10 +104,10 @@ function Hero() {
 						{/* Line 1 — types once, stays */}
 						<div className={styles.typewriterLine}>
 							<span className={`${styles.typewriterText} ${styles.typewriterTextMuted}`}>
-								{line1Text.startsWith(LINE1_PART1) ? (
+								{line1Text.startsWith(greeting) ? (
 									<>
-										{line1Text.slice(0, LINE1_PART1.length)}
-										<span className={styles.name}>{line1Text.slice(LINE1_PART1.length)}</span>
+										{line1Text.slice(0, greeting.length)}
+										<span className={styles.name}>{line1Text.slice(greeting.length)}</span>
 									</>
 								) : (
 									line1Text
@@ -126,13 +133,13 @@ function Hero() {
 						</div>
 					</div>
 
-					<p className={styles.description}>Building modern, responsive web applications and landing pages.</p>
+					<p className={styles.description}>{t('hero.description')}</p>
 					<div className={styles.cta}>
 						<a href='#projects' className={styles.btnPrimary}>
-							View Projects
+							{t('hero.viewProjects')}
 						</a>
 						<a href='#contact' className={styles.btnOutline}>
-							Contact Me
+							{t('hero.contactMe')}
 						</a>
 					</div>
 				</div>
@@ -147,37 +154,35 @@ function Hero() {
 					<div className={`${styles.deco} ${styles.decoC2}`} />
 					<div className={`${styles.deco} ${styles.decoSq}`} />
 					<div className={`${styles.deco} ${styles.decoDot}`} />
-				<div className={styles.social}>
-					<a
-						href='https://github.com/ep1cvoice'
-						aria-label='GitHub'
-						target='_blank'
-						rel='noopener noreferrer'
-						className={styles.socialIcon}>
-						<img src={githubIcon} alt='GitHub' width={26} height={26} />
-					</a>
-					<a
-						href='https://www.linkedin.com/in/pavlokovalchuk0510'
-						aria-label='LinkedIn'
-						target='_blank'
-						rel='noopener noreferrer'
-						className={styles.socialIcon}>
-						<img
-							src={linkedinIcon}
-							alt='LinkedIn'
+					<div className={styles.social}>
+						<a
+							href='https://github.com/ep1cvoice'
+							aria-label='GitHub'
 							target='_blank'
-							width={26}
-							height={26}
-							className={styles.linkedinIcon}
-						/>
-					</a>
-					<div className={styles.socialLine} />
-				</div>
+							rel='noopener noreferrer'
+							className={styles.socialIcon}>
+							<img src={githubIcon} alt='GitHub' width={26} height={26} />
+						</a>
+						<a
+							href='https://www.linkedin.com/in/pavlokovalchuk0510'
+							aria-label='LinkedIn'
+							target='_blank'
+							rel='noopener noreferrer'
+							className={styles.socialIcon}>
+							<img
+								src={linkedinIcon}
+								alt='LinkedIn'
+								width={26}
+								height={26}
+								className={styles.linkedinIcon}
+							/>
+						</a>
+						<div className={styles.socialLine} />
+					</div>
 				</div>
 
-				{/* Social links */}
 				<a href='#about' className={styles.scrollDown}>
-					<span className={styles.scrollDownLabel}>Scroll down</span>
+					<span className={styles.scrollDownLabel}>{t('hero.scrollDown')}</span>
 					<ChevronDown size={16} className={styles.arrow} />
 				</a>
 			</div>

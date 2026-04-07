@@ -1,4 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
+import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import { Mail } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
@@ -29,6 +30,7 @@ const CONTACT_CARDS = [
 ];
 
 function Contact() {
+	const { t } = useTranslation();
 	const [state, handleSubmit] = useForm('mlgoaorz');
 	const [sectionRef, visible] = useInView(0.1);
 	const [bodyRef, bodyVisible] = useInView(0.1);
@@ -36,9 +38,9 @@ function Contact() {
 	return (
 		<section id='contact' ref={sectionRef} className={`${styles.contact} ${visible ? styles.visible : ''}`}>
 			<header className={styles.header}>
-				<span className={styles.label}>CONTACT</span>
-				<h2 className={styles.title}>Get In Touch</h2>
-				<p className={styles.desc}>Have a project in mind or want to collaborate? Let's talk!</p>
+				<span className={styles.label}>{t('contact.label')}</span>
+				<h2 className={styles.title}>{t('contact.title')}</h2>
+				<p className={styles.desc}>{t('contact.desc')}</p>
 			</header>
 
 			<div ref={bodyRef} className={`${styles.body} ${bodyVisible ? styles.bodyVisible : ''}`}>
@@ -63,36 +65,37 @@ function Contact() {
 				{/* Contact form */}
 				{state.succeeded ? (
 					<div className={styles.formSuccess}>
-						<span className={styles.formSuccessTitle}>Message sent!</span>
-						<p className={styles.formSuccessDesc}>Thanks for reaching out — I'll get back to you soon.</p>
+						<span className={styles.formSuccessTitle}>{t('contact.successTitle')}</span>
+						<p className={styles.formSuccessDesc}>{t('contact.successDesc')}</p>
 					</div>
 				) : (
 					<form className={styles.form} onSubmit={handleSubmit}>
+						<h3 className={styles.formTitle}>{t('contact.formTitle')}</h3>
 						<div className={styles.nameRow}>
 							<div className={styles.field}>
-								<label htmlFor='name' className={styles.fieldLabel}>Name</label>
-								<input id='name' name='name' type='text' placeholder='Your name' className={styles.input} required />
+								<label htmlFor='name' className={styles.fieldLabel}>{t('contact.name')}</label>
+								<input id='name' name='name' type='text' placeholder={t('contact.namePlaceholder')} className={styles.input} required />
 							</div>
 							<div className={styles.field}>
-								<label htmlFor='email' className={styles.fieldLabel}>Email</label>
-								<input id='email' name='email' type='email' placeholder='your@email.com' className={styles.input} required />
+								<label htmlFor='email' className={styles.fieldLabel}>{t('contact.email')}</label>
+								<input id='email' name='email' type='email' placeholder={t('contact.emailPlaceholder')} className={styles.input} required />
 								<ValidationError field='email' errors={state.errors} className={styles.fieldError} />
 							</div>
 						</div>
 
 						<div className={styles.field}>
-							<label htmlFor='subject' className={styles.fieldLabel}>Subject</label>
-							<input id='subject' name='subject' type='text' placeholder='Project inquiry' className={styles.input} />
+							<label htmlFor='subject' className={styles.fieldLabel}>{t('contact.subject')}</label>
+							<input id='subject' name='subject' type='text' placeholder={t('contact.subjectPlaceholder')} className={styles.input} />
 						</div>
 
 						<div className={styles.field}>
-							<label htmlFor='message' className={styles.fieldLabel}>Message</label>
-							<textarea id='message' name='message' placeholder='Tell me about your project...' className={styles.textarea} rows={5} required />
+							<label htmlFor='message' className={styles.fieldLabel}>{t('contact.message')}</label>
+							<textarea id='message' name='message' placeholder={t('contact.msgPlaceholder')} className={styles.textarea} rows={5} required />
 							<ValidationError field='message' errors={state.errors} className={styles.fieldError} />
 						</div>
 
 						<button type='submit' className={styles.submit} disabled={state.submitting}>
-							{state.submitting ? 'Sending…' : 'Send Message'}
+							{state.submitting ? t('contact.sending') : t('contact.send')}
 						</button>
 					</form>
 				)}

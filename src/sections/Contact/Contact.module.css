@@ -162,6 +162,14 @@
 	word-break: break-all;
 }
 
+/* ── Form title (mobile/tablet only) ── */
+.formTitle {
+	display: none;
+	font-size: var(--font-size-lg);
+	font-weight: 700;
+	color: var(--font-primary);
+}
+
 /* ── Form ── */
 .form {
 	flex: 1;
@@ -347,6 +355,9 @@
 	}
 	.infoCard {
 		flex: 1 1 calc(50% - 12px);
+	}
+	.formTitle {
+		display: block;
 	}
 }
 
