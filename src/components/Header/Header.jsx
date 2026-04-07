@@ -1,26 +1,33 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Download } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import styles from './Header.module.css';
 
-const NAV_LINKS = [
-	{ label: 'Home', href: '#home' },
-	{ label: 'About', href: '#about' },
-	{ label: 'Projects', href: '#projects' },
-	{ label: 'Services', href: '#services' },
-	{ label: 'Skills', href: '#skills' },
-	{ label: 'Contact', href: '#contact' },
+const NAV_IDS = [
+	{ id: 'home',     key: 'nav.home',     href: '#home' },
+	{ id: 'about',    key: 'nav.about',    href: '#about' },
+	{ id: 'projects', key: 'nav.projects', href: '#projects' },
+	{ id: 'services', key: 'nav.services', href: '#services' },
+	{ id: 'skills',   key: 'nav.skills',   href: '#skills' },
+	{ id: 'contact',  key: 'nav.contact',  href: '#contact' },
 ];
 
 const LANGUAGES = ['EN', 'PL', 'RU'];
 
 function Header() {
-	const [scrolled, setScrolled] = useState(false);
-	const [active, setActive] = useState('Home');
-	const [menuOpen, setMenuOpen] = useState(false);
+	const { t, i18n } = useTranslation();
+	const [scrolled, setScrolled]   = useState(false);
+	const [active, setActive]       = useState('home');
+	const [menuOpen, setMenuOpen]   = useState(false);
 	const [langModal, setLangModal] = useState(false);
-	const [activeLang, setActiveLang] = useState('EN');
 	const langRef = useRef(null);
+
+	const activeLang = i18n.language.toUpperCase();
+
+	const changeLang = (lang) => {
+		i18n.changeLanguage(lang.toLowerCase());
+	};
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 40);
@@ -32,14 +39,13 @@ function Header() {
 	useEffect(() => {
 		const observers = [];
 
-		NAV_LINKS.forEach(({ label, href }) => {
-			const id = href.replace('#', '');
+		NAV_IDS.forEach(({ id }) => {
 			const el = document.getElementById(id);
 			if (!el) return;
 
 			const observer = new IntersectionObserver(
 				([entry]) => {
-					if (entry.isIntersecting) setActive(label);
+					if (entry.isIntersecting) setActive(id);
 				},
 				{ threshold: 0.35 },
 			);
@@ -75,16 +81,16 @@ function Header() {
 	const overlayEl = (
 		<div className={`${styles.overlay} ${menuOpen ? styles.overlayOpen : ''}`} onClick={() => setMenuOpen(false)}>
 			<ul className={styles.overlayNav} onClick={(e) => e.stopPropagation()}>
-				{NAV_LINKS.map(({ label, href }, i) => (
+				{NAV_IDS.map(({ id, key, href }, i) => (
 					<li
-						key={label}
+						key={id}
 						className={`${styles.overlayItem} ${menuOpen ? styles.overlayItemVisible : ''}`}
 						style={{ transitionDelay: menuOpen ? `${i * 75 + 120}ms` : '0ms' }}>
 						<a
 							href={href}
-							className={`${styles.overlayLink} ${active === label ? styles.overlayLinkActive : ''}`}
+							className={`${styles.overlayLink} ${active === id ? styles.overlayLinkActive : ''}`}
 							onClick={handleNavClick}>
-							{label}
+							{t(key)}
 						</a>
 					</li>
 				))}
@@ -104,10 +110,10 @@ function Header() {
 					{/* Desktop nav */}
 					<div className={styles.right}>
 						<ul className={styles.navLinks}>
-							{NAV_LINKS.map(({ label, href }) => (
-								<li key={label}>
-									<a href={href} className={`${styles.link} ${active === label ? styles.linkActive : ''}`}>
-										{label}
+							{NAV_IDS.map(({ id, key, href }) => (
+								<li key={id}>
+									<a href={href} className={`${styles.link} ${active === id ? styles.linkActive : ''}`}>
+										{t(key)}
 									</a>
 								</li>
 							))}
@@ -119,7 +125,7 @@ function Header() {
 									{i > 0 && <span className={styles.langSep}>/</span>}
 									<span
 										className={`${styles.langItem} ${activeLang === lang ? styles.langActive : ''}`}
-										onClick={() => setActiveLang(lang)}>
+										onClick={() => changeLang(lang)}>
 										{lang}
 									</span>
 								</span>
@@ -127,15 +133,15 @@ function Header() {
 						</div>
 
 						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtn}>
-							<span>Download CV</span>
+							<span>{t('header.downloadCV')}</span>
 							<Download size={14} />
 						</a>
 					</div>
 
-					{/* Mobile controls: [LANGUAGE] [BURGER] */}
+					{/* Mobile controls */}
 					<div className={styles.mobileControls}>
 						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtnMobile} aria-label='Download CV'>
-							<span>CV</span>
+							<span>{t('header.cv')}</span>
 							<Download size={14} />
 						</a>
 
@@ -164,7 +170,7 @@ function Header() {
 											className={`${styles.langOption} ${activeLang === lang ? styles.langOptionActive : ''}`}
 											onClick={(e) => {
 												e.stopPropagation();
-												setActiveLang(lang);
+												changeLang(lang);
 												setLangModal(false);
 											}}>
 											{lang}

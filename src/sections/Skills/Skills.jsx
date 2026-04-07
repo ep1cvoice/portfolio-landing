@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import styles from './Skills.module.css';
 
@@ -72,16 +73,15 @@ function Chip({ text, active }) {
 }
 
 function Skills() {
+  const { t } = useTranslation();
   const [sectionRef, visible] = useInView(0.1);
   const [gridRef, gridVisible] = useInView(0.1);
 
   return (
     <section id="skills" ref={sectionRef} className={`${styles.skills} ${visible ? styles.visible : ''}`}>
-      <h2 className={styles.title}>Tech Stack</h2>
+      <h2 className={styles.title}>{t('skills.title')}</h2>
       <div className={styles.accentLine} />
-      <p className={styles.subtitle}>
-        Technologies I use to build fast and scalable web applications.
-      </p>
+      <p className={styles.subtitle}>{t('skills.subtitle')}</p>
 
       <div ref={gridRef} className={`${styles.grid} ${gridVisible ? styles.gridVisible : ''}`}>
         {SKILL_CATEGORIES.map((cat, idx) => (

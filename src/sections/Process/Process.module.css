@@ -206,11 +206,15 @@
 	border-radius: var(--radius-lg);
 	padding: 28px 24px;
 	width: 100%;
+	/* Desktop 4-col: ~220–320px card width depending on viewport.
+	   min-height 260px covers the tallest RU/PL desc at ≥1360px;
+	   at narrower desktops text wraps more and the grid stretch
+	   equalises all four cards automatically. */
+	min-height: 260px;
 	position: relative;
 	overflow: hidden;
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
-	will-change: transform;
 	contain: layout style;
 
 	display: flex;
@@ -296,20 +300,45 @@
 
 /* ─── RESPONSIVE ─────────────────────────────────── */
 
+/* ── Desktop wide (1200–1359px)
+   4 cols, card inner width ~174–222px.
+   RU/PL text wraps to ~10–12 lines → cards grow tall;
+   grid stretch keeps all 4 equal. min-height 300px sets
+   a comfortable floor when EN text is short. ── */
 @media (max-width: 1200px) {
 	.process {
 		padding: 80px 60px;
 	}
+
+	.card {
+		min-height: 300px;
+		padding: 24px 20px;
+	}
 }
 
+/* ── Desktop narrow (960–1024px)
+   Still 4 cols but card inner width drops to ~150–170px.
+   Cyrillic / Polish text wraps aggressively — raise
+   min-height so short-language cards don't look tiny
+   next to the tall RU/PL ones. ── */
 @media (max-width: 1024px) {
 	.process {
 		padding: 60px 40px;
 	}
+
+	.card {
+		min-height: 340px;
+		padding: 22px 18px;
+	}
 }
 
-@media (max-width: 819px) {
-	/* Switch to vertical timeline */
+/* ── Tablet landscape + narrow desktop (≤959px)
+   Switch to vertical single-column timeline.
+   Cards go full width (minus node gutter) so text is
+   comfortable in all languages; min-height is low because
+   content never wraps much at this width. ── */
+@media (max-width: 959px) {
+	/* Vertical timeline */
 	.timeline {
 		grid-template-columns: 1fr;
 		padding-top: 0;
@@ -319,7 +348,6 @@
 		top: 0;
 		bottom: 0;
 		left: 10px;
-		transform: translateX(-50%) scaleY(0);
 		right: auto;
 		width: 2px;
 		height: auto;
@@ -333,20 +361,10 @@
 	}
 
 	@keyframes beam-travel-v {
-		0% {
-			top: 0;
-			opacity: 0;
-		}
-		3% {
-			opacity: 1;
-		}
-		97% {
-			opacity: 1;
-		}
-		100% {
-			top: 100%;
-			opacity: 0;
-		}
+		0%   { top: 0;    opacity: 0; }
+		3%   {            opacity: 1; }
+		97%  {            opacity: 1; }
+		100% { top: 100%; opacity: 0; }
 	}
 
 	.beam {
@@ -375,17 +393,42 @@
 		flex-shrink: 0;
 	}
 
+	/* Tablet: card spans remaining width, text rarely wraps
+	   more than 2–3 lines → 160px min is plenty. */
 	.card {
 		flex: 1;
+		min-height: 160px;
+		padding: 22px 20px;
 		margin-bottom: 20px;
 	}
 }
 
+/* ── Tablet portrait (≤768px) ── */
+@media (max-width: 768px) {
+	.process {
+		padding: 60px 32px;
+	}
+
+	.card {
+		min-height: 150px;
+	}
+}
+
+/* ── Mobile (≤480px)
+   Content is full-bleed; even the longest RU sentence
+   fits in 3–4 lines. 130px keeps the card from collapsing
+   when a title is a single short word. ── */
 @media (max-width: 480px) {
 	.process {
-		padding: 60px 24px;
+		padding: 60px 20px;
 	}
+
 	.title {
 		font-size: 32px;
+	}
+
+	.card {
+		min-height: 130px;
+		padding: 20px 16px;
 	}
 }
