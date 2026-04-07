@@ -210,6 +210,8 @@
 	overflow: hidden;
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
+	will-change: transform;
+	contain: layout style;
 
 	display: flex;
 	flex-direction: column;
