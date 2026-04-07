@@ -24,6 +24,7 @@ const CONTACT_CARDS = [
 		label: 'LinkedIn',
 		value: 'linkedin.com/in/pavel',
 		href: 'https://www.linkedin.com/in/pavlokovalchuk0510/',
+		external: true,
 	},
 ];
 

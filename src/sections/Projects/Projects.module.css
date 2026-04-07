@@ -120,6 +120,8 @@
 .grid.gridVisible > *:nth-child(2) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.17s; }
 .grid.gridVisible > *:nth-child(3) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.29s; }
 .grid.gridVisible > *:nth-child(4) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.41s; }
+.grid.gridVisible > *:nth-child(5) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.53s; }
+.grid.gridVisible > *:nth-child(6) { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.65s; }
 
 /* ── Responsive ── */
 @media (max-width: 1200px) {
