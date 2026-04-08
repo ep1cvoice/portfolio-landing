@@ -1,12 +1,12 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useMemo } from 'react';
+import * as THREE from 'three';
 
 function Wave() {
 	const ref = useRef();
 
 	const size = 20;
 	const divisions = 160;
-	
 
 	const positions = useMemo(() => {
 		const arr = new Float32Array(divisions * divisions * 3);
@@ -35,8 +35,6 @@ function Wave() {
 				pos[i + 1] = wave * 0.25;
 
 				i += 3;
-
-				
 			}
 		}
 
@@ -49,7 +47,15 @@ function Wave() {
 				<bufferAttribute attach='attributes-position' array={positions} count={positions.length / 3} itemSize={3} />
 			</bufferGeometry>
 
-			<pointsMaterial size={0.04} color='#2D7CF6' sizeAttenuation />
+			<pointsMaterial
+				size={0.045}
+				color='#2D7CF6'
+				transparent
+				opacity={0.7}
+				blending={THREE.AdditiveBlending}
+				depthWrite={false}
+				sizeAttenuation
+			/>
 		</points>
 	);
 }
