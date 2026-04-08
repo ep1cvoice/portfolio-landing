@@ -1,5 +1,6 @@
 import { ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { changeLanguage } from '../../../utils/i18n';
 import styles from './Footer.module.css';
 
 const LANGUAGES = ['EN', 'PL', 'RU'];
@@ -25,7 +26,7 @@ function Footer() {
               {i > 0 && <span className={styles.langSep}>/</span>}
               <span
                 className={`${styles.langItem} ${activeLang === lang ? styles.langActive : ''}`}
-                onClick={() => i18n.changeLanguage(lang.toLowerCase())}
+                onClick={() => changeLanguage(lang.toLowerCase())}
                 style={{ cursor: 'pointer' }}>
                 {lang}
               </span>

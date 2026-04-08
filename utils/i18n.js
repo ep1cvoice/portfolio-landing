@@ -1,14 +1,32 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+const STORAGE_KEY = 'app_language';
+
+function getSavedLanguage() {
+	return localStorage.getItem(STORAGE_KEY);
+}
+
+function saveLanguage(lang) {
+	localStorage.setItem(STORAGE_KEY, lang);
+}
 // Post-USSR locales → show Russian UI
 const POST_USSR = ['uk', 'ru', 'be', 'kk', 'ky', 'uz', 'tg', 'az', 'hy', 'ka', 'lv', 'lt', 'et', 'tk', 'mo'];
 
 function detectLanguage() {
+	const saved = getSavedLanguage();
+	if (saved) return saved;
+
 	const lang = (navigator.language || navigator.languages?.[0] || 'en').toLowerCase().split('-')[0];
+
 	if (POST_USSR.includes(lang)) return 'ru';
 	if (lang === 'pl') return 'pl';
 	return 'en';
+}
+
+function changeLanguage(lang) {
+	i18n.changeLanguage(lang);
+	saveLanguage(lang);
 }
 
 const resources = {
@@ -30,8 +48,8 @@ const resources = {
 				greeting: "Hi, my name's ",
 				name: 'Pavel',
 				phrase1: "I'm a frontend developer",
-				phrase2: 'I build fast and user-friendly web applications',
-				phrase3: 'I create interfaces that deliver real results.',
+				phrase2: 'I build fast and user-friendly web apps',
+				phrase3: 'I create interfaces that drive real results.',
 				description: 'Building modern, responsive web applications and landing pages.',
 				viewProjects: 'View Projects',
 				contactMe: 'Contact Me',
@@ -94,11 +112,11 @@ const resources = {
 				},
 				ecommerce: {
 					title: 'E-commerce',
-					desc: 'Online shops solutions with seamless shopping experience, payments, and integrations.',
+					desc: 'Online shop solutions with seamless shopping experience, payments, and integrations.',
 				},
 				webapps: {
 					title: 'Web Applications',
-					desc: 'Complex web applications — dashboards, CRM systems, and SaaS platforms.',
+					desc: 'Complex web applications such as dashboards, CRM systems, and SaaS platforms.',
 				},
 				api: {
 					title: 'API Integration',
@@ -132,7 +150,7 @@ const resources = {
 				},
 				step4: {
 					title: 'Deploy',
-					desc: 'Thorough testing, optimisation, and launch. Ongoing support to keep everything running smoothly.',
+					desc: 'Thorough testing, optimization, and launch. Ongoing support to keep everything running smoothly.',
 				},
 			},
 			skills: {
@@ -142,7 +160,7 @@ const resources = {
 			contact: {
 				label: 'CONTACT',
 				title: 'Get In Touch',
-				desc: "Have a project in mind or want to collaborate? Let's talk.",
+				desc: 'Have a project in mind or want to collaborate? Let’s talk.',
 				formTitle: 'Send a message',
 				name: 'Name',
 				email: 'Email',
@@ -183,8 +201,8 @@ const resources = {
 				name: 'Pavel',
 				phrase1: 'Frontend Developer',
 				phrase2: 'Tworzę szybkie i intuicyjne aplikacje webowe',
-				phrase3: 'Buduję aplikacje i interfejsy, które realnie przekładają się na wyniki.',
-				description: 'Tworzę nowoczesne, responsywne aplikacje i skuteczne landing page’e.',
+				phrase3: 'Tworzę aplikacje i interfejsy, które realnie przekładają się na wyniki.',
+				description: 'Buduję nowoczesne, responsywne aplikacje webowe oraz skuteczne landing page’e.',
 				viewProjects: 'Portfolio',
 				contactMe: 'Kontakt',
 				scrollDown: 'Przewiń niżej',
@@ -192,15 +210,15 @@ const resources = {
 			about: {
 				title: 'O mnie',
 
-				p1: 'Jestem Pavel — frontend developer, który tworzy nowoczesne, przejrzyste i intuicyjne doświadczenia. Na co dzień pracuję z Reactem i nowoczesnym ekosystemem JavaScript.',
+				p1: 'Jestem Pavel — frontend developer tworzący nowoczesne, przejrzyste i intuicyjne doświadczenia. Na co dzień pracuję z Reactem i nowoczesnym ekosystemem JavaScript.',
 
-				p2: 'Zamieniam złożone problemy w proste i intuicyjne rozwiązania, dbając o wydajność, dostępność i płynne działanie aplikacji.',
+				p2: 'Zamieniam złożone problemy w proste i intuicyjne  użytkowe, dbając o wydajność, dostępność i płynne działanie aplikacji.',
 
 				p3: 'Zrealizowałem kilka projektów — od landing page’y po interaktywne aplikacje — zawsze z dużą dbałością o detale, responsywność i UX.',
 
-				p4: 'Obecnie rozwijam się w TypeScript i Next.js, a także poszerzam wiedzę o backend (Node.js). Stawiam na ciągły rozwój i śledzenie nowych technologii.',
+				p4: 'Obecnie rozwijam się w TypeScript i Next.js, a także poszerzam wiedzę w kierunku backendu (Node.js). Stawiam na ciągły rozwój i śledzenie nowych technologii.',
 
-				p5: 'Poza kodowaniem śledzę trendy UI/UX, eksperymentuję z animacjami i mikrointerakcjami oraz rozwijam swoje umiejętności poprzez praktyczne projekty.',
+				p5: 'Poza kodowaniem śledzę trendy UI/UX, eksperymentuję z animacjami i mikrointerakcjami oraz rozwijam swoje umiejętności poprzez realizację własnych projektów.',
 
 				stats: {
 					role: 'Frontend Developer',
@@ -269,7 +287,7 @@ const resources = {
 
 				api: {
 					title: 'Integracje API',
-					desc: 'Integracja z backendem, autoryzacją i sprawnym przepływem danych.',
+					desc: 'Integracje z backendem, systemami autoryzacji oraz sprawnym przepływem danych.',
 				},
 
 				perf: {
@@ -278,7 +296,7 @@ const resources = {
 				},
 
 				ui: {
-					title: 'UI Development',
+					title: 'Tworzenie interfejsów UI',
 					desc: 'Nowoczesne i responsywne interfejsy odwzorowane z Figma z dbałością o detale.',
 				},
 
@@ -290,7 +308,7 @@ const resources = {
 			process: {
 				label: 'PROCES',
 				title: 'Jak pracuję',
-				desc: 'Sprawdzone podejście, które pozwala prowadzić projekt sprawnie — od pierwszej rozmowy aż po wdrożenie.',
+				desc: 'Sprawdzone podejście, które pozwala prowadzić projekt sprawnie i przewidywalnie — od pierwszej rozmowy aż po wdrożenie.',
 
 				step1: {
 					title: 'Analiza',
@@ -319,7 +337,7 @@ const resources = {
 			contact: {
 				label: 'KONTAKT',
 				title: 'Skontaktuj się',
-				desc: 'Masz pomysł na projekt albo chcesz nawiązać współpracę? Napisz — chętnie porozmawiam.',
+				desc: 'Masz pomysł na projekt albo chcesz nawiązać współpracę? Napisz — chętnie porozmawiam o szczegółach.',
 				formTitle: 'Napisz do mnie',
 				name: 'Imię',
 				email: 'E-mail',
@@ -360,19 +378,19 @@ const resources = {
 				name: 'Павел',
 				phrase1: 'Я frontend-разработчик',
 				phrase2: 'Я создаю быстрые и удобные веб-приложения',
-				phrase3: 'Я создаю интерфейсы, которые принесут вам результат.',
-				description: 'Создаю современные, адаптивные, веб-приложения и лендинги.',
+				phrase3: 'Я создаю интерфейсы, которые приносят реальные результаты.',
+				description: 'Создаю современные, адаптивные веб-приложения и лендинги.',
 				viewProjects: 'Проекты',
 				contactMe: 'Контакт',
 				scrollDown: 'Листайте вниз',
 			},
 			about: {
 				title: 'Обо мне',
-				p1: 'Я Павел — frontend-разработчик, создаю современные, чистые и удобные интерфейсы. Основной стек — React и современная JavaScript-экосистема.',
-				p2: 'Превращаю сложные задачи в простые и интуитивные интерфейсы, уделяя внимание производительности, доступности и плавности взаимодействия.',
+				p1: 'Я Павел — frontend-разработчик, создающий современные, чистые и удобные интерфейсы. Основной стек — React и современная JavaScript-экосистема.',
+				p2: 'Превращаю сложные задачи в простые и интуитивные пользовательские интерфейсы, уделяя внимание производительности, доступности и плавности взаимодействия.',
 				p3: 'Реализовал несколько проектов — от лендингов до интерактивных веб-приложений — с фокусом на UX, адаптивность и внимание к деталям.',
-				p4: 'Сейчас углубляю знания в TypeScript и Next.js, а также развиваюсь в сторону full-stack разработки с Node.js.',
-				p5: 'Вне работы слежу за трендами UI/UX, экспериментирую с анимациями и микро-взаимодействиями и постоянно прокачиваю навыки через практические проекты.',
+				p4: 'Сейчас углубляю знания в TypeScript и Next.js, а также развиваюсь в направлении full-stack разработки с Node.js.',
+				p5: 'Вне работы слежу за трендами UI/UX, экспериментирую с анимациями и микро-взаимодействиями и постоянно развиваю навыки через практические проекты.',
 				stats: {
 					role: 'Веб-разработчик',
 					roleDesc: 'Специализация: React и современный UI',
@@ -386,7 +404,7 @@ const resources = {
 			projects: {
 				label: 'ПОРТФОЛИО',
 				title: 'Избранные проекты',
-				desc: 'Несколько последних проектов, демонстрирующих мои навыки в веб-разработке',
+				desc: 'Несколько последних проектов, которые демонстрируют мои навыки в веб-разработке',
 				all: 'Все',
 				preview: 'Превью',
 				liveDemo: 'Демо',
@@ -415,7 +433,7 @@ const resources = {
 				desc: 'Помогаю бизнесу запускать и развивать своё онлайн-присутствие.',
 				landing: {
 					title: 'Лендинги',
-					desc: 'Лендинги с акцентом на конверсию — превращают посетителей в клиентов.',
+					desc: 'Лендинги с акцентом на конверсию, которые превращают посетителей в клиентов.',
 				},
 				corporate: {
 					title: 'Корпоративные сайты',
@@ -423,7 +441,7 @@ const resources = {
 				},
 				ecommerce: {
 					title: 'Интернет-магазины',
-					desc: 'Онлайн-магазины с удобным пользовательским опытом, оплатой и интеграциями.',
+					desc: 'Онлайн-магазины с удобным и понятным пользовательским опытом',
 				},
 				webapps: {
 					title: 'Веб-приложения',
@@ -431,7 +449,7 @@ const resources = {
 				},
 				api: {
 					title: 'Интеграция API',
-					desc: 'Бесшовная интеграция с бэкенд-сервисами, авторизацией и потоками данных.',
+					desc: 'Бесшовная интеграция с бэкенд-сервисами, системами авторизации и потоками данных.',
 				},
 				perf: {
 					title: 'Оптимизация производительности',
@@ -468,8 +486,8 @@ const resources = {
 				},
 			},
 			skills: {
-				title: 'Технологический стек',
-				subtitle: 'Технологии, которые я использую для создания быстрых и масштабируемых веб-приложений.',
+				title: 'Технологии, с которыми я работаю',
+				subtitle: 'Технологии, которые я использую для разработки быстрых и масштабируемых веб-приложений.',
 			},
 			contact: {
 				label: 'КОНТАКТЫ',
@@ -504,4 +522,5 @@ i18n.use(initReactI18next).init({
 	interpolation: { escapeValue: false },
 });
 
+export { changeLanguage };
 export default i18n;

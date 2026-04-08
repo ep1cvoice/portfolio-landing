@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { changeLanguage } from '../../../utils/i18n';
 import styles from './Header.module.css';
 
 const NAV_IDS = [
@@ -26,7 +27,7 @@ function Header() {
 	const activeLang = i18n.language.toUpperCase();
 
 	const changeLang = (lang) => {
-		i18n.changeLanguage(lang.toLowerCase());
+		changeLanguage(lang.toLowerCase());
 	};
 
 	useEffect(() => {

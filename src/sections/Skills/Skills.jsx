@@ -12,9 +12,9 @@ const SKILL_CATEGORIES = [
       { text: 'Next.js', active: true },
       { text: 'TypeScript', active: true },
       { text: 'JavaScript (ES6+)' },
-      { text: 'Tailwind CSS' },
+      { text: 'CSS Architecture (BEM, modular CSS)' },
       { text: 'SASS (SCSS)' },
-      { text: 'CSS Modules' },
+      { text: 'Tailwind' },
     ],
   },
   {
@@ -23,6 +23,7 @@ const SKILL_CATEGORIES = [
     accent: false,
     chips: [
       { text: 'Redux' },
+      { text: 'Redux Toolkit' },
       { text: 'Context API' },
     ],
   },
@@ -31,11 +32,11 @@ const SKILL_CATEGORIES = [
     label: 'API & DATA',
     accent: true,
     chips: [
-      { text: 'REST APIs' },
-      { text: 'React Query' },
-      { text: 'Axios' },
-      { text: 'JSON' },
-      { text: 'Authentication (JWT)' },
+      { text: 'REST API integration' },
+      { text: 'Data fetching & state handling' },
+      { text: 'TanStack Query' },
+      { text: 'Authentication & Authorization (JWT)' },
+      { text: 'Error handling' },
     ],
   },
   {
@@ -45,10 +46,13 @@ const SKILL_CATEGORIES = [
     chips: [
       { text: 'Git' },
       { text: 'GitHub' },
-      { text: 'Vite' },
-      { text: 'npm' },
-      { text: 'WordPress' },
       { text: 'VS Code' },
+      { text: 'Vite' },
+      { text: 'CI/CD (Vercel)' },
+      { text: 'npm' },
+      { text: 'ESLint' },
+      { text: 'Prettier' },
+      { text: 'Chrome DevTools' },
       { text: 'Figma' },
     ],
   },
@@ -59,7 +63,7 @@ const SKILL_CATEGORIES = [
     chips: [
       { text: 'Node.js' },
       { text: 'Express' },
-      { text: `API Integration` },
+      { text: `Basic backend architecture` },
     ],
   },
 ];
