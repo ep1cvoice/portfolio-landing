@@ -133,7 +133,11 @@ function Header() {
 							))}
 						</div>
 
-						<a href='/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtn}>
+						<a
+							href='/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf'
+							target='_blank'
+							rel='noopener noreferrer'
+							className={styles.cvBtn}>
 							<span>{t('header.downloadCV')}</span>
 							<Download size={14} />
 						</a>
