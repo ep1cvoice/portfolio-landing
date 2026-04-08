@@ -11,7 +11,6 @@
 
 </div>
 
-
 ## Features
 
 - **Typewriter hero** — two-line animated intro that types and cycles through phrases with randomized speed. Animation runs once on page load and is never interrupted by language switches
@@ -24,23 +23,21 @@
 - **Contact form** — powered by Formspree, no backend needed
 - **CV download** — PDF served directly from `public/`, downloadable via the header button
 
-
 ## Preview
 
 ![Preview](./src/assets/preview/preview-desktop-hero.jpg)
 
-
 ## Sections
 
-| Section | Description |
-|---|---|
-| **Hero** | Full-screen intro with typewriter animation and 3D particle wave |
-| **About** | Bio + stats cards with slide-in scroll animations |
+| Section      | Description                                                                            |
+| ------------ | -------------------------------------------------------------------------------------- |
+| **Hero**     | Full-screen intro with typewriter animation and 3D particle wave                       |
+| **About**    | Bio + stats cards with slide-in scroll animations                                      |
 | **Projects** | Filterable project grid — filter by tag (React, API, Landing…) with live preview modal |
-| **Services** | Dual auto-scrolling carousel with drag support |
-| **Process** | Step-by-step breakdown of how I work |
-| **Skills** | Tech stack organized by category as chip tags |
-| **Contact** | Contact form + direct links (email, GitHub, LinkedIn) |
+| **Services** | Dual auto-scrolling carousel with drag support                                         |
+| **Process**  | Step-by-step breakdown of how I work                                                   |
+| **Skills**   | Tech stack organized by category as chip tags                                          |
+| **Contact**  | Contact form + direct links (email, GitHub, LinkedIn)                                  |
 
 ## Tech Stack
 
@@ -51,7 +48,6 @@
 - **Swiper.js** — touch carousel for the Services section
 - **Formspree** — contact form submissions without a backend
 - **lucide-react** — icon set used throughout
-
 
 ## Getting Started
 
@@ -134,5 +130,5 @@ This project is **not open source**. The code is publicly visible for portfolio 
 ---
 
 <div align="center">
-  Made by <a href="https://github.com/ep1cvoice">Pavel</a>
+  Website live at <a href="https://www.pavelcode.dev/" target="_blank" rel="noopener noreferrer">pavelcode.dev</a>
 </div>

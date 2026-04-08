@@ -427,12 +427,13 @@
 	}
 
 	.typewriterBlock {
-		height: auto;
+		height: 220px;
+		overflow: hidden;
 		gap: 10px;
 	}
 	.typewriterText,
 	.cursor {
-		font-size: 32px;
+		font-size: 30px;
 	}
 
 	.cta {
@@ -481,4 +482,9 @@
 		min-height: calc(52px * 1.2 * 6 + 8px);
 		overflow: visible;
 	}
+}
+
+
+@media (min-width: 768px) {
+	
 }
