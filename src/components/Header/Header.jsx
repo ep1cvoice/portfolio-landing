@@ -6,21 +6,21 @@ import { changeLanguage } from '../../../utils/i18n';
 import styles from './Header.module.css';
 
 const NAV_IDS = [
-	{ id: 'home',     key: 'nav.home',     href: '#home' },
-	{ id: 'about',    key: 'nav.about',    href: '#about' },
+	{ id: 'home', key: 'nav.home', href: '#home' },
+	{ id: 'about', key: 'nav.about', href: '#about' },
 	{ id: 'projects', key: 'nav.projects', href: '#projects' },
 	{ id: 'services', key: 'nav.services', href: '#services' },
-	{ id: 'skills',   key: 'nav.skills',   href: '#skills' },
-	{ id: 'contact',  key: 'nav.contact',  href: '#contact' },
+	{ id: 'skills', key: 'nav.skills', href: '#skills' },
+	{ id: 'contact', key: 'nav.contact', href: '#contact' },
 ];
 
 const LANGUAGES = ['EN', 'PL', 'RU'];
 
 function Header() {
 	const { t, i18n } = useTranslation();
-	const [scrolled, setScrolled]   = useState(false);
-	const [active, setActive]       = useState('home');
-	const [menuOpen, setMenuOpen]   = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+	const [active, setActive] = useState('home');
+	const [menuOpen, setMenuOpen] = useState(false);
 	const [langModal, setLangModal] = useState(false);
 	const langRef = useRef(null);
 
@@ -133,7 +133,7 @@ function Header() {
 							))}
 						</div>
 
-						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtn}>
+						<a href='/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtn}>
 							<span>{t('header.downloadCV')}</span>
 							<Download size={14} />
 						</a>
@@ -141,7 +141,11 @@ function Header() {
 
 					{/* Mobile controls */}
 					<div className={styles.mobileControls}>
-						<a href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf' download className={styles.cvBtnMobile} aria-label='Download CV'>
+						<a
+							href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf'
+							download
+							className={styles.cvBtnMobile}
+							aria-label='Download CV'>
 							<span>{t('header.cv')}</span>
 							<Download size={14} />
 						</a>
