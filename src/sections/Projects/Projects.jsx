@@ -8,9 +8,9 @@ import styles from './Projects.module.css';
 
 import xdetalzImg    from '../../assets/projects/xdetalz-website.jpg';
 import formafitImg   from '../../assets/projects/formafit-website.jpg';
-import swiftrateImg  from '../../assets/projects/swiftrate-website.png';
-import nexttodoImg   from '../../assets/projects/nexttodo-website.png';
-import checkycardImg from '../../assets/projects/webdev-checky-cards.png';
+import swiftrateImg  from '../../assets/projects/swiftrate-website.jpg';
+import nexttodoImg   from '../../assets/projects/nexttodo-website.jpg';
+import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg';
 
 const PROJECTS = [
 	{

@@ -20,55 +20,53 @@ function randType() {
 function Hero() {
 	const { t, i18n } = useTranslation();
 
-	const [line1Text, setLine1Text]                   = useState('');
-	const [line2Text, setLine2Text]                   = useState('');
+	// Store char counts, not strings — so derived text auto-updates on language change
+	const [line1Chars, setLine1Chars]                 = useState(0);
+	const [line2Chars, setLine2Chars]                 = useState(0);
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [isDeleting, setIsDeleting]                 = useState(false);
 	const [isLine1Finished, setIsLine1Finished]       = useState(false);
 	const [isFinished, setIsFinished]                 = useState(false);
 
-	// Read from translations so they update on language change
-	const name = t(`hero.name`);
-	const greeting = t(`hero.greeting`);
+	const name     = t('hero.name');
+	const greeting = t('hero.greeting');
 	const phrases  = [t('hero.phrase1'), t('hero.phrase2'), t('hero.phrase3')];
 	const fullLine1 = greeting + name;
 
-	// Reset typewriter whenever language changes
+	// Derived display strings — always reflect current language
+	const line1Text = isLine1Finished ? fullLine1 : fullLine1.slice(0, line1Chars);
+	const line2Text = phrases[currentPhraseIndex].slice(0, line2Chars);
+
+	// When language changes after animation is done, snap to new translation
 	useEffect(() => {
-		setLine1Text('');
-		setLine2Text('');
-		setCurrentPhraseIndex(0);
-		setIsDeleting(false);
-		setIsLine1Finished(false);
-		setIsFinished(false);
+		if (isFinished) {
+			setLine2Chars(phrases[phrases.length - 1].length);
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [i18n.language]);
 
 	// ── Line 1: type once, never delete ──────────────────────────────
 	useEffect(() => {
 		if (isLine1Finished) return;
 
-		if (line1Text.length < fullLine1.length) {
-			const t = setTimeout(() => {
-				setLine1Text(fullLine1.slice(0, line1Text.length + 1));
-			}, randType());
-			return () => clearTimeout(t);
+		if (line1Chars < fullLine1.length) {
+			const timer = setTimeout(() => setLine1Chars((c) => c + 1), randType());
+			return () => clearTimeout(timer);
 		} else {
 			setIsLine1Finished(true);
 		}
-	}, [line1Text, isLine1Finished, fullLine1]);
+	}, [line1Chars, isLine1Finished, fullLine1.length]);
 
 	// ── Line 2: start after line 1, stop on last phrase ──────────────
+	const phraseLen = phrases[currentPhraseIndex].length;
 	useEffect(() => {
 		if (!isLine1Finished || isFinished) return;
 
-		const phrase = phrases[currentPhraseIndex];
 		const isLast = currentPhraseIndex === phrases.length - 1;
 
 		if (!isDeleting) {
-			if (line2Text.length < phrase.length) {
-				const timer = setTimeout(() => {
-					setLine2Text(phrase.slice(0, line2Text.length + 1));
-				}, randType());
+			if (line2Chars < phraseLen) {
+				const timer = setTimeout(() => setLine2Chars((c) => c + 1), randType());
 				return () => clearTimeout(timer);
 			}
 			if (isLast) {
@@ -78,10 +76,8 @@ function Hero() {
 			const timer = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE);
 			return () => clearTimeout(timer);
 		} else {
-			if (line2Text.length > 0) {
-				const timer = setTimeout(() => {
-					setLine2Text(line2Text.slice(0, -1));
-				}, DELETE_SPEED);
+			if (line2Chars > 0) {
+				const timer = setTimeout(() => setLine2Chars((c) => c - 1), DELETE_SPEED);
 				return () => clearTimeout(timer);
 			}
 			const timer = setTimeout(() => {
@@ -90,7 +86,9 @@ function Hero() {
 			}, PAUSE_BEFORE_TYPE);
 			return () => clearTimeout(timer);
 		}
-	}, [isLine1Finished, isFinished, line2Text, currentPhraseIndex, isDeleting, phrases]);
+	// phraseLen re-evaluates when language changes, keeping the effect in sync
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isLine1Finished, isFinished, line2Chars, currentPhraseIndex, isDeleting, phraseLen]);
 
 	return (
 		<section id='home' className={styles.hero}>
