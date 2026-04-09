@@ -6,10 +6,10 @@ import ProjectCard from '../../components/ProjectCard';
 import ProjectPreviewModal from '../../components/ProjectPreviewModal/ProjectPreviewModal';
 import styles from './Projects.module.css';
 
-import xdetalzImg    from '../../assets/projects/xdetalz-website.jpg';
-import formafitImg   from '../../assets/projects/formafit-website.jpg';
-import swiftrateImg  from '../../assets/projects/swiftrate-website.jpg';
-import nexttodoImg   from '../../assets/projects/nexttodo-website.jpg';
+import xdetalzImg from '../../assets/projects/xdetalz-website.jpg';
+import formafitImg from '../../assets/projects/formafit-website.jpg';
+import swiftrateImg from '../../assets/projects/swiftrate-website.jpg';
+import nexttodoImg from '../../assets/projects/nexttodo-website.jpg';
 import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg';
 
 const PROJECTS = [
@@ -17,7 +17,7 @@ const PROJECTS = [
 		id: 1,
 		title: 'xDetalz Auto Detailing',
 		descKey: 'projects.items.xdetalz.desc',
-		tags: ['JavaScript', 'Landing', 'SCSS', 'BEM'],
+		tags: ['Landing', 'JavaScript', 'SCSS', 'BEM'],
 		lang: 'PL',
 		image: xdetalzImg,
 		github: 'https://github.com/ep1cvoice/xdetalz-detailing-website',
@@ -28,7 +28,7 @@ const PROJECTS = [
 		id: 2,
 		title: 'FormaFit Gym',
 		descKey: 'projects.items.formafit.desc',
-		tags: ['C#', '.NET', 'MVC', 'Bootstrap', 'Landing'],
+		tags: ['Landing', 'C#', '.NET', 'MVC', 'Bootstrap', ],
 		lang: 'PL',
 		image: formafitImg,
 		github: 'https://github.com/ep1cvoice/gym-app-dotnet-mvc',
@@ -39,7 +39,7 @@ const PROJECTS = [
 		id: 3,
 		title: 'SwiftRate',
 		descKey: 'projects.items.swiftrate.desc',
-		tags: ['React', 'JSX', 'API', 'SPA'],
+		tags: ['SPA', 'React', 'JSX', 'API', ],
 		lang: 'PL',
 		image: swiftrateImg,
 		github: 'https://github.com/ep1cvoice/swift-rate-app',
@@ -50,7 +50,7 @@ const PROJECTS = [
 		id: 4,
 		title: 'NextTodo',
 		descKey: 'projects.items.nexttodo.descPre',
-		tags: ['React', 'JSX', 'API', 'SPA'],
+		tags: ['SPA', 'React', 'JSX', 'API', ],
 		lang: 'EN',
 		image: nexttodoImg,
 		github: 'https://github.com/matt400/NextTodo',
@@ -61,27 +61,25 @@ const PROJECTS = [
 		id: 5,
 		title: 'WebDev Checky Cards',
 		descKey: 'projects.items.checkycards.desc',
-		tags: ['React', 'SPA', 'API', 'Auth'],
+		tags: ['SPA', 'React', 'API', 'Supabase'],
 		lang: 'PL',
 		image: checkycardImg,
-		github: 'https://github.com/ep1cvoice/react-checky-cards',
-		demo: checkycardImg,
-		demoLabelKey: 'preview',
+		github: 'https://github.com/ep1cvoice/webdev-checky-cards',
+		demoUrl: 'https://webgdev-checky-cards.vercel.app/',
+		demoLabelKey: 'liveDemo',
 	},
 ];
 
-const FILTER_KEYS = ['all', 'React', 'Landing', 'API',  'SPA'];
+const FILTER_KEYS = ['all', 'React', 'Landing', 'API', 'SPA'];
 
 function Projects() {
 	const { t } = useTranslation();
 	const [activeFilter, setActiveFilter] = useState('all');
-	const [preview, setPreview]           = useState(null);
-	const [sectionRef, visible]           = useInView(0.1);
-	const [gridRef, gridVisible]          = useInView(0.1);
+	const [preview, setPreview] = useState(null);
+	const [sectionRef, visible] = useInView(0.1);
+	const [gridRef, gridVisible] = useInView(0.1);
 
-	const filtered = activeFilter === 'all'
-		? PROJECTS
-		: PROJECTS.filter((p) => p.tags.includes(activeFilter));
+	const filtered = activeFilter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(activeFilter));
 
 	function getDescription(project) {
 		if (project.id === 4) {
@@ -89,7 +87,8 @@ function Projects() {
 				<>
 					{t(project.descKey)}
 					<a href='https://github.com/matt400' target='_blank' rel='noopener noreferrer'>
-						matt400<ArrowUpRight size={13} />
+						matt400
+						<ArrowUpRight size={13} />
 					</a>
 				</>
 			);
@@ -128,13 +127,7 @@ function Projects() {
 				))}
 			</div>
 
-			{preview && (
-				<ProjectPreviewModal
-					url={preview.url}
-					title={preview.title}
-					onClose={() => setPreview(null)}
-				/>
-			)}
+			{preview && <ProjectPreviewModal url={preview.url} title={preview.title} onClose={() => setPreview(null)} />}
 		</section>
 	);
 }

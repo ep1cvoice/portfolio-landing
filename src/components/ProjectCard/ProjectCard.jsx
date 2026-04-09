@@ -2,13 +2,21 @@ import { ExternalLink } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import styles from './ProjectCard.module.css';
 
-function ProjectCard({ image, title, description, tags, lang, github, demo, demoLabel = 'Live Demo', onPreview }) {
+function ProjectCard({ image, title, description, tags, lang, github, demo, demoUrl, demoLabel = 'Live Demo', onPreview }) {
+  const handleDemoClick = () => {
+    if (demoUrl) {
+      window.open(demoUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      onPreview?.({ url: demo, title });
+    }
+  };
+
   return (
     <article className={styles.card}>
       <div
         className={styles.image}
         style={image ? { backgroundImage: `url(${image})` } : {}}
-        onClick={() => onPreview?.({ url: demo, title })}
+        onClick={handleDemoClick}
       >
         {lang && <span className={styles.lang}>{lang}</span>}
       </div>
@@ -28,14 +36,27 @@ function ProjectCard({ image, title, description, tags, lang, github, demo, demo
             <img src={githubIcon} alt="GitHub" width={16} height={16} />
             <span>GitHub</span>
           </a>
-          <button
-            className={styles.linkDemo}
-            aria-label="Live demo"
-            onClick={() => onPreview?.({ url: demo, title })}
-          >
-            <ExternalLink size={16} />
-            <span>{demoLabel}</span>
-          </button>
+          {demoUrl ? (
+            <a
+              href={demoUrl}
+              className={styles.linkDemo}
+              aria-label="Live demo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink size={16} />
+              <span>{demoLabel}</span>
+            </a>
+          ) : (
+            <button
+              className={styles.linkDemo}
+              aria-label="Live demo"
+              onClick={handleDemoClick}
+            >
+              <ExternalLink size={16} />
+              <span>{demoLabel}</span>
+            </button>
+          )}
         </div>
       </div>
     </article>
