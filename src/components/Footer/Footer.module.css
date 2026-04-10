@@ -6,7 +6,6 @@
 	gap: 16px;
 }
 
-
 @keyframes jumpUp {
 	0%,
 	100% {
@@ -66,6 +65,39 @@
 .langActive {
 	font-weight: 600;
 	color: var(--accent-cyan);
+}
+
+/* ── Start over ── */
+.startOver {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	padding-bottom: 24px;
+	color: var(--font-secondary);
+	font-size: var(--font-size-xs);
+	cursor: pointer;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.startOver:hover {
+	color: var(--font-primary);
+}
+
+.startOverLabel {
+	letter-spacing: 0.08em;
+	margin-top: 6px;
+}
+
+.startOver .arrow:nth-child(1) {
+	animation: jumpUp 1.6s ease-in-out infinite;
+	opacity: 0.9;
+}
+
+.startOver .arrow:nth-child(2) {
+	animation: jumpUp 1.6s ease-in-out infinite 0.18s;
+	opacity: 0.6;
 }
 
 @media (max-width: 1024px) {

@@ -5,7 +5,6 @@ import { Mail } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
 import styles from './Contact.module.css';
-import { ChevronUp } from 'lucide-react';
 
 const CONTACT_CARDS = [
 	{
@@ -136,10 +135,6 @@ function Contact() {
 					</form>
 				)}
 			</div>
-			<a href='#home' className={styles.startOver}>
-				<ChevronUp size={16} className={styles.arrow} />
-				<span className={styles.startOverLabel}>{t('footer.startOver')}</span>
-			</a>
 		</section>
 	);
 }
