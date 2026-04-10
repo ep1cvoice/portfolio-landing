@@ -1,4 +1,4 @@
-import { ChevronUp } from 'lucide-react';
+
 import { useTranslation } from 'react-i18next';
 import { changeLanguage } from '../../../utils/i18n';
 import styles from './Footer.module.css';
@@ -11,10 +11,7 @@ function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <a href="#home" className={styles.startOver}>
-        <ChevronUp size={16} className={styles.arrow} />
-        <span className={styles.startOverLabel}>{t('footer.startOver')}</span>
-      </a>
+      
 
       <div className={styles.divider} />
 

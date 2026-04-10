@@ -1,113 +1,86 @@
 .footer {
-  background-color: var(--bg-dark);
-  padding: 40px max(120px, calc((100% - 1360px) / 2)) 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+	background: var(--bg-dark-solid);
+	padding: 40px max(120px, calc((100% - 1360px) / 2)) 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
-/* ── Start over ── */
-.startOver {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding-bottom: 24px;
-  color: var(--font-secondary);
-  font-size: var(--font-size-xs);
-  cursor: pointer;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.startOver:hover {
-  color: var(--font-primary);
-}
-
-.startOverLabel {
-  letter-spacing: 0.08em;
-  margin-top: 6px;
-}
-
-.startOver .arrow:nth-child(1) {
-  animation: jumpUp 1.6s ease-in-out infinite;
-  opacity: 0.9;
-}
-
-.startOver .arrow:nth-child(2) {
-  animation: jumpUp 1.6s ease-in-out infinite 0.18s;
-  opacity: 0.6;
-}
 
 @keyframes jumpUp {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-5px); }
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
 }
 
 .divider {
-  height: 1px;
-  background: var(--border-glass);
+	height: 1px;
+	background: var(--border-glass);
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .copy {
-  font-size: var(--font-size-sm);
-  color: var(--font-secondary);
+	font-size: var(--font-size-sm);
+	color: var(--font-secondary);
 }
 
 .lang {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
 }
 
 .langGroup {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
 }
 
 .langSep {
-  font-size: var(--font-size-sm);
-  color: var(--font-secondary);
-  opacity: 0.5;
+	font-size: var(--font-size-sm);
+	color: var(--font-secondary);
+	opacity: 0.5;
 }
 
 .langItem {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--font-secondary);
-  cursor: pointer;
-  transition: color 0.2s;
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	color: var(--font-secondary);
+	cursor: pointer;
+	transition: color 0.2s;
 }
 
 .langItem:hover {
-  color: var(--font-primary);
+	color: var(--font-primary);
 }
 
 .langActive {
-  font-weight: 600;
-  color: var(--accent-cyan);
+	font-weight: 600;
+	color: var(--accent-cyan);
 }
 
 @media (max-width: 1024px) {
-  .footer {
-    padding: 40px 40px 32px;
-  }
+	.footer {
+		padding: 40px 40px 32px;
+	}
 }
 
 @media (max-width: 768px) {
-  .footer {
-    padding: 32px 24px;
-  }
-  .content {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
+	.footer {
+		padding: 32px 24px;
+	}
+	.content {
+		flex-direction: column;
+		gap: 16px;
+		text-align: center;
+	}
 }

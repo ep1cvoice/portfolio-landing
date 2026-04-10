@@ -22,9 +22,8 @@ const SKILL_CATEGORIES = [
     label: 'STATE MANAGEMENT',
     accent: false,
     chips: [
-      { text: 'Redux' },
-      { text: 'Redux Toolkit' },
       { text: 'Context API' },
+      { text: 'Redux' }
     ],
   },
   {
@@ -62,8 +61,7 @@ const SKILL_CATEGORIES = [
     accent: true,
     chips: [
       { text: 'Node.js' },
-      { text: 'Express' },
-      { text: `Basic backend architecture` },
+      { text: `Supabase` },
     ],
   },
 ];

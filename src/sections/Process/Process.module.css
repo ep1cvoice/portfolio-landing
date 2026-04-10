@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════════════ */
 
 .process {
-	background-color: var(--bg-dark);
+	background: var(--bg-dark);
 	padding: 80px max(120px, calc((100% - 1360px) / 2));
 	overflow: hidden;
 }
@@ -361,10 +361,20 @@
 	}
 
 	@keyframes beam-travel-v {
-		0%   { top: 0;    opacity: 0; }
-		3%   {            opacity: 1; }
-		97%  {            opacity: 1; }
-		100% { top: 100%; opacity: 0; }
+		0% {
+			top: 0;
+			opacity: 0;
+		}
+		3% {
+			opacity: 1;
+		}
+		97% {
+			opacity: 1;
+		}
+		100% {
+			top: 100%;
+			opacity: 0;
+		}
 	}
 
 	.beam {

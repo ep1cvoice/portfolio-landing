@@ -1,6 +1,6 @@
 .hero {
 	position: relative;
-	background-color: var(--bg-dark);
+	background: var(--bg-dark);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -22,7 +22,7 @@
 	right: 0;
 	bottom: 0;
 	height: 200px;
-	background: linear-gradient(to bottom, transparent, #020617);
+	background: linear-gradient(to bottom, transparent, #070A14);
 	z-index: 1;
 }
 
@@ -484,7 +484,5 @@
 	}
 }
 
-
 @media (min-width: 768px) {
-	
 }

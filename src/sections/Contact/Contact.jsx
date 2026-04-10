@@ -5,6 +5,7 @@ import { Mail } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
 import styles from './Contact.module.css';
+import { ChevronUp } from 'lucide-react';
 
 const CONTACT_CARDS = [
 	{
@@ -73,24 +74,59 @@ function Contact() {
 						<h3 className={styles.formTitle}>{t('contact.formTitle')}</h3>
 						<div className={styles.nameRow}>
 							<div className={styles.field}>
-								<label htmlFor='name' className={styles.fieldLabel}>{t('contact.name')}</label>
-								<input id='name' name='name' type='text' placeholder={t('contact.namePlaceholder')} className={styles.input} required />
+								<label htmlFor='name' className={styles.fieldLabel}>
+									{t('contact.name')}
+								</label>
+								<input
+									id='name'
+									name='name'
+									type='text'
+									placeholder={t('contact.namePlaceholder')}
+									className={styles.input}
+									required
+								/>
 							</div>
 							<div className={styles.field}>
-								<label htmlFor='email' className={styles.fieldLabel}>{t('contact.email')}</label>
-								<input id='email' name='email' type='email' placeholder={t('contact.emailPlaceholder')} className={styles.input} required />
+								<label htmlFor='email' className={styles.fieldLabel}>
+									{t('contact.email')}
+								</label>
+								<input
+									id='email'
+									name='email'
+									type='email'
+									placeholder={t('contact.emailPlaceholder')}
+									className={styles.input}
+									required
+								/>
 								<ValidationError field='email' errors={state.errors} className={styles.fieldError} />
 							</div>
 						</div>
 
 						<div className={styles.field}>
-							<label htmlFor='subject' className={styles.fieldLabel}>{t('contact.subject')}</label>
-							<input id='subject' name='subject' type='text' placeholder={t('contact.subjectPlaceholder')} className={styles.input} />
+							<label htmlFor='subject' className={styles.fieldLabel}>
+								{t('contact.subject')}
+							</label>
+							<input
+								id='subject'
+								name='subject'
+								type='text'
+								placeholder={t('contact.subjectPlaceholder')}
+								className={styles.input}
+							/>
 						</div>
 
 						<div className={styles.field}>
-							<label htmlFor='message' className={styles.fieldLabel}>{t('contact.message')}</label>
-							<textarea id='message' name='message' placeholder={t('contact.msgPlaceholder')} className={styles.textarea} rows={5} required />
+							<label htmlFor='message' className={styles.fieldLabel}>
+								{t('contact.message')}
+							</label>
+							<textarea
+								id='message'
+								name='message'
+								placeholder={t('contact.msgPlaceholder')}
+								className={styles.textarea}
+								rows={5}
+								required
+							/>
 							<ValidationError field='message' errors={state.errors} className={styles.fieldError} />
 						</div>
 
@@ -100,6 +136,10 @@ function Contact() {
 					</form>
 				)}
 			</div>
+			<a href='#home' className={styles.startOver}>
+				<ChevronUp size={16} className={styles.arrow} />
+				<span className={styles.startOverLabel}>{t('footer.startOver')}</span>
+			</a>
 		</section>
 	);
 }
