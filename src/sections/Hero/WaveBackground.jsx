@@ -2,6 +2,20 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 
+const dotTexture = (() => {
+	const c = document.createElement('canvas');
+	c.width = 32;
+	c.height = 32;
+	const ctx = c.getContext('2d');
+	const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+	grad.addColorStop(0,    'rgba(255,255,255,1)');
+	grad.addColorStop(0.4,  'rgba(255,255,255,0.8)');
+	grad.addColorStop(1,    'rgba(255,255,255,0)');
+	ctx.fillStyle = grad;
+	ctx.fillRect(0, 0, 32, 32);
+	return new THREE.CanvasTexture(c);
+})();
+
 function Wave() {
 	const ref = useRef();
 
@@ -48,13 +62,14 @@ function Wave() {
 			</bufferGeometry>
 
 			<pointsMaterial
-				size={0.045}
+				size={0.065}
 				color='#2D7CF6'
 				transparent
-				opacity={0.7}
+				opacity={1}
 				blending={THREE.AdditiveBlending}
 				depthWrite={false}
 				sizeAttenuation
+				map={dotTexture}
 			/>
 		</points>
 	);
@@ -62,8 +77,7 @@ function Wave() {
 
 export default function WaveBackground() {
 	return (
-		<Canvas camera={{ position: [0, 3, 8], fov: 55 }}>
-			<color attach='background' args={['#020617']} />
+		<Canvas camera={{ position: [0, 3, 8], fov: 55 }} gl={{ alpha: true }}>
 			<Wave />
 		</Canvas>
 	);
