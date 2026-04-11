@@ -32,10 +32,12 @@ function ProjectCard({ image, title, description, tags, lang, github, demo, demo
         </div>
 
         <div className={styles.links}>
-          <a href={github} className={styles.linkGh} aria-label="GitHub repository" target="_blank" rel="noopener noreferrer">
-            <img src={githubIcon} alt="GitHub" width={16} height={16} />
-            <span>GitHub</span>
-          </a>
+          {github && (
+            <a href={github} className={styles.linkGh} aria-label="GitHub repository" target="_blank" rel="noopener noreferrer">
+              <img src={githubIcon} alt="GitHub" width={16} height={16} />
+              <span>GitHub</span>
+            </a>
+          )}
           {demoUrl ? (
             <a
               href={demoUrl}

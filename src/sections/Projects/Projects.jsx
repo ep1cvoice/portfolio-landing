@@ -11,10 +11,21 @@ import formafitImg from '../../assets/projects/formafit-website.jpg';
 import swiftrateImg from '../../assets/projects/swiftrate-website.jpg';
 import nexttodoImg from '../../assets/projects/nexttodo-website.jpg';
 import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg';
+import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg'
 
 const PROJECTS = [
 	{
 		id: 1,
+		title: 'Émile Restaurant',
+		descKey: 'projects.items.emile.desc',
+		tags: ['Landing', 'Tailwind CSS', 'Figma'],
+		lang: 'EN',
+		image: emileRestaurantImg,
+		demo: emileRestaurantImg,
+		demoLabelKey: 'preview',
+	},
+	{
+		id: 2,
 		title: 'xDetalz Auto Detailing',
 		descKey: 'projects.items.xdetalz.desc',
 		tags: ['Landing', 'JavaScript', 'SCSS', 'BEM'],
@@ -25,7 +36,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 2,
+		id: 3,
 		title: 'FormaFit Gym',
 		descKey: 'projects.items.formafit.desc',
 		tags: ['Landing', 'C#', '.NET', 'MVC', 'Bootstrap', ],
@@ -36,7 +47,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'SwiftRate',
 		descKey: 'projects.items.swiftrate.desc',
 		tags: ['SPA', 'React', 'JSX', 'API', ],
@@ -47,7 +58,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 4,
+		id: 5,
 		title: 'NextTodo',
 		descKey: 'projects.items.nexttodo.descPre',
 		tags: ['SPA', 'React', 'JSX', 'API', ],
@@ -58,7 +69,7 @@ const PROJECTS = [
 		demoLabelKey: 'liveDemo',
 	},
 	{
-		id: 5,
+		id: 6,
 		title: 'WebDev Checky Cards',
 		descKey: 'projects.items.checkycards.desc',
 		tags: ['SPA', 'React', 'API', 'Supabase'],

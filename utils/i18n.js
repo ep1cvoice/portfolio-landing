@@ -80,6 +80,9 @@ const resources = {
 				preview: 'Preview',
 				liveDemo: 'Live Demo',
 				items: {
+					emile: {
+						desc: 'Elegant Parisian restaurant landing page presenting refined French cuisine in an premium dining atmosphere.',
+					},
 					xdetalz: {
 						desc: 'Premium automotive detailing landing page with service showcase, gallery, and contact form. Dark gold design built for conversion.',
 					},
@@ -238,6 +241,9 @@ const resources = {
 				preview: 'Podgląd',
 				liveDemo: 'Zobacz na żywo',
 				items: {
+					emile: {
+						desc: 'Elegancka strona paryskiej restauracji prezentująca wykwintną kuchnię francuską w premium klimacie.',
+					},
 					xdetalz: {
 						desc: 'Landing page dla studia auto detailingu — prezentacja usług, galeria i formularz kontaktowy. Ciemna, elegancka stylistyka nastawiona na konwersję.',
 					},
@@ -409,6 +415,9 @@ const resources = {
 				preview: 'Превью',
 				liveDemo: 'Демо',
 				items: {
+					emile: {
+						desc: 'Элегантный лендинг парижского ресторана французской кухни в премиальной атмосфере.',
+					},
 					xdetalz: {
 						desc: 'Лендинг для детейлинга с услугами, галереей и формой заявки. Тёмный дизайн с акцентом на конверсию.',
 					},
