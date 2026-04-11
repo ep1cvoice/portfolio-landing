@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pavelcode.dev/sitemap.xml
+Sitemap: https://www.pavelcode.dev/sitemap.xml
