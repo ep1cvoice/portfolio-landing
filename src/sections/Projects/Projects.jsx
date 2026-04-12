@@ -76,7 +76,7 @@ const PROJECTS = [
 		lang: 'PL',
 		image: checkycardImg,
 		github: 'https://github.com/ep1cvoice/webdev-checky-cards',
-		demoUrl: 'https://webgdev-checky-cards.vercel.app/',
+		demoUrl: 'https://webdev-checky-cards.vercel.app/',
 		demoLabelKey: 'liveDemo',
 	},
 ];
