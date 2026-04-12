@@ -93,7 +93,7 @@ function Projects() {
 	const filtered = activeFilter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(activeFilter));
 
 	function getDescription(project) {
-		if (project.id === 4) {
+		if (project.id === 5) {
 			return (
 				<>
 					{t(project.descKey)}
