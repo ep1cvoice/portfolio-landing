@@ -53,6 +53,7 @@ const SKILL_CATEGORIES = [
       { text: 'Prettier' },
       { text: 'Chrome DevTools' },
       { text: 'Figma' },
+      { text: 'Kanban' },
     ],
   },
   {

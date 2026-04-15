@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import { ArrowUpRight } from 'lucide-react';
@@ -11,7 +11,7 @@ import formafitImg from '../../assets/projects/formafit-website.jpg';
 import swiftrateImg from '../../assets/projects/swiftrate-website.jpg';
 import nexttodoImg from '../../assets/projects/nexttodo-website.jpg';
 import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg';
-import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg'
+import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg';
 
 const PROJECTS = [
 	{
@@ -39,7 +39,7 @@ const PROJECTS = [
 		id: 3,
 		title: 'FormaFit Gym',
 		descKey: 'projects.items.formafit.desc',
-		tags: ['Landing', 'C#', '.NET', 'MVC', 'Bootstrap', ],
+		tags: ['Landing', 'C#', '.NET', 'MVC', 'Bootstrap'],
 		lang: 'PL',
 		image: formafitImg,
 		github: 'https://github.com/ep1cvoice/gym-app-dotnet-mvc',
@@ -50,7 +50,7 @@ const PROJECTS = [
 		id: 4,
 		title: 'SwiftRate',
 		descKey: 'projects.items.swiftrate.desc',
-		tags: ['SPA', 'React', 'JSX', 'API', ],
+		tags: ['SPA', 'React', 'JSX', 'API'],
 		lang: 'PL',
 		image: swiftrateImg,
 		github: 'https://github.com/ep1cvoice/swift-rate-app',
@@ -61,7 +61,7 @@ const PROJECTS = [
 		id: 5,
 		title: 'NextTodo',
 		descKey: 'projects.items.nexttodo.descPre',
-		tags: ['SPA', 'React', 'JSX', 'API', ],
+		tags: ['SPA', 'React', 'JSX', 'API'],
 		lang: 'EN',
 		image: nexttodoImg,
 		github: 'https://github.com/matt400/NextTodo',
@@ -89,8 +89,44 @@ function Projects() {
 	const [preview, setPreview] = useState(null);
 	const [sectionRef, visible] = useInView(0.1);
 	const [gridRef, gridVisible] = useInView(0.1);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [itemsPerPage, setItemsPerPage] = useState(4);
 
 	const filtered = activeFilter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(activeFilter));
+	const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+	const startIndex = (currentPage - 1) * itemsPerPage;
+	const endIndex = startIndex + itemsPerPage;
+
+	const paginatedProjects = filtered.slice(startIndex, endIndex);
+
+	useEffect(() => {
+		function handleResize() {
+			if (window.innerWidth >= 1024) {
+				setItemsPerPage(6);
+			} else if (window.innerWidth >= 768) {
+				setItemsPerPage(4);
+			} else {
+				setItemsPerPage(3);
+			}
+		}
+
+		handleResize();
+		window.addEventListener('resize', handleResize);
+
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [itemsPerPage, activeFilter]);
+
+	function scrollToSection() {
+		sectionRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
+	}
 
 	function getDescription(project) {
 		if (project.id === 5) {
@@ -127,7 +163,7 @@ function Projects() {
 			</div>
 
 			<div ref={gridRef} className={`${styles.grid} ${gridVisible ? styles.gridVisible : ''}`}>
-				{filtered.map((project) => (
+				{paginatedProjects.map((project) => (
 					<ProjectCard
 						key={project.id}
 						{...project}
@@ -139,6 +175,22 @@ function Projects() {
 			</div>
 
 			{preview && <ProjectPreviewModal url={preview.url} title={preview.title} onClose={() => setPreview(null)} />}
+
+			{totalPages >= 2 && (
+				<div className={styles.pagination}>
+					{Array.from({ length: totalPages }, (_, i) => (
+						<button
+							key={i}
+							onClick={() => {
+								setCurrentPage(i + 1);
+								scrollToSection();
+							}}
+							className={`${styles.pageBtn} ${currentPage === i + 1 ? styles.activePage : ''}`}>
+							{i + 1}
+						</button>
+					))}
+				</div>
+			)}
 		</section>
 	);
 }

@@ -177,6 +177,38 @@
 	transition-delay: 0.65s;
 }
 
+/* pagination */
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+.pageBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	color: white;
+	background: rgba(15, 20, 40, 0.85);
+	border: 1px solid var(--accent-blue);
+	border-radius: var(--radius-lg);
+	padding: 20px;
+
+}
+
+.pageBtn:hover {
+	opacity: 0.88;
+	transform: translateY(-2px);
+}
+
+.activePage {
+	background: var(--gradient-accent-tr);
+	color: var(--font-primary);
+}
+
 /* ── Responsive ── */
 @media (max-width: 1200px) {
 	.projects {
