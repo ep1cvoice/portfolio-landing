@@ -12,8 +12,11 @@ const SKILL_CATEGORIES = [
       { text: 'Next.js', active: true },
       { text: 'TypeScript', active: true },
       { text: 'JavaScript (ES6+)' },
-      { text: 'CSS Architecture (BEM, modular CSS)' },
-      { text: 'SASS (SCSS)' },
+      { text: 'HTML5' },
+      { text: 'JSX / TSX' },
+      { text: 'CSS3 (Flexbox, Grid)' },
+      { text: 'SASS/SCSS' },
+      { text: 'BEM' },
       { text: 'Tailwind' },
     ],
   },
@@ -23,19 +26,19 @@ const SKILL_CATEGORIES = [
     accent: false,
     chips: [
       { text: 'Context API' },
-      { text: 'Redux' }
+      { text: 'Redux' },
+      { text: 'TanStack Query' },
     ],
   },
   {
     id: 'api',
-    label: 'API & DATA',
+    label: 'API & APPLICATION LOGIC',
     accent: true,
     chips: [
-      { text: 'REST API integration' },
-      { text: 'Data fetching & state handling' },
-      { text: 'TanStack Query' },
+      { text: 'REST API (CRUD, auth flows)' },
       { text: 'Authentication & Authorization (JWT)' },
       { text: 'Error handling' },
+      { text: 'Loading states' },
     ],
   },
   {
@@ -52,17 +55,26 @@ const SKILL_CATEGORIES = [
       { text: 'ESLint' },
       { text: 'Prettier' },
       { text: 'Chrome DevTools' },
-      { text: 'Figma' },
+      { text: 'Docker' },
+      { text: 'Accessibility (a11y)' },
       { text: 'Kanban' },
     ],
   },
   {
     id: 'backend',
-    label: 'BACKEND',
+    label: 'BACKEND / FULLSTACK',
     accent: true,
     chips: [
       { text: 'Node.js' },
-      { text: `Supabase` },
+      { text: 'Supabase (auth, database)' },
+    ],
+  },
+  {
+    id: 'design',
+    label: 'DESIGN',
+    accent: true,
+    chips: [
+      { text: 'Figma' },
     ],
   },
 ];
