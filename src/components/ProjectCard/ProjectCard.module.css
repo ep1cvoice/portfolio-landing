@@ -28,12 +28,19 @@
 .image {
   position: relative;
   height: 200px;
-  background-color: #1E2545;
-  background-size: cover;
-  background-position: center top;
+  background: linear-gradient(135deg, #1E2545 0%, #2D3a6a 50%, #1a2a5c 100%);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background-image: linear-gradient(135deg, #1E2545 0%, #2D3a6a 50%, #1a2a5c 100%);
+  overflow: hidden;
   cursor: pointer;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .lang {

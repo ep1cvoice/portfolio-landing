@@ -36,26 +36,44 @@ function Header() {
 		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
-	// Track active section via IntersectionObserver
+	// Track active section via IntersectionObserver.
+	// Lazy-loaded sections may not be in the DOM yet on mount, so retry
+	// via MutationObserver until all section elements are found.
 	useEffect(() => {
-		const observers = [];
+		let sectionObservers = [];
 
-		NAV_IDS.forEach(({ id }) => {
-			const el = document.getElementById(id);
-			if (!el) return;
+		function setup() {
+			sectionObservers.forEach((o) => o.disconnect());
+			sectionObservers = [];
 
-			const observer = new IntersectionObserver(
-				([entry]) => {
-					if (entry.isIntersecting) setActive(id);
-				},
-				{ threshold: 0.35 },
-			);
+			let allFound = true;
+			NAV_IDS.forEach(({ id }) => {
+				const el = document.getElementById(id);
+				if (!el) { allFound = false; return; }
 
-			observer.observe(el);
-			observers.push(observer);
-		});
+				const observer = new IntersectionObserver(
+					([entry]) => { if (entry.isIntersecting) setActive(id); },
+					{ threshold: 0.35 },
+				);
+				observer.observe(el);
+				sectionObservers.push(observer);
+			});
 
-		return () => observers.forEach((o) => o.disconnect());
+			return allFound;
+		}
+
+		if (!setup()) {
+			const mutation = new MutationObserver(() => {
+				if (setup()) mutation.disconnect();
+			});
+			mutation.observe(document.body, { childList: true, subtree: true });
+			return () => {
+				mutation.disconnect();
+				sectionObservers.forEach((o) => o.disconnect());
+			};
+		}
+
+		return () => sectionObservers.forEach((o) => o.disconnect());
 	}, []);
 
 	useEffect(() => {

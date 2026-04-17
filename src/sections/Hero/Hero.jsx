@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import WaveBackground from './WaveBackground';
+
+const WaveBackground = lazy(() => import('./WaveBackground'));
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
 import styles from './Hero.module.css';
@@ -93,7 +94,9 @@ function Hero() {
 	return (
 		<section id='home' className={styles.hero}>
 			<div className={styles.canvasBg}>
-				<WaveBackground />
+				<Suspense fallback={null}>
+					<WaveBackground />
+				</Suspense>
 			</div>
 			<div className={styles.content}>
 				{/* Left */}

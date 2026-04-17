@@ -1,12 +1,14 @@
+import { lazy, Suspense } from 'react';
 import Header from '../components/Header';
 import Hero from '../sections/Hero';
-import About from '../sections/About';
-import Skills from '../sections/Skills';
-import Projects from '../sections/Projects';
-import Services from '../sections/Services';
-import Process from '../sections/Process';
-import Contact from '../sections/Contact';
-import Footer from '../components/Footer';
+
+const About    = lazy(() => import('../sections/About'));
+const Projects = lazy(() => import('../sections/Projects'));
+const Services = lazy(() => import('../sections/Services'));
+const Process  = lazy(() => import('../sections/Process'));
+const Skills   = lazy(() => import('../sections/Skills'));
+const Contact  = lazy(() => import('../sections/Contact'));
+const Footer   = lazy(() => import('../components/Footer'));
 
 function HomePage() {
   return (
@@ -14,14 +16,18 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Projects />
-        <Services />
-        <Process />
-        <Skills />
-        <Contact />
+        <Suspense fallback={null}>
+          <About />
+          <Projects />
+          <Services />
+          <Process />
+          <Skills />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </>
   );
 }

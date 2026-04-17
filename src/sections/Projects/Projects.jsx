@@ -6,12 +6,12 @@ import ProjectCard from '../../components/ProjectCard';
 import ProjectPreviewModal from '../../components/ProjectPreviewModal/ProjectPreviewModal';
 import styles from './Projects.module.css';
 
-import xdetalzImg from '../../assets/projects/xdetalz-website.jpg';
-import formafitImg from '../../assets/projects/formafit-website.jpg';
-import swiftrateImg from '../../assets/projects/swiftrate-website.jpg';
-import nexttodoImg from '../../assets/projects/nexttodo-website.jpg';
-import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg';
-import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg';
+import xdetalzImg from '../../assets/projects/xdetalz-website.jpg?format=webp&quality=80';
+import formafitImg from '../../assets/projects/formafit-website.jpg?format=webp&quality=80';
+import swiftrateImg from '../../assets/projects/swiftrate-website.jpg?format=webp&quality=80';
+import nexttodoImg from '../../assets/projects/nexttodo-website.jpg?format=webp&quality=80';
+import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg?format=webp&quality=80';
+import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg?format=webp&quality=80';
 
 const PROJECTS = [
 	{

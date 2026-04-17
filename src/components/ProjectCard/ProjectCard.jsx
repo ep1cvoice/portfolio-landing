@@ -13,11 +13,16 @@ function ProjectCard({ image, title, description, tags, lang, github, demo, demo
 
   return (
     <article className={styles.card}>
-      <div
-        className={styles.image}
-        style={image ? { backgroundImage: `url(${image})` } : {}}
-        onClick={handleDemoClick}
-      >
+      <div className={styles.image} onClick={handleDemoClick}>
+        {image && (
+          <img
+            src={image}
+            alt={title}
+            className={styles.img}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
         {lang && <span className={styles.lang}>{lang}</span>}
       </div>
 
