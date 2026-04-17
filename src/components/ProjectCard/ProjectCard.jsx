@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ExternalLink } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import styles from './ProjectCard.module.css';
@@ -70,4 +71,4 @@ function ProjectCard({ image, title, description, tags, lang, github, demo, demo
   );
 }
 
-export default ProjectCard;
+export default memo(ProjectCard);

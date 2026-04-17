@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import { ArrowUpRight } from 'lucide-react';
@@ -111,24 +111,35 @@ function Projects() {
 			}
 		}
 
-		handleResize();
-		window.addEventListener('resize', handleResize);
+		let raf;
+		function onResize() {
+			cancelAnimationFrame(raf);
+			raf = requestAnimationFrame(handleResize);
+		}
 
-		return () => window.removeEventListener('resize', handleResize);
+		handleResize();
+		window.addEventListener('resize', onResize);
+
+		return () => {
+			window.removeEventListener('resize', onResize);
+			cancelAnimationFrame(raf);
+		};
 	}, []);
 
 	useEffect(() => {
 		setCurrentPage(1);
 	}, [itemsPerPage, activeFilter]);
 
-	function scrollToSection() {
+	const scrollToSection = useCallback(() => {
 		sectionRef.current?.scrollIntoView({
 			behavior: 'smooth',
 			block: 'start',
 		});
-	}
+	}, []);
 
-	function getDescription(project) {
+	const handlePreview = useCallback((data) => setPreview(data), []);
+
+	const getDescription = useCallback((project) => {
 		if (project.id === 5) {
 			return (
 				<>
@@ -141,7 +152,7 @@ function Projects() {
 			);
 		}
 		return t(project.descKey);
-	}
+	}, [t]);
 
 	return (
 		<section id='projects' ref={sectionRef} className={`${styles.projects} ${visible ? styles.visible : ''}`}>
@@ -169,7 +180,7 @@ function Projects() {
 						{...project}
 						description={getDescription(project)}
 						demoLabel={t(`projects.${project.demoLabelKey}`)}
-						onPreview={setPreview}
+						onPreview={handlePreview}
 					/>
 				))}
 			</div>
