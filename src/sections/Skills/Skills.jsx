@@ -75,6 +75,17 @@ const SKILL_CATEGORIES = [
     accent: true,
     chips: [
       { text: 'Figma' },
+      { text: 'Pencil.dev' },
+    ],
+  },
+  {
+    id: 'wordpress',
+    label: 'CMS & PAGE BUILDERS',
+    accent: true,
+    chips: [
+      { text: 'WordPress' },
+      { text: 'Elementor' },
+      { text: 'WooCommerce' },
     ],
   },
 ];

@@ -129,6 +129,16 @@
 	transform: translateY(0);
 	transition-delay: 0.53s;
 }
+.grid.gridVisible > div:nth-child(6) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.65s;
+}
+.grid.gridVisible > div:nth-child(7) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.77s;
+}
 
 .divider {
 	height: 1px;

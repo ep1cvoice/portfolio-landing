@@ -80,6 +80,9 @@ const resources = {
 				preview: 'Preview',
 				liveDemo: 'Live Demo',
 				items: {
+					glossandmuse: {
+						desc: 'Beauty salon landing page in Warsaw city center with online reservations and specialist selection.',
+					},
 					emile: {
 						desc: 'Elegant Parisian restaurant landing page presenting refined French cuisine in an premium dining atmosphere.',
 					},
@@ -241,11 +244,14 @@ const resources = {
 				preview: 'Podgląd',
 				liveDemo: 'Zobacz na żywo',
 				items: {
+					glossandmuse: {
+						desc: 'Landing page salonu beauty w centrum Warszawy z rezerwacją online i wyborem specjalisty.',
+					},
 					emile: {
 						desc: 'Elegancka strona paryskiej restauracji prezentująca wykwintną kuchnię francuską w premium klimacie.',
 					},
 					xdetalz: {
-						desc: 'Landing page dla studia auto detailingu — prezentacja usług, galeria i formularz kontaktowy. Ciemna, elegancka stylistyka nastawiona na konwersję.',
+						desc: 'Landing page studia auto detailingu — prezentacja usług, galeria i formularz kontaktowy. Ciemna stylistyka ze złotymi akcentami.',
 					},
 
 					formafit: {
@@ -273,7 +279,7 @@ const resources = {
 
 				landing: {
 					title: 'Landing page’e',
-					desc: 'Strony zaprojektowane tak, aby przyciągać uwagę i skutecznie zamieniać odwiedzających w klientów.',
+					desc: 'Strony, które jasno przekazują ofertę i zachęcają odwiedzających do kontaktu.',
 				},
 
 				corporate: {
@@ -415,11 +421,14 @@ const resources = {
 				preview: 'Превью',
 				liveDemo: 'Демо',
 				items: {
+					glossandmuse: {
+						desc: 'Лендинг салона красоты в центре Варшавы с онлайн-записью и выбором специалиста.',
+					},
 					emile: {
 						desc: 'Элегантный лендинг парижского ресторана французской кухни в премиальной атмосфере.',
 					},
 					xdetalz: {
-						desc: 'Лендинг для детейлинга с услугами, галереей и формой заявки. Тёмный дизайн с акцентом на конверсию.',
+						desc: 'Лендинг для студии автодетейлинга — услуги, галерея и форма заявки. Тёмный стиль с золотыми акцентами.',
 					},
 					formafit: {
 						desc: 'Сайт фитнес-клуба с программами тренировок, профилями тренеров, отзывами клиентов и тарифами.',
@@ -442,7 +451,7 @@ const resources = {
 				desc: 'Помогаю бизнесу запускать и развивать своё онлайн-присутствие.',
 				landing: {
 					title: 'Лендинги',
-					desc: 'Лендинги с акцентом на конверсию, которые превращают посетителей в клиентов.',
+					desc: 'Лендинги, которые чётко доносят суть ваших услуг и побуждают посетителей связаться с вами.',
 				},
 				corporate: {
 					title: 'Корпоративные сайты',

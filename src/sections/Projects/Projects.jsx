@@ -12,10 +12,21 @@ import swiftrateImg from '../../assets/projects/swiftrate-website.jpg?format=web
 import nexttodoImg from '../../assets/projects/nexttodo-website.jpg?format=webp&quality=80';
 import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg?format=webp&quality=80';
 import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg?format=webp&quality=80';
+import GlossAndMuseImg from '../../assets/projects/glossandmuse-site.jpg?w=1920&format=webp&quality=80';
 
 const PROJECTS = [
 	{
 		id: 1,
+		title: 'Gloss&Muse Beauty Salon',
+		descKey: 'projects.items.glossandmuse.desc',
+		tags: ['Landing', 'Tailwind CSS', 'Figma'],
+		lang: 'PL',
+		image: GlossAndMuseImg,
+		demo: GlossAndMuseImg,
+		demoLabelKey: 'preview',
+	},
+	{
+		id: 2,
 		title: 'Émile Restaurant',
 		descKey: 'projects.items.emile.desc',
 		tags: ['Landing', 'Tailwind CSS', 'Figma'],
@@ -25,7 +36,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 2,
+		id: 3,
 		title: 'xDetalz Auto Detailing',
 		descKey: 'projects.items.xdetalz.desc',
 		tags: ['Landing', 'JavaScript', 'SCSS', 'BEM'],
@@ -36,7 +47,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'FormaFit Gym',
 		descKey: 'projects.items.formafit.desc',
 		tags: ['Landing', 'C#', '.NET', 'MVC', 'Bootstrap'],
@@ -47,7 +58,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 4,
+		id: 5,
 		title: 'SwiftRate',
 		descKey: 'projects.items.swiftrate.desc',
 		tags: ['SPA', 'React', 'JSX', 'API'],
@@ -58,7 +69,7 @@ const PROJECTS = [
 		demoLabelKey: 'preview',
 	},
 	{
-		id: 5,
+		id: 6,
 		title: 'NextTodo',
 		descKey: 'projects.items.nexttodo.descPre',
 		tags: ['SPA', 'React', 'JSX', 'API'],
@@ -66,10 +77,10 @@ const PROJECTS = [
 		image: nexttodoImg,
 		github: 'https://github.com/matt400/NextTodo',
 		demo: nexttodoImg,
-		demoLabelKey: 'liveDemo',
+		demoLabelKey: 'preview',
 	},
 	{
-		id: 6,
+		id: 7,
 		title: 'WebDev Checky Cards',
 		descKey: 'projects.items.checkycards.desc',
 		tags: ['SPA', 'React', 'API', 'Supabase'],
@@ -109,6 +120,7 @@ function Projects() {
 			} else {
 				setItemsPerPage(3);
 			}
+			setCurrentPage(1);
 		}
 
 		let raf;
@@ -126,33 +138,32 @@ function Projects() {
 		};
 	}, []);
 
-	useEffect(() => {
-		setCurrentPage(1);
-	}, [itemsPerPage, activeFilter]);
-
-	const scrollToSection = useCallback(() => {
+const scrollToSection = useCallback(() => {
 		sectionRef.current?.scrollIntoView({
 			behavior: 'smooth',
 			block: 'start',
 		});
-	}, []);
+	}, [sectionRef]);
 
 	const handlePreview = useCallback((data) => setPreview(data), []);
 
-	const getDescription = useCallback((project) => {
-		if (project.id === 5) {
-			return (
-				<>
-					{t(project.descKey)}
-					<a href='https://github.com/matt400' target='_blank' rel='noopener noreferrer'>
-						matt400
-						<ArrowUpRight size={13} />
-					</a>
-				</>
-			);
-		}
-		return t(project.descKey);
-	}, [t]);
+	const getDescription = useCallback(
+		(project) => {
+			if (project.id === 6) {
+				return (
+					<>
+						{t(project.descKey)}
+						<a href='https://github.com/matt400' target='_blank' rel='noopener noreferrer'>
+							matt400
+							<ArrowUpRight size={13} />
+						</a>
+					</>
+				);
+			}
+			return t(project.descKey);
+		},
+		[t],
+	);
 
 	return (
 		<section id='projects' ref={sectionRef} className={`${styles.projects} ${visible ? styles.visible : ''}`}>
@@ -167,7 +178,7 @@ function Projects() {
 					<button
 						key={key}
 						className={`${styles.filter} ${activeFilter === key ? styles.filterActive : ''}`}
-						onClick={() => setActiveFilter(key)}>
+						onClick={() => { setActiveFilter(key); setCurrentPage(1); }}>
 						{key === 'all' ? t('projects.all') : key}
 					</button>
 				))}
