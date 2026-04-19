@@ -49,10 +49,15 @@ function Header() {
 			let allFound = true;
 			NAV_IDS.forEach(({ id }) => {
 				const el = document.getElementById(id);
-				if (!el) { allFound = false; return; }
+				if (!el) {
+					allFound = false;
+					return;
+				}
 
 				const observer = new IntersectionObserver(
-					([entry]) => { if (entry.isIntersecting) setActive(id); },
+					([entry]) => {
+						if (entry.isIntersecting) setActive(id);
+					},
 					{ threshold: 0.35 },
 				);
 				observer.observe(el);
@@ -164,9 +169,9 @@ function Header() {
 					{/* Mobile controls */}
 					<div className={styles.mobileControls}>
 						<a
-							href='../../public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf'
-							download
-							className={styles.cvBtnMobile}
+							href='/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf'
+							target='_blank'
+							rel='noopener noreferrer'
 							aria-label='Download CV'>
 							<span>{t('header.cv')}</span>
 							<Download size={14} />
