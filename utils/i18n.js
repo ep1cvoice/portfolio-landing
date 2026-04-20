@@ -180,10 +180,39 @@ const resources = {
 				sending: 'Sending…',
 				successTitle: 'Message sent!',
 				successDesc: "Thanks for reaching out — I'll get back to you soon.",
+				phoneLabel: 'Phone',
+				telegramLabel: 'Telegram',
+				acceptPre: 'I accept the',
+				acceptPolicy: 'Privacy Policy',
 			},
 			footer: {
 				startOver: 'Start over',
-				copy: '© 2026 Pavel. All rights reserved.',
+				copy: '© 2026 pavelcode.dev',
+				rights: 'All rights reserved.',
+				privacy: 'Privacy Policy',
+			},
+			privacy: {
+				title: 'Privacy Policy',
+				updated: 'Last updated: April 2026',
+				intro:
+					'This Privacy Policy explains how I collect and use personal information when you use the contact form on this website.',
+
+				collectTitle: 'Information I collect',
+				collect:
+					'When you submit the contact form, I collect your name, email address, and the content of your message.',
+
+				useTitle: 'How I use your information',
+				use: 'Your personal data is used solely to respond to your inquiry. I do not sell or share your personal data with third parties.',
+
+				storageTitle: 'Data processing and storage',
+				storage:
+					'Form submissions are processed and stored by Formspree in accordance with their Privacy Policy. I do not maintain a separate database of your personal data.',
+
+				rightsTitle: 'Your rights',
+				rights:
+					'You may request the deletion of your personal data by contacting me. I will make reasonable efforts to delete your data from my records. Please note that data submitted through the contact form is processed by Formspree and is subject to their data retention policies. I process your data based on your consent.',
+
+				contact: 'For any privacy-related questions, contact me at: pavelkovalchuk0510@gmail.com.',
 			},
 		},
 	},
@@ -216,15 +245,15 @@ const resources = {
 			about: {
 				title: 'O mnie',
 
-				p1: 'Jestem Pavel — frontend developer tworzący nowoczesne, przejrzyste i intuicyjne doświadczenia. Na co dzień pracuję z Reactem i nowoczesnym ekosystemem JavaScript.',
+				p1: 'Jestem Pavel — frontend developer, który tworzy nowoczesne, przejrzyste i intuicyjne interfejsy. Na co dzień pracuję z Reactem i nowoczesnym ekosystemem JavaScript.',
 
-				p2: 'Zamieniam złożone problemy w proste i intuicyjne  użytkowe, dbając o wydajność, dostępność i płynne działanie aplikacji.',
+				p2: 'Przekształcam złożone problemy w proste i intuicyjne rozwiązania, dbając o wydajność, dostępność oraz płynne działanie aplikacji.',
 
 				p3: 'Zrealizowałem kilka projektów — od landing page’y po interaktywne aplikacje — zawsze z dużą dbałością o detale, responsywność i UX.',
 
 				p4: 'Obecnie rozwijam się w TypeScript i Next.js, a także poszerzam wiedzę w kierunku backendu (Node.js). Stawiam na ciągły rozwój i śledzenie nowych technologii.',
 
-				p5: 'Poza kodowaniem śledzę trendy UI/UX, eksperymentuję z animacjami i mikrointerakcjami oraz rozwijam swoje umiejętności poprzez realizację własnych projektów.',
+				p5: 'Poza kodowaniem śledzę trendy UI/UX, eksperymentuję z animacjami i mikrointerakcjami oraz rozwijam swoje umiejętności, realizując własne projekty.',
 
 				stats: {
 					role: 'Frontend Developer',
@@ -363,10 +392,40 @@ const resources = {
 				sending: 'Wysyłanie…',
 				successTitle: 'Wiadomość wysłana!',
 				successDesc: 'Dzięki za kontakt — odezwę się wkrótce.',
+				phoneLabel: 'Telefon',
+				telegramLabel: 'Telegram',
+				acceptPre: 'Akceptuję',
+				acceptPolicy: 'Politykę prywatności',
 			},
 			footer: {
 				startOver: 'Na górę',
-				copy: '© 2026 Pavel. Wszelkie prawa zastrzeżone.',
+				copy: '© 2026 pavelcode.dev',
+				rights: 'Wszelkie prawa zastrzeżone.',
+				privacy: 'Polityka prywatności',
+			},
+			privacy: {
+				title: 'Polityka prywatności',
+				updated: 'Ostatnia aktualizacja: kwiecień 2026',
+
+				intro:
+					'Niniejsza Polityka prywatności wyjaśnia, w jaki sposób zbieram i wykorzystuję dane osobowe przekazywane za pośrednictwem formularza kontaktowego na tej stronie.',
+
+				collectTitle: 'Jakie dane zbieram',
+				collect:
+					'Podczas korzystania z formularza kontaktowego zbieram Twoje imię, adres e-mail oraz treść wiadomości.',
+
+				useTitle: 'W jaki sposób wykorzystuję dane',
+				use: 'Twoje dane osobowe są wykorzystywane wyłącznie w celu udzielenia odpowiedzi na Twoje zapytanie. Nie sprzedaję ani nie udostępniam Twoich danych osobowych osobom trzecim.',
+
+				storageTitle: 'Przetwarzanie i przechowywanie danych',
+				storage:
+					'Wiadomości są przetwarzane i przechowywane przez serwis Formspree zgodnie z ich Polityką prywatności. Nie prowadzę własnej bazy danych Twoich danych osobowych.',
+
+				rightsTitle: 'Twoje prawa',
+				rights:
+					'Możesz w każdej chwili zażądać usunięcia swoich danych, kontaktując się ze mną. Dołożę wszelkich starań, aby usunąć Twoje dane z moich zasobów. Należy jednak pamiętać, że dane przesyłane za pośrednictwem formularza są przetwarzane przez Formspree i podlegają ich zasadom przechowywania danych. Przetwarzam Twoje dane na podstawie Twojej zgody.',
+
+				contact: 'W sprawach dotyczących prywatności skontaktuj się ze mną pod adresem: pavelkovalchuk0510@gmail.com.',
 			},
 		},
 	},
@@ -524,10 +583,40 @@ const resources = {
 				sending: 'Отправка…',
 				successTitle: 'Сообщение отправлено!',
 				successDesc: 'Спасибо за сообщение — скоро свяжусь с вами.',
+				phoneLabel: 'Телефон',
+				telegramLabel: 'Telegram',
+				acceptPre: 'Я принимаю',
+				acceptPolicy: 'Политику конфиденциальности',
 			},
 			footer: {
 				startOver: 'Наверх',
-				copy: '© 2026 Pavel. Все права защищены.',
+				copy: '© 2026 pavelcode.dev',
+				rights: 'Все права защищены.',
+				privacy: 'Политика конфиденциальности',
+			},
+			privacy: {
+				title: 'Политика конфиденциальности',
+				updated: 'Последнее обновление: апрель 2026',
+
+				intro:
+					'Настоящая Политика конфиденциальности объясняет, как я собираю и использую персональные данные, передаваемые через контактную форму на этом сайте.',
+
+				collectTitle: 'Какие данные я собираю',
+				collect:
+					'При использовании контактной формы я получаю ваше имя, адрес электронной почты и содержание сообщения.',
+
+				useTitle: 'Как я использую данные',
+				use: 'Ваши персональные данные используются исключительно для ответа на ваш запрос. Я не продаю и не передаю ваши данные третьим лицам.',
+
+				storageTitle: 'Обработка и хранение данных',
+				storage:
+					'Сообщения обрабатываются и хранятся сервисом Formspree в соответствии с их политикой конфиденциальности. Я не веду собственной базы данных с вашими персональными данными.',
+
+				rightsTitle: 'Ваши права',
+				rights:
+					'Вы можете запросить удаление своих данных, связавшись со мной. Я предприму разумные меры для удаления ваших данных из своих записей. Обратите внимание, что данные, отправленные через форму, обрабатываются сервисом Formspree и регулируются их политикой хранения данных. Обработка ваших данных осуществляется на основании вашего согласия.',
+
+				contact: 'По вопросам конфиденциальности вы можете связаться со мной по адресу: pavelkovalchuk0510@gmail.com.',
 			},
 		},
 	},

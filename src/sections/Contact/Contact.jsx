@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
-import { Mail } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import PrivacyPolicyModal from '../../components/PrivacyPolicyModal/PrivacyPolicyModal';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import linkedinIcon from '../../assets/icons/in_logo.png';
+import telegramIcon from '../../assets/icons/telegram.svg';
 import styles from './Contact.module.css';
 
 const CONTACT_CARDS = [
@@ -12,6 +15,20 @@ const CONTACT_CARDS = [
 		label: 'Email',
 		value: 'pavelkovalchuk0510@gmail.com',
 		href: 'mailto:pavelkovalchuk0510@gmail.com',
+	},
+	{
+		icon: <Phone size={22} color='#fff' />,
+		labelKey: 'contact.phoneLabel',
+		value: '+48 576 893 299',
+		href: 'https://wa.me/48576893299',
+		external: true,
+	},
+	{
+		icon: <img src={telegramIcon} alt='Telegram' width={22} height={22} />,
+		labelKey: 'contact.telegramLabel',
+		value: 't.me/paveldev',
+		href: 'https://t.me/epicvoicce',
+		external: true,
 	},
 	{
 		icon: <img src={githubIcon} alt='GitHub' width={22} height={22} />,
@@ -34,6 +51,8 @@ function Contact() {
 	const [state, handleSubmit] = useForm('mlgoaorz');
 	const [sectionRef, visible] = useInView(0.1);
 	const [bodyRef, bodyVisible] = useInView(0.1);
+	const [accepted, setAccepted] = useState(false);
+	const [showPrivacy, setShowPrivacy] = useState(false);
 
 	return (
 		<section id='contact' ref={sectionRef} className={`${styles.contact} ${visible ? styles.visible : ''}`}>
@@ -46,16 +65,16 @@ function Contact() {
 			<div ref={bodyRef} className={`${styles.body} ${bodyVisible ? styles.bodyVisible : ''}`}>
 				{/* Contact info cards */}
 				<div className={styles.info}>
-					{CONTACT_CARDS.map(({ icon, label, value, href, external }) => (
+					{CONTACT_CARDS.map(({ icon, label, labelKey, value, href, external }) => (
 						<a
-							key={label}
+							key={value}
 							href={href}
 							className={styles.infoCard}
 							target={external ? '_blank' : undefined}
 							rel={external ? 'noopener noreferrer' : undefined}>
 							<div className={styles.infoIconWrap}>{icon}</div>
 							<div className={styles.infoText}>
-								<span className={styles.infoLabel}>{label}</span>
+								<span className={styles.infoLabel}>{labelKey ? t(labelKey) : label}</span>
 								<span className={styles.infoValue}>{value}</span>
 							</div>
 						</a>
@@ -129,12 +148,30 @@ function Contact() {
 							<ValidationError field='message' errors={state.errors} className={styles.fieldError} />
 						</div>
 
-						<button type='submit' className={styles.submit} disabled={state.submitting}>
+						<div className={styles.acceptRow}>
+							<input
+								id='acceptPrivacy'
+								type='checkbox'
+								className={styles.acceptCheckbox}
+								checked={accepted}
+								onChange={(e) => setAccepted(e.target.checked)}
+							/>
+							<label htmlFor='acceptPrivacy' className={styles.acceptLabel}>
+								{t('contact.acceptPre')}{' '}
+								<button type='button' className={styles.acceptLink} onClick={() => setShowPrivacy(true)}>
+									{t('contact.acceptPolicy')}
+								</button>
+							</label>
+						</div>
+
+						<button type='submit' className={styles.submit} disabled={state.submitting || !accepted}>
 							{state.submitting ? t('contact.sending') : t('contact.send')}
 						</button>
 					</form>
 				)}
 			</div>
+
+			{showPrivacy && <PrivacyPolicyModal onClose={() => setShowPrivacy(false)} />}
 		</section>
 	);
 }
