@@ -344,7 +344,7 @@ const resources = {
 			},
 			skills: {
 				title: 'Stack technologiczny',
-				subtitle: 'Technologie, których używam do tworzenia szybkich i skalowalnych aplikacji.',
+				subtitle: 'Technologie, których używam do tworzenia szybkich i skalowalnych aplikacji webowych.',
 			},
 			contact: {
 				label: 'KONTAKT',

@@ -113,14 +113,18 @@ function Projects() {
 
 	useEffect(() => {
 		function handleResize() {
+			let next;
 			if (window.innerWidth >= 1024) {
-				setItemsPerPage(6);
+				next = 6;
 			} else if (window.innerWidth >= 768) {
-				setItemsPerPage(4);
+				next = 4;
 			} else {
-				setItemsPerPage(3);
+				next = 3;
 			}
-			setCurrentPage(1);
+			setItemsPerPage((prev) => {
+				if (prev !== next) setCurrentPage(1);
+				return next;
+			});
 		}
 
 		let raf;
