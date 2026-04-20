@@ -130,12 +130,11 @@
 	font-weight: 600;
 	transition:
 		opacity 0.2s,
-		transform 0.2s;
+		transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btnPrimary:hover {
 	opacity: 0.88;
-	transform: translateY(-2px);
 }
 
 .btnOutline {
@@ -150,12 +149,11 @@
 	font-weight: 600;
 	transition:
 		background 0.2s,
-		transform 0.2s;
+		transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btnOutline:hover {
 	background: rgba(45, 124, 246, 0.12);
-	transform: translateY(-2px);
 }
 
 /* ── Right — portrait ── */
@@ -164,8 +162,14 @@
 	width: 480px;
 	height: 520px;
 	flex-shrink: 0;
-	overflow: hidden;
 	animation: fadeInUp 1s ease-out 1.4s both;
+}
+
+.tiltWrap {
+	position: absolute;
+	inset: 0;
+	transform-style: preserve-3d;
+	will-change: transform;
 }
 
 .glow {

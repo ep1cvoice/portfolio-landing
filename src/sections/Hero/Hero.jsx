@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, useRef, useCallback, lazy, Suspense } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -91,6 +91,76 @@ function Hero() {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isLine1Finished, isFinished, line2Chars, currentPhraseIndex, isDeleting, phraseLen]);
 
+	// ── Magnetic buttons ─────────────────────────────────────────
+	const btn1Ref = useRef();
+	const btn2Ref = useRef();
+
+	const onMagneticMove = useCallback((e, ref) => {
+		const el = ref.current;
+		if (!el) return;
+		const rect = el.getBoundingClientRect();
+		const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 22;
+		const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 16;
+		el.style.transform = `translate(${x}px, ${y}px)`;
+	}, []);
+
+	const onMagneticLeave = useCallback((ref) => {
+		if (ref.current) ref.current.style.transform = '';
+	}, []);
+
+	// ── Portrait tilt ────────────────────────────────────────────
+	const rightRef   = useRef();
+	const tiltWrapRef = useRef();
+	const glowRef    = useRef();
+	const cur  = useRef({ x: 0, y: 0 });
+	const tgt  = useRef({ x: 0, y: 0 });
+	const rafId = useRef();
+
+	useEffect(() => {
+		// Wait for the fadeInUp animation to finish before taking over transform
+		const startDelay = setTimeout(() => {
+			const tick = () => {
+				cur.current.x += (tgt.current.x - cur.current.x) * 0.07;
+				cur.current.y += (tgt.current.y - cur.current.y) * 0.07;
+				const { x, y } = cur.current;
+				if (tiltWrapRef.current) {
+					tiltWrapRef.current.style.transform =
+						`perspective(900px) rotateY(${x * 7}deg) rotateX(${-y * 5}deg)`;
+				}
+				if (glowRef.current) {
+					glowRef.current.style.transform =
+						`translate(${-x * 16}px, ${y * 12}px)`;
+				}
+				rafId.current = requestAnimationFrame(tick);
+			};
+			tick();
+		}, 2500);
+
+		// Mobile: device gyroscope
+		const onOrientation = (e) => {
+			tgt.current.x = Math.max(-1, Math.min(1, (e.gamma || 0) / 15));
+			tgt.current.y = Math.max(-1, Math.min(1, ((e.beta  || 45) - 45) / 15));
+		};
+		window.addEventListener('deviceorientation', onOrientation);
+
+		return () => {
+			clearTimeout(startDelay);
+			cancelAnimationFrame(rafId.current);
+			window.removeEventListener('deviceorientation', onOrientation);
+		};
+	}, []);
+
+	const handleMouseMove = useCallback((e) => {
+		const rect = rightRef.current?.getBoundingClientRect();
+		if (!rect) return;
+		tgt.current.x = ((e.clientX - rect.left)  / rect.width  - 0.5) * 2;
+		tgt.current.y = ((e.clientY - rect.top)    / rect.height - 0.5) * 2;
+	}, []);
+
+	const handleMouseLeave = useCallback(() => {
+		tgt.current = { x: 0, y: 0 };
+	}, []);
+
 	return (
 		<section id='home' className={styles.hero}>
 			<div className={styles.canvasBg}>
@@ -136,25 +206,41 @@ function Hero() {
 
 					<p className={styles.description}>{t('hero.description')}</p>
 					<div className={styles.cta}>
-						<a href='#projects' className={styles.btnPrimary}>
+						<a
+							ref={btn1Ref}
+							href='#projects'
+							className={styles.btnPrimary}
+							onMouseMove={(e) => onMagneticMove(e, btn1Ref)}
+							onMouseLeave={() => onMagneticLeave(btn1Ref)}>
 							{t('hero.viewProjects')}
 						</a>
-						<a href='#contact' className={styles.btnOutline}>
+						<a
+							ref={btn2Ref}
+							href='#contact'
+							className={styles.btnOutline}
+							onMouseMove={(e) => onMagneticMove(e, btn2Ref)}
+							onMouseLeave={() => onMagneticLeave(btn2Ref)}>
 							{t('hero.contactMe')}
 						</a>
 					</div>
 				</div>
 
 				{/* Right — portrait */}
-				<div className={styles.right}>
-					<div className={styles.glow} />
-					<div className={styles.portraitFrame}>
-						<div className={styles.portrait} />
+				<div
+					className={styles.right}
+					ref={rightRef}
+					onMouseMove={handleMouseMove}
+					onMouseLeave={handleMouseLeave}>
+					<div className={styles.tiltWrap} ref={tiltWrapRef}>
+						<div className={styles.glow} ref={glowRef} />
+						<div className={styles.portraitFrame}>
+							<div className={styles.portrait} />
+						</div>
+						<div className={`${styles.deco} ${styles.decoC1}`} />
+						<div className={`${styles.deco} ${styles.decoC2}`} />
+						<div className={`${styles.deco} ${styles.decoSq}`} />
+						<div className={`${styles.deco} ${styles.decoDot}`} />
 					</div>
-					<div className={`${styles.deco} ${styles.decoC1}`} />
-					<div className={`${styles.deco} ${styles.decoC2}`} />
-					<div className={`${styles.deco} ${styles.decoSq}`} />
-					<div className={`${styles.deco} ${styles.decoDot}`} />
 					<div className={styles.social}>
 						<a
 							href='https://github.com/ep1cvoice'
