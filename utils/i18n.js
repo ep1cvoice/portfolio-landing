@@ -90,17 +90,17 @@ const resources = {
 						desc: 'Premium automotive detailing landing page with service showcase, gallery, and contact form. Dark gold design built for conversion.',
 					},
 					formafit: {
-						desc: 'Fitness gym website featuring training programs, trainer profiles, client testimonials, and subscription pricing plans.',
+						desc: 'Fitness gym web app with user login/registration, membership passes, private and group class bookings — plus training programs, trainer profiles, and client reviews.',
 					},
 					swiftrate: {
-						desc: 'Real-time currency converter supporting 160+ currencies with live exchange rates, instant conversion, and a clean modern purple UI.',
+						desc: 'Currency converter using live ECB rates via Frankfurter API — 31 currencies, real-time rate preview, 10-conversion session history, and popular pair shortcuts.',
 					},
 					nexttodo: {
 						descPre:
-							'Full-featured task manager with active/completed views, deadlines, pomodoro timer and user authentication built with React and Fastify — in collaboration with ',
+							'Full-stack task manager with Pomodoro timer, deadline scheduling with visual badges, and JWT-protected user accounts — React SPA + Fastify REST API + SQLite, built in collaboration with ',
 					},
 					checkycards: {
-						desc: 'Flashcard-style web dev theory trainer. Browse Q&A cards with markdown-rendered answers, syntax-highlighted code snippets, dark/light theme, and auth-protected question management.',
+						desc: '~600 web dev flashcards across React, JS, TypeScript, CSS, Git and more — per-user decks with completion tracking, syntax-highlighted answers, full-text search, and Supabase backend.',
 					},
 				},
 			},
@@ -284,20 +284,20 @@ const resources = {
 					},
 
 					formafit: {
-						desc: 'Strona dla siłowni z ofertą treningów, profilami trenerów, opiniami klientów oraz planami abonamentowymi.',
+						desc: 'Aplikacja dla siłowni z logowaniem i rejestracją, karnetami oraz rezerwacjami zajęć prywatnych i grupowych — a także programami treningów, profilami trenerów i opiniami klientów.',
 					},
 
 					swiftrate: {
-						desc: 'Konwerter walut w czasie rzeczywistym obsługujący ponad 160 walut — aktualne kursy, szybkie przeliczanie i nowoczesny interfejs.',
+						desc: 'Konwerter walut oparty na kursach EBC pobieranych przez Frankfurter API — 31 walut, podgląd kursu w czasie rzeczywistym, historia 10 konwersji i skróty popularnych par.',
 					},
 
 					nexttodo: {
 						descPre:
-							'Rozbudowany manager zadań z podziałem na aktywne i ukończone, terminami, timerem Pomodoro oraz autoryzacją użytkownika — projekt realizowany we współpracy z ',
+							'Manager zadań z timerem Pomodoro, harmonogramem terminów z wizualnymi oznaczeniami i kontami JWT — React SPA + Fastify REST API + SQLite, realizowany we współpracy z ',
 					},
 
 					checkycards: {
-						desc: 'Aplikacja do nauki web developmentu w formie fiszek — przeglądanie pytań i odpowiedzi, kod z podświetlaniem składni, tryb jasny/ciemny oraz zarządzanie treścią po zalogowaniu.',
+						desc: 'Ponad 600 fiszek z web developmentu — React, JS, TypeScript, CSS, Git i więcej — z osobistymi talami, śledzeniem postępów, podświetlaniem kodu i wyszukiwaniem pełnotekstowym. Backend: Supabase.',
 					},
 				},
 			},
@@ -490,17 +490,17 @@ const resources = {
 						desc: 'Лендинг для студии автодетейлинга — услуги, галерея и форма заявки. Тёмный стиль с золотыми акцентами.',
 					},
 					formafit: {
-						desc: 'Сайт фитнес-клуба с программами тренировок, профилями тренеров, отзывами клиентов и тарифами.',
+						desc: 'Приложение для фитнес-клуба с регистрацией и входом в аккаунт, карнетами и записью на индивидуальные и групповые занятия — а также программами тренировок, профилями тренеров и отзывами.',
 					},
 					swiftrate: {
-						desc: 'Конвертер валют в реальном времени с поддержкой 160+ валют, актуальными курсами и быстрым пересчётом.',
+						desc: 'Конвертер валют на официальных курсах ЕЦБ через Frankfurter API — 31 валюта, подгляд курса в реальном времени, история 10 конвертаций и быстрые ссылки на популярные пары.',
 					},
 					nexttodo: {
 						descPre:
-							'Полнофункциональный менеджер задач с разделением на активные и выполненные, дедлайнами, Pomodoro-таймером и авторизацией. Разработан на React и Fastify в сотрудничестве с ',
+							'Менеджер задач с Pomodoro-таймером, планированием дедлайнов с визуальными метками и JWT-авторизацией — React SPA + Fastify REST API + SQLite, разработан в сотрудничестве с ',
 					},
 					checkycards: {
-						desc: 'Тренажёр по веб-разработке в формате карточек: вопросы и ответы, подсветка кода, тёмная и светлая тема, управление контентом с авторизацией.',
+						desc: 'Более 600 карточек по веб-разработке — React, JS, TypeScript, CSS, Git и другое — с личными колодами, отслеживанием прогресса, подсветкой кода и полнотекстовым поиском. Бэкенд: Supabase.',
 					},
 				},
 			},
