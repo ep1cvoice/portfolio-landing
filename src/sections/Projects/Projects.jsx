@@ -1,11 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import { ArrowUpRight } from 'lucide-react';
 import ProjectCard from '../../components/ProjectCard';
-import ProjectPreviewModal from '../../components/ProjectPreviewModal/ProjectPreviewModal';
 import styles from './Projects.module.css';
-
 import xdetalzImg from '../../assets/projects/xdetalz-website.jpg?format=webp&quality=80';
 import formafitImg from '../../assets/projects/formafit-website.jpg?format=webp&quality=80';
 import swiftrateImg from '../../assets/projects/swiftrate-website.jpg?format=webp&quality=80';
@@ -13,6 +11,8 @@ import nexttodoImg from '../../assets/projects/nexttodo-website.jpg?format=webp&
 import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg?format=webp&quality=80';
 import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg?format=webp&quality=80';
 import GlossAndMuseImg from '../../assets/projects/glossandmuse-site.jpg?w=1920&format=webp&quality=80';
+
+const ProjectPreviewModal = lazy(() => import('../../components/ProjectPreviewModal/ProjectPreviewModal'));
 
 const PROJECTS = [
 	{
@@ -103,13 +103,12 @@ function Projects() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [itemsPerPage, setItemsPerPage] = useState(4);
 
-	const filtered = activeFilter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(activeFilter));
-	const totalPages = Math.ceil(filtered.length / itemsPerPage);
-
-	const startIndex = (currentPage - 1) * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-
-	const paginatedProjects = filtered.slice(startIndex, endIndex);
+	const { paginatedProjects, totalPages } = useMemo(() => {
+		const filtered = activeFilter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(activeFilter));
+		const total = Math.ceil(filtered.length / itemsPerPage);
+		const startIndex = (currentPage - 1) * itemsPerPage;
+		return { paginatedProjects: filtered.slice(startIndex, startIndex + itemsPerPage), totalPages: total };
+	}, [activeFilter, currentPage, itemsPerPage]);
 
 	useEffect(() => {
 		function handleResize() {
@@ -150,6 +149,8 @@ const scrollToSection = useCallback(() => {
 	}, [sectionRef]);
 
 	const handlePreview = useCallback((data) => setPreview(data), []);
+	const handleClosePreview = useCallback(() => setPreview(null), []);
+	const handleFilterClick = useCallback((key) => { setActiveFilter(key); setCurrentPage(1); }, []);
 
 	const getDescription = useCallback(
 		(project) => {
@@ -182,7 +183,7 @@ const scrollToSection = useCallback(() => {
 					<button
 						key={key}
 						className={`${styles.filter} ${activeFilter === key ? styles.filterActive : ''}`}
-						onClick={() => { setActiveFilter(key); setCurrentPage(1); }}>
+						onClick={() => handleFilterClick(key)}>
 						{key === 'all' ? t('projects.all') : key}
 					</button>
 				))}
@@ -200,7 +201,11 @@ const scrollToSection = useCallback(() => {
 				))}
 			</div>
 
-			{preview && <ProjectPreviewModal url={preview.url} title={preview.title} onClose={() => setPreview(null)} />}
+			{preview && (
+				<Suspense fallback={null}>
+					<ProjectPreviewModal url={preview.url} title={preview.title} onClose={handleClosePreview} />
+				</Suspense>
+			)}
 
 			{totalPages >= 2 && (
 				<div className={styles.pagination}>
