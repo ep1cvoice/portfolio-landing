@@ -2,9 +2,10 @@
 
 # Pavel — Web Developer Portfolio
 
-**A modern, dark-themed portfolio landing page built with React + Vite**
+**A modern, dark-themed portfolio landing page built with React + TypeScript + Vite**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![i18next](https://img.shields.io/badge/i18next-26-26A69A?style=flat&logo=i18next&logoColor=white)](https://www.i18next.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-r183-black?style=flat&logo=threedotjs)](https://threejs.org/)
@@ -42,6 +43,7 @@
 ## Tech Stack
 
 - **React 19** + **Vite 8** — fast dev server and optimized builds
+- **TypeScript 5** — strict mode, typed props/state/events throughout
 - **CSS Modules** — scoped styles per component, no global class conflicts
 - **i18next** + **react-i18next** — internationalization (EN/PL/RU), language persisted via localStorage
 - **@react-three/fiber** — Three.js in React for the Hero wave
@@ -81,13 +83,13 @@ npm run preview
 
 **Portrait photo** — replace the `background-image` in `src/sections/Hero/Hero.module.css`.
 
-**Projects / Services** — edit the data arrays at the top of `Projects.jsx` and `Services.jsx`. No config files, just JS arrays.
+**Projects / Services** — edit the data arrays at the top of `Projects.tsx` and `Services.tsx`. No config files, just typed TS arrays.
 
 **CV file** — replace `public/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf` with your own PDF. The download link in the header points there automatically.
 
-**Languages** — translations live in `utils/i18n.js` as plain JS objects (one per language). To add a new language, add a new entry to the `resources` object and the `LANGUAGES` arrays in `Header.jsx` and `Footer.jsx`.
+**Languages** — translations live in `utils/i18n.ts` as plain objects (one per language). To add a new language, add a new entry to the `resources` object and the `LANGUAGES` arrays in `Header.tsx` and `Footer.tsx`.
 
-**Russian locale mapping** — `utils/i18n.js` has a `POST_USSR` array. Browser locales in that list default to Russian on first visit. Easy to adjust.
+**Russian locale mapping** — `utils/i18n.ts` has a `POST_USSR` array. Browser locales in that list default to Russian on first visit. Easy to adjust.
 
 ---
 
@@ -109,14 +111,17 @@ src/
 │   ├── Skills/         # chip-tag skill categories
 │   └── Contact/        # Formspree form + contact links
 ├── pages/
-│   └── HomePage.jsx    # composes all sections
+│   └── HomePage.tsx    # composes all sections
+├── hooks/
+│   └── useInView.ts    # generic IntersectionObserver hook
+├── vite-env.d.ts       # ambient type declarations for Vite image imports
 styles/
 ├── variables.css       # edit this to retheme everything
 ├── globals.css
 ├── normalize.css
 └── fonts.css
 utils/
-└── i18n.js             # all translations + language detection logic
+└── i18n.ts             # all translations + language detection logic
 public/
 └── Pavlo_Kovalchuk_Frontend_Developer_CV.pdf
 ```

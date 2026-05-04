@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, type RefObject } from 'react';
 
-export function useInView(threshold = 0.15) {
-  const ref = useRef(null);
+export function useInView<T extends HTMLElement = HTMLElement>(threshold = 0.15): [RefObject<T | null>, boolean] {
+  const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
 
   useEffect(() => {

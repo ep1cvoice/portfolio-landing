@@ -1,9 +1,15 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, type ReactNode } from 'react';
 import { Search, Palette, Code2, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import styles from './Process.module.css';
 
-const STEPS_META = [
+interface StepMeta {
+  number: string;
+  icon: ReactNode;
+  stepKey: string;
+}
+
+const STEPS_META: StepMeta[] = [
   { number: '01', icon: <Search size={22} />,  stepKey: 'step1' },
   { number: '02', icon: <Palette size={22} />, stepKey: 'step2' },
   { number: '03', icon: <Code2 size={22} />,   stepKey: 'step3' },
@@ -12,7 +18,7 @@ const STEPS_META = [
 
 function Process() {
   const { t } = useTranslation();
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
@@ -32,22 +38,22 @@ function Process() {
     return () => observer.disconnect();
   }, []);
 
-  function handleMouseMove(e) {
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const card = e.currentTarget;
     const { left, top, width, height } = card.getBoundingClientRect();
     const x = (e.clientX - left) / width  - 0.5;
     const y = (e.clientY - top)  / height - 0.5;
     card.style.transition = 'border-color 0.25s ease, box-shadow 0.25s ease';
     card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
-    const icon = card.querySelector(`.${styles.iconWrap}`);
+    const icon = card.querySelector<HTMLElement>(`.${styles.iconWrap}`);
     if (icon) icon.style.transform = 'rotate(15deg) scale(1.15)';
   }
 
-  function handleMouseLeave(e) {
+  function handleMouseLeave(e: React.MouseEvent<HTMLElement>) {
     const card = e.currentTarget;
     card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.25s ease, box-shadow 0.25s ease';
     card.style.transform = 'translateY(0)';
-    const icon = card.querySelector(`.${styles.iconWrap}`);
+    const icon = card.querySelector<HTMLElement>(`.${styles.iconWrap}`);
     if (icon) icon.style.transform = '';
   }
 
@@ -68,7 +74,7 @@ function Process() {
         <div className={styles.beam} />
 
         {STEPS_META.map((step, i) => (
-          <div key={step.number} className={styles.step} style={{ '--i': i }}>
+          <div key={step.number} className={styles.step} style={{ '--i': i } as React.CSSProperties}>
             <div className={styles.node}>
               <div className={styles.nodeRing} />
               <div className={styles.nodeDot} />

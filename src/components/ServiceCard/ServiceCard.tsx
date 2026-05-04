@@ -1,6 +1,13 @@
+import type { ReactNode } from 'react';
 import styles from './ServiceCard.module.css';
 
-function ServiceCard({ icon, title, description }) {
+interface ServiceCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+}
+
+function ServiceCard({ icon, title, description }: ServiceCardProps) {
   return (
     <article className={styles.card}>
       <div className={styles.iconWrap}>{icon}</div>

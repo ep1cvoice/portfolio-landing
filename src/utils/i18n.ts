@@ -3,17 +3,17 @@ import { initReactI18next } from 'react-i18next';
 
 const STORAGE_KEY = 'app_language';
 
-function getSavedLanguage() {
+function getSavedLanguage(): string | null {
 	return localStorage.getItem(STORAGE_KEY);
 }
 
-function saveLanguage(lang) {
+function saveLanguage(lang: string): void {
 	localStorage.setItem(STORAGE_KEY, lang);
 }
-// Post-USSR locales → show Russian UI
+
 const POST_USSR = ['uk', 'ru', 'be', 'kk', 'ky', 'uz', 'tg', 'az', 'hy', 'ka', 'lv', 'lt', 'et', 'tk', 'mo'];
 
-function detectLanguage() {
+function detectLanguage(): string {
 	const saved = getSavedLanguage();
 	if (saved) return saved;
 
@@ -24,7 +24,7 @@ function detectLanguage() {
 	return 'en';
 }
 
-function changeLanguage(lang) {
+function changeLanguage(lang: string): void {
 	i18n.changeLanguage(lang);
 	saveLanguage(lang);
 }
@@ -166,7 +166,7 @@ const resources = {
 			contact: {
 				label: 'CONTACT',
 				title: 'Get In Touch',
-				desc: 'Have a project in mind or want to collaborate? Let’s talk.',
+				desc: "Have a project in mind or want to collaborate? Let's talk.",
 				formTitle: 'Send a message',
 				name: 'Name',
 				email: 'Email',
@@ -190,6 +190,7 @@ const resources = {
 				copy: '© 2026 pavelcode.dev',
 				rights: 'All rights reserved.',
 				privacy: 'Privacy Policy',
+				techStack: 'Page built with:',
 			},
 			privacy: {
 				title: 'Privacy Policy',
@@ -237,7 +238,7 @@ const resources = {
 				phrase1: 'Frontend Developer',
 				phrase2: 'Buduję szybkie i intuicyjne aplikacje webowe',
 				phrase3: 'Tworzę strony, które pracują na Twój biznes.',
-				description: 'Buduję nowoczesne, responsywne aplikacje webowe oraz skuteczne landing page’e.',
+				description: "Buduję nowoczesne, responsywne aplikacje webowe oraz skuteczne landing page'e.",
 				viewProjects: 'Portfolio',
 				contactMe: 'Kontakt',
 				scrollDown: 'Przewiń niżej',
@@ -249,7 +250,7 @@ const resources = {
 
 				p2: 'Przekształcam złożone problemy w proste i intuicyjne rozwiązania, dbając o wydajność, dostępność oraz płynne działanie aplikacji.',
 
-				p3: 'Zrealizowałem kilka projektów — od landing page’y po interaktywne aplikacje — zawsze z dużą dbałością o detale, responsywność i UX.',
+				p3: "Zrealizowałem kilka projektów — od landing page'y po interaktywne aplikacje — zawsze z dużą dbałością o detale, responsywność i UX.",
 
 				p4: 'Obecnie rozwijam się w TypeScript i Next.js, a także poszerzam wiedzę w kierunku backendu (Node.js). Stawiam na ciągły rozwój i śledzenie nowych technologii.',
 
@@ -307,7 +308,7 @@ const resources = {
 				desc: 'Pomagam firmom budować i rozwijać ich obecność w internecie.',
 
 				landing: {
-					title: 'Landing page’e',
+					title: "Landing page'e",
 					desc: 'Strony, które jasno przekazują ofertę i zachęcają odwiedzających do kontaktu.',
 				},
 
@@ -402,6 +403,7 @@ const resources = {
 				copy: '© 2026 pavelcode.dev',
 				rights: 'Wszelkie prawa zastrzeżone.',
 				privacy: 'Polityka prywatności',
+				techStack: 'Strona stworzona przy użyciu:',
 			},
 			privacy: {
 				title: 'Polityka prywatności',
@@ -593,6 +595,8 @@ const resources = {
 				copy: '© 2026 pavelcode.dev',
 				rights: 'Все права защищены.',
 				privacy: 'Политика конфиденциальности',
+				techStack: 'Сделано с помощью:',
+				
 			},
 			privacy: {
 				title: 'Политика конфиденциальности',

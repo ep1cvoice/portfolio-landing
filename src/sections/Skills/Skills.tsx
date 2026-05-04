@@ -2,7 +2,19 @@ import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import styles from './Skills.module.css';
 
-const SKILL_CATEGORIES = [
+interface Chip {
+  text: string;
+  active?: boolean;
+}
+
+interface SkillCategory {
+  id: string;
+  label: string;
+  accent: boolean;
+  chips: Chip[];
+}
+
+const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: 'frontend',
     label: 'FRONTEND',
@@ -90,7 +102,7 @@ const SKILL_CATEGORIES = [
   },
 ];
 
-function Chip({ text, active }) {
+function ChipTag({ text, active }: Chip) {
   return (
     <span className={`${styles.chip} ${active ? styles.chipActive : ''}`}>
       {text}
@@ -101,7 +113,7 @@ function Chip({ text, active }) {
 function Skills() {
   const { t } = useTranslation();
   const [sectionRef, visible] = useInView(0.1);
-  const [gridRef, gridVisible] = useInView(0.1);
+  const [gridRef, gridVisible] = useInView<HTMLDivElement>(0.1);
 
   return (
     <section id="skills" ref={sectionRef} className={`${styles.skills} ${visible ? styles.visible : ''}`}>
@@ -119,7 +131,7 @@ function Skills() {
               </span>
               <div className={styles.chips}>
                 {cat.chips.map((chip) => (
-                  <Chip key={chip.text} text={chip.text} active={chip.active} />
+                  <ChipTag key={chip.text} text={chip.text} active={chip.active} />
                 ))}
               </div>
             </div>

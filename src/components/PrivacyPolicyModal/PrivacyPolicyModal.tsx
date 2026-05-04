@@ -3,11 +3,15 @@ import { X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import styles from './PrivacyPolicyModal.module.css';
 
-function PrivacyPolicyModal({ onClose }) {
+interface PrivacyPolicyModalProps {
+  onClose: () => void;
+}
+
+function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps) {
 	const { t } = useTranslation();
 
 	useEffect(() => {
-		function onKey(e) {
+		function onKey(e: KeyboardEvent) {
 			if (e.key === 'Escape') onClose();
 		}
 		document.addEventListener('keydown', onKey);

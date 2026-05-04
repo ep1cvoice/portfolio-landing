@@ -3,9 +3,15 @@ import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import styles from './ProjectPreviewModal.module.css';
 
-function ProjectPreviewModal({ url, title, onClose }) {
+interface ProjectPreviewModalProps {
+  url: string;
+  title: string;
+  onClose: () => void;
+}
+
+function ProjectPreviewModal({ url, title, onClose }: ProjectPreviewModalProps) {
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
     return () => {

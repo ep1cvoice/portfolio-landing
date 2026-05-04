@@ -2,10 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { changeLanguage } from '../../../utils/i18n';
+import { changeLanguage } from '../../utils/i18n';
 import styles from './Header.module.css';
 
-const NAV_IDS = [
+interface NavItem {
+	id: string;
+	key: string;
+	href: string;
+}
+
+const NAV_IDS: NavItem[] = [
 	{ id: 'home', key: 'nav.home', href: '#home' },
 	{ id: 'about', key: 'nav.about', href: '#about' },
 	{ id: 'projects', key: 'nav.projects', href: '#projects' },
@@ -22,11 +28,11 @@ function Header() {
 	const [active, setActive] = useState('home');
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [langModal, setLangModal] = useState(false);
-	const langRef = useRef(null);
+	const langRef = useRef<HTMLDivElement | null>(null);
 
 	const activeLang = i18n.language.toUpperCase();
 
-	const changeLang = (lang) => {
+	const changeLang = (lang: string) => {
 		changeLanguage(lang.toLowerCase());
 	};
 
@@ -40,7 +46,7 @@ function Header() {
 	// Lazy-loaded sections may not be in the DOM yet on mount, so retry
 	// via MutationObserver until all section elements are found.
 	useEffect(() => {
-		let sectionObservers = [];
+		let sectionObservers: IntersectionObserver[] = [];
 
 		function setup() {
 			sectionObservers.forEach((o) => o.disconnect());
@@ -89,8 +95,8 @@ function Header() {
 	}, [menuOpen]);
 
 	useEffect(() => {
-		const onClickOutside = (e) => {
-			if (langRef.current && !langRef.current.contains(e.target)) {
+		const onClickOutside = (e: MouseEvent) => {
+			if (langRef.current && !langRef.current.contains(e.target as Node)) {
 				setLangModal(false);
 			}
 		};
