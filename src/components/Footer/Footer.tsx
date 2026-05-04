@@ -1,28 +1,31 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { changeLanguage } from '../../utils/i18n';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, Languages } from 'lucide-react';
 import PrivacyPolicyModal from '../PrivacyPolicyModal/PrivacyPolicyModal';
-import ReactLogo from '../../assets/icons/React-icon.svg.png';
-import TypeScriptLogo from '../../assets/icons/Typescript_logo.jpg';
-import I18nextLogo from '../../assets/icons/i18next-logo.png';
-import SwipertLogo from '../../assets/icons/swiper-logo.svg';
-import ViteLogo from '../../assets/icons/Vitejs-logo.svg.png';
-import ThreeJSLogo from '../../assets/icons/Three.js_Icon.svg.png';
+import ReactLogo from '../../assets/icons/React-logo.svg';
+import TypeScriptLogo from '../../assets/icons/Typescript_logo_2020.svg';
+import ViteLogo from '../../assets/icons/Vite-logo.svg';
+import ThreeJSLogo from '../../assets/icons/Three.js_Icon.svg';
+import SwiperLogo from '../../assets/icons/swiper-logo.svg';
 import FormspreeLogo from '../../assets/icons/Formspree_logo.svg';
-
 import styles from './Footer.module.css';
+
+interface TechItem {
+	name: string;
+	icon: ReactNode;
+}
 
 const LANGUAGES = ['EN', 'PL', 'RU'];
 
-const TECH = [
-	{ name: 'React', icon: ReactLogo },
-	{ name: 'TypeScript', icon: TypeScriptLogo },
-	{ name: 'Vite', icon: ViteLogo },
-	{ name: 'i18next', icon: I18nextLogo },
-	{ name: 'Three.js', icon: ThreeJSLogo },
-	{ name: 'Swiper', icon: SwipertLogo },
-	{ name: 'Formspree', icon: FormspreeLogo },
+const TECH: TechItem[] = [
+	{ name: 'React',       icon: <img src={ReactLogo}      alt='React'      className={styles.icon} /> },
+	{ name: 'TypeScript',  icon: <img src={TypeScriptLogo} alt='TypeScript' className={styles.icon} /> },
+	{ name: 'Vite',        icon: <img src={ViteLogo}       alt='Vite'       className={styles.icon} /> },
+	{ name: 'Three.js',    icon: <img src={ThreeJSLogo}    alt='Three.js'   className={styles.icon} /> },
+	{ name: 'Swiper',      icon: <img src={SwiperLogo}     alt='Swiper'     className={styles.icon} /> },
+	{ name: 'Formspree',   icon: <img src={FormspreeLogo}  alt='Formspree'  className={styles.icon} /> },
+	{ name: 'i18next',     icon: <Languages size={14} /> },
 ];
 
 function Footer() {
@@ -42,7 +45,7 @@ function Footer() {
 				<span className={styles.label}>{t('footer.techStack')}</span>
 				{TECH.map(({ name, icon }) => (
 					<span key={name} className={styles.chip}>
-						<img src={icon} alt={name} className={styles.icon} />
+						{icon}
 						{name}
 					</span>
 				))}
