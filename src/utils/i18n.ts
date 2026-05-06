@@ -57,19 +57,16 @@ const resources = {
 			},
 			about: {
 				title: 'About Me',
-				p1: "I'm Pavel — a frontend developer focused on building clean, modern, and intuitive web experiences. I primarily work with React and the modern JavaScript ecosystem.",
-				p2: 'I turn complex problems into simple and intuitive interfaces, with a strong focus on performance, accessibility, and smooth user interactions.',
-				p3: "I've built several real-world projects — from landing pages to interactive web applications — paying close attention to detail, responsiveness, and UX.",
-				p4: "Currently, I'm deepening my knowledge in TypeScript and Next.js, while exploring the world of full-stack development with Node.js. I believe in continuous learning and staying curious about new technologies.",
-				p5: 'Outside of coding, I actively follow UI/UX trends, experiment with animations and micro-interactions, and continuously improve my skills through hands-on projects.',
-				stats: {
-					role: 'Web Developer',
-					roleDesc: 'Focused on React & modern UI',
-					projectsDesc: 'Projects completed',
-					stack: 'Modern Stack',
-					stackDesc: 'React, TypeScript, Next.js',
-					perf: 'Performance',
-					perfDesc: 'Fast, responsive & optimized UX',
+				p1: "I'm Pavel — a frontend developer based in Warsaw. I came to web development from industrial operations, which taught me to think in systems, communicate across teams, and care about what actually gets shipped.",
+				p2: "Over the past year, I've built 10 production-style projects — including conversion-focused landing pages for local businesses, a full-stack task manager with a REST API and SQLite, a fitness platform with authentication and bookings, and a flashcard app powered by Supabase. React, TypeScript, and performance-focused development are my daily tools.",
+				p3: "I'm actively looking for my first full-time frontend role and am also open to freelance work. If you need someone who writes clean code, takes ownership, and ships — I'd like to talk.",
+				facts: {
+					projects: '10 Projects Shipped',
+					projectsSub: 'landing pages · web apps · full-stack',
+					availability: 'Available for Hire',
+					availabilitySub: 'Katowice / Remote · Full-time or Freelance',
+					stack: 'React · TypeScript · Next.js',
+					stackSub: 'Primary stack, built across real projects',
 				},
 			},
 			projects: {
@@ -246,24 +243,19 @@ const resources = {
 			about: {
 				title: 'O mnie',
 
-				p1: 'Jestem Pavel — frontend developer, który tworzy nowoczesne, przejrzyste i intuicyjne interfejsy. Na co dzień pracuję z Reactem i nowoczesnym ekosystemem JavaScript.',
+				p1: 'Jestem Pavel — frontend developerem z Warszawy. Do web developmentu trafiłem z branży przemysłowej, co nauczyło mnie myślenia systemowego, dobrej komunikacji w zespole i skupienia na dowożeniu realnych efektów.',
 
-				p2: 'Przekształcam złożone problemy w proste i intuicyjne rozwiązania, dbając o wydajność, dostępność oraz płynne działanie aplikacji.',
+				p2: "W ciągu ostatniego roku zbudowałem 10 projektów — od landing page’y dla lokalnych firm, przez full-stackowy manager zadań oparty o REST API i SQLite, po platformę fitness z autoryzacją i systemem rezerwacji oraz aplikację do fiszek z backendem opartym na Supabase. Na co dzień pracuję głównie w React, TypeScript i skupiam się na wydajnych, dopracowanych interfejsach.",
 
-				p3: "Zrealizowałem kilka projektów — od landing page'y po interaktywne aplikacje — zawsze z dużą dbałością o detale, responsywność i UX.",
+				p3: 'Aktywnie szukam swojej pierwszej pełnoetatowej roli jako frontend developer, ale jestem też otwarty na współprace freelance. Jeśli szukasz osoby, która pisze czysty kod, bierze odpowiedzialność i dowozi projekty — chętnie porozmawiam.',
 
-				p4: 'Obecnie rozwijam się w TypeScript i Next.js, a także poszerzam wiedzę w kierunku backendu (Node.js). Stawiam na ciągły rozwój i śledzenie nowych technologii.',
-
-				p5: 'Poza kodowaniem śledzę trendy UI/UX, eksperymentuję z animacjami i mikrointerakcjami oraz rozwijam swoje umiejętności, realizując własne projekty.',
-
-				stats: {
-					role: 'Frontend Developer',
-					roleDesc: 'React i nowoczesne UI',
-					projectsDesc: 'Zrealizowane projekty',
-					stack: 'Nowoczesny stack',
-					stackDesc: 'React, TypeScript, Next.js',
-					perf: 'Wydajność',
-					perfDesc: 'Szybkie i zoptymalizowane aplikacje',
+				facts: {
+					projects: '10 projektów',
+					projectsSub: "landing page'e · aplikacje webowe · full-stack",
+					availability: 'Szukam pracy',
+					availabilitySub: 'Katowice / Zdalnie · Etat lub Freelance',
+					stack: 'React · TypeScript · Next.js',
+					stackSub: 'Główny stack, projekty praktyczne',
 				},
 			},
 			projects: {
@@ -459,19 +451,16 @@ const resources = {
 			},
 			about: {
 				title: 'Обо мне',
-				p1: 'Я Павел — frontend-разработчик, создающий современные, чистые и удобные интерфейсы. Основной стек — React и современная JavaScript-экосистема.',
-				p2: 'Превращаю сложные задачи в простые и интуитивные пользовательские интерфейсы, уделяя внимание производительности, доступности и плавности взаимодействия.',
-				p3: 'Реализовал несколько проектов — от лендингов до интерактивных веб-приложений — с фокусом на UX, адаптивность и внимание к деталям.',
-				p4: 'Сейчас углубляю знания в TypeScript и Next.js, а также развиваюсь в направлении full-stack разработки с Node.js.',
-				p5: 'Вне работы слежу за трендами UI/UX, экспериментирую с анимациями и микро-взаимодействиями и постоянно развиваю навыки через практические проекты.',
-				stats: {
-					role: 'Веб-разработчик',
-					roleDesc: 'Специализация: React и современный UI',
-					projectsDesc: 'Реализованные проекты',
-					stack: 'Современный стек',
-					stackDesc: 'React, TypeScript, Next.js',
-					perf: 'Оптимизация',
-					perfDesc: 'Быстрые, адаптивные и оптимизированные интерфейсы',
+				p1: 'Я Павел — frontend-разработчик из Варшавы. В веб-разработку я пришёл из промышленной сферы, где научился системно мыслить, работать в команде и доводить задачи до результата.',
+				p2: 'За последний год я создал 10 проектов — от лендингов для локального бизнеса до full-stack менеджера задач с REST API и SQLite, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
+				p3: 'Сейчас я активно ищу свою первую full-time позицию frontend-разработчика и также открыт к freelance-проектам. Если вам нужен разработчик, который пишет чистый код, берёт ответственность за результат и умеет доводить проекты до конца — буду рад пообщаться.',
+				facts: {
+					projects: '10 проектов',
+					projectsSub: 'лендинги · веб-приложения · full-stack',
+					availability: 'Открыт к работе',
+					availabilitySub: 'Катовице / Удалённо · Full-time или Freelance',
+					stack: 'React · TypeScript · Next.js',
+					stackSub: 'Основной стек, реальные проекты',
 				},
 			},
 			projects: {
@@ -596,7 +585,6 @@ const resources = {
 				rights: 'Все права защищены.',
 				privacy: 'Политика конфиденциальности',
 				techStack: 'Сделано с помощью:',
-				
 			},
 			privacy: {
 				title: 'Политика конфиденциальности',

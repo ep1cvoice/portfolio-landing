@@ -1,28 +1,12 @@
-import type { ReactNode } from 'react';
-import { Briefcase, FolderCheck, Layers, Zap } from 'lucide-react';
+import { Briefcase, FolderCheck, Code2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from '../../hooks/useInView';
 import styles from './About.module.css';
 
-interface StatMeta {
-  icon: ReactNode;
-  value?: string;
-  valueKey?: string;
-  descKey: string;
-  boxed: boolean;
-}
-
-const STATS_META: StatMeta[] = [
-  { icon: <Briefcase size={20} />, valueKey: 'about.stats.role',  descKey: 'about.stats.roleDesc',     boxed: true },
-  { icon: <FolderCheck size={20} />, value: '10+',                descKey: 'about.stats.projectsDesc', boxed: true },
-  { icon: <Layers size={18} />,    valueKey: 'about.stats.stack', descKey: 'about.stats.stackDesc',    boxed: true },
-  { icon: <Zap size={18} />,       valueKey: 'about.stats.perf',  descKey: 'about.stats.perfDesc',     boxed: true },
-];
-
 function About() {
   const { t } = useTranslation();
-  const [sectionRef, visible]   = useInView(0.15);
-  const [statsRef, statsVisible] = useInView<HTMLDivElement>(0.2);
+  const [sectionRef, visible]    = useInView(0.15);
+  const [cardsRef, cardsVisible] = useInView<HTMLDivElement>(0.2);
 
   return (
     <section id='about' ref={sectionRef} className={`${styles.about} ${visible ? styles.visible : ''}`}>
@@ -37,28 +21,48 @@ function About() {
             {t('about.p2')}
             <br /><br />
             {t('about.p3')}
-            <br /><br />
-            {t('about.p4')}
-            <br /><br />
-            {t('about.p5')}
           </p>
         </div>
 
-        {/* Right */}
-        <div ref={statsRef} className={`${styles.statsGrid} ${statsVisible ? styles.statsVisible : ''}`}>
-          {STATS_META.map(({ icon, value, valueKey, descKey, boxed }) => (
-            <div key={descKey} className={styles.statCard}>
-              {boxed ? (
-                <div className={styles.statIconWrap}>{icon}</div>
-              ) : (
-                <span className={styles.statIcon}>{icon}</span>
-              )}
-              <div className={boxed ? styles.statTitle : styles.statNumber}>
-                {value ?? (valueKey ? t(valueKey) : '')}
+        {/* Right — 3 glass cards: 1 wide + 2 below */}
+        <div ref={cardsRef} className={`${styles.cardsGrid} ${cardsVisible ? styles.cardsVisible : ''}`}>
+
+          {/* Available for Hire */}
+          <div className={styles.statCard}>
+            <div className={styles.statHeader}>
+              <div className={`${styles.statIconWrap} ${styles.iconAvailable}`}>
+                <Briefcase size={16} />
               </div>
-              <p className={styles.statDesc}>{t(descKey)}</p>
+              <div className={`${styles.statTitle} ${styles.titleAvailable}`}>
+                <span className={styles.availableDot} />
+                {t('about.facts.availability')}
+              </div>
             </div>
-          ))}
+            <p className={styles.statDesc}>{t('about.facts.availabilitySub')}</p>
+          </div>
+
+          {/* Projects */}
+          <div className={styles.statCard}>
+            <div className={styles.statHeader}>
+              <div className={styles.statIconWrap}>
+                <FolderCheck size={16} />
+              </div>
+              <div className={styles.statTitle}>{t('about.facts.projects')}</div>
+            </div>
+            <p className={styles.statDesc}>{t('about.facts.projectsSub')}</p>
+          </div>
+
+          {/* Stack */}
+          <div className={styles.statCard}>
+            <div className={styles.statHeader}>
+              <div className={styles.statIconWrap}>
+                <Code2 size={16} />
+              </div>
+              <div className={styles.statTitle}>{t('about.facts.stack')}</div>
+            </div>
+            <p className={styles.statDesc}>{t('about.facts.stackSub')}</p>
+          </div>
+
         </div>
       </div>
     </section>
