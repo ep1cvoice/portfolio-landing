@@ -1,14 +1,33 @@
 import { memo } from 'react';
+import type { ReactNode } from 'react';
 import { ExternalLink } from 'lucide-react';
 import githubIcon from '../../assets/icons/GitHub_Invertocat_White.svg';
 import styles from './ProjectCard.module.css';
 
-function ProjectCard({ image, title, description, tags, lang, github, demo, demoUrl, demoLabel = 'Live Demo', onPreview }) {
+interface PreviewData {
+  url: string;
+  title: string;
+}
+
+interface ProjectCardProps {
+  image?: string;
+  title: string;
+  description: ReactNode;
+  tags: string[];
+  lang?: string;
+  github?: string;
+  demo?: string;
+  demoUrl?: string;
+  demoLabel?: string;
+  onPreview?: (data: PreviewData) => void;
+}
+
+function ProjectCard({ image, title, description, tags, lang, github, demo, demoUrl, demoLabel = 'Live Demo', onPreview }: ProjectCardProps) {
   const handleDemoClick = () => {
     if (demoUrl) {
       window.open(demoUrl, '_blank', 'noopener,noreferrer');
     } else {
-      onPreview?.({ url: demo, title });
+      onPreview?.({ url: demo ?? '', title });
     }
   };
 

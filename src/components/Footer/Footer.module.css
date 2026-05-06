@@ -27,7 +27,8 @@
 	justify-content: space-between;
 }
 
-.copy, .rights {
+.copy,
+.rights {
 	font-size: var(--font-size-sm);
 	color: var(--font-secondary);
 }
@@ -54,7 +55,9 @@
 	color: var(--font-secondary);
 	cursor: pointer;
 	opacity: 0.7;
-	transition: opacity 0.2s, color 0.2s;
+	transition:
+		opacity 0.2s,
+		color 0.2s;
 }
 
 .privacyLink:hover {
@@ -130,6 +133,65 @@
 	opacity: 0.6;
 }
 
+.techStack {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding-top: 16px;
+	border-top: 1px solid var(--border-glass);
+	opacity: 0.9;
+}
+
+.label {
+	font-size: 0.8rem;
+	color: var(--font-secondary);
+	margin-right: 4px;
+}
+
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+
+	padding: 6px 14px;
+	border-radius: 20px;
+
+	font-size: 13px;
+	font-weight: 500;
+
+	background: var(--bg-glass);
+	color: var(--font-secondary);
+	border: 1px solid var(--border-glass);
+	transition:
+		border-color 0.2s,
+		color 0.2s;
+}
+
+.chip:hover {
+	border-color: rgba(45, 124, 246, 0.4);
+	color: var(--font-primary);
+}
+
+.icon {
+	width: 14px;
+	height: 14px;
+	object-fit: contain;
+	opacity: 0.8;
+}
+
+.chip:hover .icon {
+	opacity: 1;
+	transform: scale(1.05);
+}
+
 @media (max-width: 1024px) {
 	.footer {
 		padding: 40px 40px 32px;
@@ -151,6 +213,9 @@
 		align-items: center;
 	}
 	.rightSep {
+		display: none;
+	}
+	.techStack {
 		display: none;
 	}
 }
