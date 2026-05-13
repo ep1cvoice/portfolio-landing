@@ -111,6 +111,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: auto;
 }
 
 .tag {
@@ -127,7 +128,6 @@
 .links {
   display: flex;
   gap: 16px;
-  margin-top: auto;
   padding-top: 4px;
 }
 

@@ -96,6 +96,9 @@ const resources = {
 						descPre:
 							'Full-stack task manager with Pomodoro timer, deadline scheduling with visual badges, and JWT-protected user accounts — React SPA + Fastify REST API + SQLite, built in collaboration with ',
 					},
+					streamix: {
+						desc: 'Netflix-style streaming catalog powered by the TMDB API — full-viewport rotating hero, horizontal genre rows, live trailer modal, favorites with localStorage, and debounced search.',
+					},
 					checkycards: {
 						desc: '~600 web dev flashcards across React, JS, TypeScript, CSS, Git and more — per-user decks with completion tracking, syntax-highlighted answers, full-text search, and Supabase backend.',
 					},
@@ -289,6 +292,10 @@ const resources = {
 							'Manager zadań z timerem Pomodoro, harmonogramem terminów z wizualnymi oznaczeniami i kontami JWT — React SPA + Fastify REST API + SQLite, realizowany we współpracy z ',
 					},
 
+					streamix: {
+						desc: 'Katalog streamingowy w stylu Netfliksa oparty na API TMDB — pełnoekranowy hero z automatyczną rotacją, poziome rzędy kategorii, modal z odtwarzanym na żywo trailerem, ulubione zapisywane w localStorage oraz wyszukiwanie z debounce’em.',
+					},
+
 					checkycards: {
 						desc: 'Ponad 600 fiszek z web developmentu — React, JS, TypeScript, CSS, Git i więcej — z osobistymi talami, śledzeniem postępów, podświetlaniem kodu i wyszukiwaniem pełnotekstowym. Backend: Supabase.',
 					},
@@ -451,7 +458,7 @@ const resources = {
 			},
 			about: {
 				title: 'Обо мне',
-				p1: 'Я Павел — frontend-разработчик из Варшавы. В веб-разработку я пришёл из промышленной сферы, где научился системно мыслить, работать в команде и доводить задачи до результата.',
+				p1: 'Я Павел — frontend-разработчик Катовиц. В веб-разработку я пришёл из промышленной сферы, где научился системно мыслить, работать в команде и доводить задачи до результата.',
 				p2: 'За последний год я создал 10 проектов — от лендингов для локального бизнеса до full-stack менеджера задач с REST API и SQLite, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
 				p3: 'Сейчас я активно ищу свою первую full-time позицию frontend-разработчика и также открыт к freelance-проектам. Если вам нужен разработчик, который пишет чистый код, берёт ответственность за результат и умеет доводить проекты до конца — буду рад пообщаться.',
 				facts: {
@@ -489,6 +496,9 @@ const resources = {
 					nexttodo: {
 						descPre:
 							'Менеджер задач с Pomodoro-таймером, планированием дедлайнов с визуальными метками и JWT-авторизацией — React SPA + Fastify REST API + SQLite, разработан в сотрудничестве с ',
+					},
+					streamix: {
+						desc: 'Каталог фильмов и сериалов в стиле Netflix на базе TMDB API — полноэкранный hero-блок с автоматической сменой контента, горизонтальные ряды по жанрам, модальное окно с трейлером в реальном времени, избранное с сохранением в localStorage и поиск с debounce.',
 					},
 					checkycards: {
 						desc: 'Более 600 карточек по веб-разработке — React, JS, TypeScript, CSS, Git и другое — с личными колодами, отслеживанием прогресса, подсветкой кода и полнотекстовым поиском. Бэкенд: Supabase.',

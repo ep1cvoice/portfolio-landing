@@ -11,6 +11,7 @@ import nexttodoImg from '../../assets/projects/nexttodo-website.jpg?format=webp&
 import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg?format=webp&quality=80';
 import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg?format=webp&quality=80';
 import GlossAndMuseImg from '../../assets/projects/glossandmuse-site.jpg?w=1920&format=webp&quality=80';
+import StreamixImg from '../../assets/projects/streamix-preview.jpg?format=webp&quality=80';
 
 const ProjectPreviewModal = lazy(() => import('../../components/ProjectPreviewModal/ProjectPreviewModal'));
 
@@ -35,6 +36,18 @@ interface PreviewData {
 const PROJECTS: Project[] = [
   {
     id: 1,
+    title: 'Streamix',
+    descKey: 'projects.items.streamix.desc',
+    tags: ['React', 'TypeScript', ' TMDB API', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+    lang: 'EN',
+    image: StreamixImg,
+    demo: StreamixImg,
+    demoLabelKey: 'liveDemo',
+    github: 'https://github.com/ep1cvoice/streamix-catalog',
+    demoUrl: 'https://streamix-catalog.vercel.app/',
+  },
+  {
+    id: 2,
     title: 'Gloss&Muse Beauty Salon',
     descKey: 'projects.items.glossandmuse.desc',
     tags: ['Landing', 'Tailwind CSS', 'Figma'],
@@ -44,7 +57,7 @@ const PROJECTS: Project[] = [
     demoLabelKey: 'preview',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Émile Restaurant',
     descKey: 'projects.items.emile.desc',
     tags: ['Landing', 'Tailwind CSS', 'Figma'],
@@ -54,7 +67,7 @@ const PROJECTS: Project[] = [
     demoLabelKey: 'preview',
   },
   {
-    id: 3,
+    id: 4,
     title: 'xDetalz Auto Detailing',
     descKey: 'projects.items.xdetalz.desc',
     tags: ['Landing', 'JavaScript', 'SCSS', 'BEM'],
@@ -65,7 +78,7 @@ const PROJECTS: Project[] = [
     demoLabelKey: 'preview',
   },
   {
-    id: 4,
+    id: 5,
     title: 'FormaFit Gym',
     descKey: 'projects.items.formafit.desc',
     tags: ['Landing', 'C#', '.NET', 'MVC', 'Bootstrap', 'Entity', 'Identity'],
@@ -73,17 +86,6 @@ const PROJECTS: Project[] = [
     image: formafitImg,
     github: 'https://github.com/ep1cvoice/gym-app-dotnet-mvc',
     demo: formafitImg,
-    demoLabelKey: 'preview',
-  },
-  {
-    id: 5,
-    title: 'SwiftRate',
-    descKey: 'projects.items.swiftrate.desc',
-    tags: ['SPA', 'React', 'JSX', 'API', 'Vite', 'Error handling'],
-    lang: 'PL',
-    image: swiftrateImg,
-    github: 'https://github.com/ep1cvoice/swift-rate-app',
-    demo: swiftrateImg,
     demoLabelKey: 'preview',
   },
   {
@@ -99,6 +101,17 @@ const PROJECTS: Project[] = [
   },
   {
     id: 7,
+    title: 'SwiftRate',
+    descKey: 'projects.items.swiftrate.desc',
+    tags: ['SPA', 'React', 'TypeScript', 'API', 'Error handling'],
+    lang: 'PL',
+    image: swiftrateImg,
+    github: 'https://github.com/ep1cvoice/swift-rate-app',
+    demo: swiftrateImg,
+    demoLabelKey: 'preview',
+  },
+  {
+    id: 8,
     title: 'WebDev Checky Cards',
     descKey: 'projects.items.checkycards.desc',
     tags: ['SPA', 'React', 'Typescript', 'Supabase', 'Markdown'],
