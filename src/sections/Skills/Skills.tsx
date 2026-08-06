@@ -30,6 +30,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { text: 'SASS/SCSS' },
       { text: 'BEM' },
       { text: 'Tailwind' },
+      { text: 'HeroUI' },
     ],
   },
   {
@@ -50,6 +51,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { text: 'REST API (CRUD, auth flows)' },
       { text: 'Authentication & Authorization (JWT)' },
       { text: 'Error handling' },
+      { text: 'Zod + React Hook Form' },
       { text: 'Loading states' },
     ],
   },
@@ -69,6 +71,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { text: 'Chrome DevTools' },
       { text: 'Docker' },
       { text: 'Accessibility (a11y)' },
+      { text: 'Vitest' },
       { text: 'Kanban' },
     ],
   },
@@ -78,6 +81,8 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     accent: true,
     chips: [
       { text: 'Node.js' },
+      { text: 'Prisma' },
+      { text: 'PostgreSQL' },
       { text: 'Supabase (auth, database)' },
     ],
   },

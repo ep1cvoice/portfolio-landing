@@ -58,10 +58,10 @@ const resources = {
 			about: {
 				title: 'About Me',
 				p1: "I'm Pavel — a frontend developer based in Warsaw. I came to web development from industrial operations, which taught me to think in systems, communicate across teams, and care about what actually gets shipped.",
-				p2: "Over the past year, I've built 10 production-style projects — including conversion-focused landing pages for local businesses, a full-stack task manager with a REST API and SQLite, a fitness platform with authentication and bookings, and a flashcard app powered by Supabase. React, TypeScript, and performance-focused development are my daily tools.",
+				p2: "Over the past year, I've built 11 production-style projects — including conversion-focused landing pages for local businesses, a full-stack task manager with a REST API and SQLite, a fitness platform with authentication and bookings, and a flashcard app powered by Supabase. React, TypeScript, and performance-focused development are my daily tools.",
 				p3: "I'm actively looking for my first full-time frontend role and am also open to freelance work. If you need someone who writes clean code, takes ownership, and ships — I'd like to talk.",
 				facts: {
-					projects: '10 Projects Shipped',
+					projects: '11 Projects Shipped',
 					projectsSub: 'landing pages · web apps · full-stack',
 					availability: 'Available for Hire',
 					availabilitySub: 'Katowice / Remote · Full-time or Freelance',
@@ -77,6 +77,9 @@ const resources = {
 				preview: 'Preview',
 				liveDemo: 'Live Demo',
 				items: {
+					dropx: {
+						desc: 'Full sneaker storefront with catalog filters, live search, Auth.js accounts, cart/wishlist, and checkout — Next.js, Prisma, and PostgreSQL, deployed on Vercel.',
+					},
 					glossandmuse: {
 						desc: 'Beauty salon landing page in Warsaw city center with online reservations and specialist selection.',
 					},
@@ -248,12 +251,12 @@ const resources = {
 
 				p1: 'Jestem Pavel — frontend developerem z Warszawy. Do web developmentu trafiłem z branży przemysłowej, co nauczyło mnie myślenia systemowego, dobrej komunikacji w zespole i skupienia na dowożeniu realnych efektów.',
 
-				p2: "W ciągu ostatniego roku zbudowałem 10 projektów — od landing page’y dla lokalnych firm, przez full-stackowy manager zadań oparty o REST API i SQLite, po platformę fitness z autoryzacją i systemem rezerwacji oraz aplikację do fiszek z backendem opartym na Supabase. Na co dzień pracuję głównie w React, TypeScript i skupiam się na wydajnych, dopracowanych interfejsach.",
+				p2: "W ciągu ostatniego roku zbudowałem 11 projektów — od landing page’y dla lokalnych firm, przez full-stackowy manager zadań oparty o REST API i SQLite, po platformę fitness z autoryzacją i systemem rezerwacji oraz aplikację do fiszek z backendem opartym na Supabase. Na co dzień pracuję głównie w React, TypeScript i skupiam się na wydajnych, dopracowanych interfejsach.",
 
 				p3: 'Aktywnie szukam swojej pierwszej pełnoetatowej roli jako frontend developer, ale jestem też otwarty na współprace freelance. Jeśli szukasz osoby, która pisze czysty kod, bierze odpowiedzialność i dowozi projekty — chętnie porozmawiam.',
 
 				facts: {
-					projects: '10 projektów',
+					projects: '11 projektów',
 					projectsSub: "landing page'e · aplikacje webowe · full-stack",
 					availability: 'Szukam pracy',
 					availabilitySub: 'Katowice / Zdalnie · Etat lub Freelance',
@@ -269,6 +272,9 @@ const resources = {
 				preview: 'Podgląd',
 				liveDemo: 'Zobacz na żywo',
 				items: {
+					dropx: {
+						desc: 'Pełny sklep z sneakerami — filtry katalogu, live search, konta Auth.js, koszyk/wishlist i checkout. Next.js, Prisma i PostgreSQL, wdrożony na Vercel.',
+					},
 					glossandmuse: {
 						desc: 'Landing page salonu beauty w centrum Warszawy z rezerwacją online i wyborem specjalisty.',
 					},
@@ -459,10 +465,10 @@ const resources = {
 			about: {
 				title: 'Обо мне',
 				p1: 'Я Павел — frontend-разработчик Катовиц. В веб-разработку я пришёл из промышленной сферы, где научился системно мыслить, работать в команде и доводить задачи до результата.',
-				p2: 'За последний год я создал 10 проектов — от лендингов для локального бизнеса до full-stack менеджера задач с REST API и SQLite, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
+				p2: 'За последний год я создал 11 проектов — от лендингов для локального бизнеса до full-stack менеджера задач с REST API и SQLite, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
 				p3: 'Сейчас я активно ищу свою первую full-time позицию frontend-разработчика и также открыт к freelance-проектам. Если вам нужен разработчик, который пишет чистый код, берёт ответственность за результат и умеет доводить проекты до конца — буду рад пообщаться.',
 				facts: {
-					projects: '10 проектов',
+					projects: '11 проектов',
 					projectsSub: 'лендинги · веб-приложения · full-stack',
 					availability: 'Открыт к работе',
 					availabilitySub: 'Катовице / Удалённо · Full-time или Freelance',
@@ -478,6 +484,9 @@ const resources = {
 				preview: 'Превью',
 				liveDemo: 'Демо',
 				items: {
+					dropx: {
+						desc: 'Полноценный магазин кроссовок с фильтрами каталога, live-поиском, аккаунтами Auth.js, корзиной/wishlist и checkout — Next.js, Prisma и PostgreSQL, деплой на Vercel.',
+					},
 					glossandmuse: {
 						desc: 'Лендинг салона красоты в центре Варшавы с онлайн-записью и выбором специалиста.',
 					},

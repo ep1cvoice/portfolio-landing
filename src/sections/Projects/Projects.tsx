@@ -12,6 +12,7 @@ import checkycardImg from '../../assets/projects/webdev-checky-cards.jpg?format=
 import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg?format=webp&quality=80';
 import GlossAndMuseImg from '../../assets/projects/glossandmuse-site.jpg?w=1920&format=webp&quality=80';
 import StreamixImg from '../../assets/projects/streamix-preview.jpg?format=webp&quality=80';
+import dropxImg from '../../assets/projects/dropx-website.jpg';
 
 const ProjectPreviewModal = lazy(() => import('../../components/ProjectPreviewModal/ProjectPreviewModal'));
 
@@ -34,6 +35,18 @@ interface PreviewData {
 }
 
 const PROJECTS: Project[] = [
+  {
+    id: 9,
+    title: 'DROPX Store',
+    descKey: 'projects.items.dropx.desc',
+    tags: ['React', 'TypeScript', 'Next.js', 'Prisma', 'Auth.js', 'PostgreSQL'],
+    lang: 'EN',
+    image: dropxImg,
+    demo: dropxImg,
+    demoLabelKey: 'liveDemo',
+    github: 'https://github.com/ep1cvoice/dropx-store',
+    demoUrl: 'https://dropx-store.vercel.app/',
+  },
   {
     id: 1,
     title: 'Streamix',
