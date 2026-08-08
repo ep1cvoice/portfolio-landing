@@ -13,6 +13,7 @@ import emileRestaurantImg from '../../assets/projects/emile-restaurant.jpg?forma
 import GlossAndMuseImg from '../../assets/projects/glossandmuse-site.jpg?w=1920&format=webp&quality=80';
 import StreamixImg from '../../assets/projects/streamix-preview.jpg?format=webp&quality=80';
 import dropxImg from '../../assets/projects/dropx-website.jpg';
+import flowtodoImg from '../../assets/projects/flowtodo-expo.jpg?format=webp&quality=80';
 
 const ProjectPreviewModal = lazy(() => import('../../components/ProjectPreviewModal/ProjectPreviewModal'));
 
@@ -46,6 +47,17 @@ const PROJECTS: Project[] = [
     demoLabelKey: 'liveDemo',
     github: 'https://github.com/ep1cvoice/dropx-store',
     demoUrl: 'https://dropx-store.vercel.app/',
+  },
+  {
+    id: 10,
+    title: 'FlowTodo',
+    descKey: 'projects.items.flowtodo.descPre',
+    tags: ['React', 'TypeScript', 'Expo', 'React Native', 'Supabase', 'SPA'],
+    lang: 'EN',
+    image: flowtodoImg,
+    demo: flowtodoImg,
+    demoLabelKey: 'preview',
+    github: 'https://github.com/ep1cvoice/NextTodo-React-Native-Supabase',
   },
   {
     id: 1,
@@ -198,7 +210,7 @@ function Projects() {
 
   const getDescription = useCallback(
     (project: Project): ReactNode => {
-      if (project.id === 6) {
+      if (project.descKey.endsWith('.descPre')) {
         return (
           <>
             {t(project.descKey)}

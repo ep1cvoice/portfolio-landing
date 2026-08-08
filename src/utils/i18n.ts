@@ -58,10 +58,10 @@ const resources = {
 			about: {
 				title: 'About Me',
 				p1: "I'm Pavel — a frontend developer based in Warsaw. I came to web development from industrial operations, which taught me to think in systems, communicate across teams, and care about what actually gets shipped.",
-				p2: "Over the past year, I've built 11 production-style projects — including conversion-focused landing pages for local businesses, a full-stack task manager with a REST API and SQLite, a fitness platform with authentication and bookings, and a flashcard app powered by Supabase. React, TypeScript, and performance-focused development are my daily tools.",
+				p2: "Over the past year, I've built 12 production-style projects — including conversion-focused landing pages for local businesses, a full-stack task manager with a REST API and SQLite, a cross-platform Expo todo with Supabase, a fitness platform with authentication and bookings, and a flashcard app powered by Supabase. React, TypeScript, and performance-focused development are my daily tools.",
 				p3: "I'm actively looking for my first full-time frontend role and am also open to freelance work. If you need someone who writes clean code, takes ownership, and ships — I'd like to talk.",
 				facts: {
-					projects: '11 Projects Shipped',
+					projects: '12 Projects Shipped',
 					projectsSub: 'landing pages · web apps · full-stack',
 					availability: 'Available for Hire',
 					availabilitySub: 'Katowice / Remote · Full-time or Freelance',
@@ -98,6 +98,10 @@ const resources = {
 					nexttodo: {
 						descPre:
 							'Full-stack task manager with Pomodoro timer, deadline scheduling with visual badges, and JWT-protected user accounts — React SPA + Fastify REST API + SQLite, built in collaboration with ',
+					},
+					flowtodo: {
+						descPre:
+							'Cross-platform todo app (iOS, Android, web) — Expo + React Native, Supabase Auth, tasks/categories/tags with RLS, Pomodoro, and Ocean Flow UI. Port of NextTodo, built in collaboration with ',
 					},
 					streamix: {
 						desc: 'Netflix-style streaming catalog powered by the TMDB API — full-viewport rotating hero, horizontal genre rows, live trailer modal, favorites with localStorage, and debounced search.',
@@ -251,12 +255,12 @@ const resources = {
 
 				p1: 'Jestem Pavel — frontend developerem z Warszawy. Do web developmentu trafiłem z branży przemysłowej, co nauczyło mnie myślenia systemowego, dobrej komunikacji w zespole i skupienia na dowożeniu realnych efektów.',
 
-				p2: "W ciągu ostatniego roku zbudowałem 11 projektów — od landing page’y dla lokalnych firm, przez full-stackowy manager zadań oparty o REST API i SQLite, po platformę fitness z autoryzacją i systemem rezerwacji oraz aplikację do fiszek z backendem opartym na Supabase. Na co dzień pracuję głównie w React, TypeScript i skupiam się na wydajnych, dopracowanych interfejsach.",
+				p2: "W ciągu ostatniego roku zbudowałem 12 projektów — od landing page’y dla lokalnych firm, przez full-stackowy manager zadań (REST API + SQLite) i cross-platformowy todo na Expo z Supabase, po platformę fitness z autoryzacją i rezerwacjami oraz aplikację do fiszek na Supabase. Na co dzień pracuję głównie w React, TypeScript i skupiam się na wydajnych, dopracowanych interfejsach.",
 
 				p3: 'Aktywnie szukam swojej pierwszej pełnoetatowej roli jako frontend developer, ale jestem też otwarty na współprace freelance. Jeśli szukasz osoby, która pisze czysty kod, bierze odpowiedzialność i dowozi projekty — chętnie porozmawiam.',
 
 				facts: {
-					projects: '11 projektów',
+					projects: '12 projektów',
 					projectsSub: "landing page'e · aplikacje webowe · full-stack",
 					availability: 'Szukam pracy',
 					availabilitySub: 'Katowice / Zdalnie · Etat lub Freelance',
@@ -296,6 +300,11 @@ const resources = {
 					nexttodo: {
 						descPre:
 							'Manager zadań z timerem Pomodoro, harmonogramem terminów z wizualnymi oznaczeniami i kontami JWT — React SPA + Fastify REST API + SQLite, realizowany we współpracy z ',
+					},
+
+					flowtodo: {
+						descPre:
+							'Aplikacja todo na iOS, Androida i web — Expo + React Native, Supabase Auth, zadania/kategorie/tagi z RLS, Pomodoro i UI Ocean Flow. Port NextTodo, realizowany we współpracy z ',
 					},
 
 					streamix: {
@@ -465,10 +474,10 @@ const resources = {
 			about: {
 				title: 'Обо мне',
 				p1: 'Я Павел — frontend-разработчик Катовиц. В веб-разработку я пришёл из промышленной сферы, где научился системно мыслить, работать в команде и доводить задачи до результата.',
-				p2: 'За последний год я создал 11 проектов — от лендингов для локального бизнеса до full-stack менеджера задач с REST API и SQLite, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
+				p2: 'За последний год я создал 12 проектов — от лендингов для локального бизнеса до full-stack менеджера задач (REST API + SQLite), кроссплатформенного todo на Expo с Supabase, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
 				p3: 'Сейчас я активно ищу свою первую full-time позицию frontend-разработчика и также открыт к freelance-проектам. Если вам нужен разработчик, который пишет чистый код, берёт ответственность за результат и умеет доводить проекты до конца — буду рад пообщаться.',
 				facts: {
-					projects: '11 проектов',
+					projects: '12 проектов',
 					projectsSub: 'лендинги · веб-приложения · full-stack',
 					availability: 'Открыт к работе',
 					availabilitySub: 'Катовице / Удалённо · Full-time или Freelance',
@@ -505,6 +514,10 @@ const resources = {
 					nexttodo: {
 						descPre:
 							'Менеджер задач с Pomodoro-таймером, планированием дедлайнов с визуальными метками и JWT-авторизацией — React SPA + Fastify REST API + SQLite, разработан в сотрудничестве с ',
+					},
+					flowtodo: {
+						descPre:
+							'Кроссплатформенный todo (iOS, Android, web) — Expo + React Native, Supabase Auth, задачи/категории/теги с RLS, Pomodoro и UI Ocean Flow. Порт NextTodo, разработан в сотрудничестве с ',
 					},
 					streamix: {
 						desc: 'Каталог фильмов и сериалов в стиле Netflix на базе TMDB API — полноэкранный hero-блок с автоматической сменой контента, горизонтальные ряды по жанрам, модальное окно с трейлером в реальном времени, избранное с сохранением в localStorage и поиск с debounce.',
