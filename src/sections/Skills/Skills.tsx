@@ -31,6 +31,20 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { text: 'BEM' },
       { text: 'Tailwind' },
       { text: 'HeroUI' },
+      { text: 'react-native-web' },
+    ],
+  },
+  {
+    id: 'mobile',
+    label: 'MOBILE',
+    accent: false,
+    chips: [
+      { text: 'React Native', active: true },
+      { text: 'Expo', active: true },
+      { text: 'Expo Router' },
+      { text: 'Expo Go' },
+      { text: 'AsyncStorage' },
+      { text: 'Android Studio / Emulator' },
     ],
   },
   {
@@ -83,7 +97,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { text: 'Node.js' },
       { text: 'Prisma' },
       { text: 'PostgreSQL' },
-      { text: 'Supabase (auth, database)' },
+      { text: 'Supabase (auth, database, RLS)' },
     ],
   },
   {

@@ -65,8 +65,8 @@ const resources = {
 					projectsSub: 'landing pages · web apps · full-stack',
 					availability: 'Available for Hire',
 					availabilitySub: 'Katowice / Remote · Full-time or Freelance',
-					stack: 'React · TypeScript · Next.js',
-					stackSub: 'Primary stack, built across real projects',
+					stack: 'React · TypeScript · Expo',
+					stackSub: 'Web + mobile, built across real projects',
 				},
 			},
 			projects: {
@@ -264,8 +264,8 @@ const resources = {
 					projectsSub: "landing page'e · aplikacje webowe · full-stack",
 					availability: 'Szukam pracy',
 					availabilitySub: 'Katowice / Zdalnie · Etat lub Freelance',
-					stack: 'React · TypeScript · Next.js',
-					stackSub: 'Główny stack, projekty praktyczne',
+					stack: 'React · TypeScript · Expo',
+					stackSub: 'Web + mobile, projekty praktyczne',
 				},
 			},
 			projects: {
@@ -481,8 +481,8 @@ const resources = {
 					projectsSub: 'лендинги · веб-приложения · full-stack',
 					availability: 'Открыт к работе',
 					availabilitySub: 'Катовице / Удалённо · Full-time или Freelance',
-					stack: 'React · TypeScript · Next.js',
-					stackSub: 'Основной стек, реальные проекты',
+					stack: 'React · TypeScript · Expo',
+					stackSub: 'Web + mobile, реальные проекты',
 				},
 			},
 			projects: {
