@@ -47,26 +47,27 @@ const resources = {
 			hero: {
 				greeting: "Hi, my name's ",
 				name: 'Pavel',
-				phrase1: "I'm a frontend developer",
-				phrase2: 'I build fast and user-friendly web apps',
-				phrase3: 'I create interfaces that drive real results for your business.',
-				description: 'Building modern, responsive web applications and landing pages.',
+				phrase1: "I'm a frontend / full-stack developer",
+				phrase2: 'I ship product flows — auth, data, and checkout',
+				phrase3: 'I build web products that work for your business.',
+				description:
+					'React · TypeScript · Next.js — storefronts, apps, and landing pages. Open to full-time roles and freelance projects.',
 				viewProjects: 'View Projects',
 				contactMe: 'Contact Me',
 				scrollDown: 'Scroll down',
 			},
 			about: {
 				title: 'About Me',
-				p1: "I'm Pavel — a frontend developer based in Warsaw. I came to web development from industrial operations, which taught me to think in systems, communicate across teams, and care about what actually gets shipped.",
-				p2: "Over the past year, I've built 12 production-style projects — including conversion-focused landing pages for local businesses, a full-stack task manager with a REST API and SQLite, a cross-platform Expo todo with Supabase, a fitness platform with authentication and bookings, and a flashcard app powered by Supabase. React, TypeScript, and performance-focused development are my daily tools.",
-				p3: "I'm actively looking for my first full-time frontend role and am also open to freelance work. If you need someone who writes clean code, takes ownership, and ships — I'd like to talk.",
+				p1: "I'm Pavel — a frontend / full-stack developer based in Katowice. I came to web development from industrial operations, which taught me to think in systems, communicate across teams, and care about what actually gets shipped.",
+				p2: "Recent work includes DROPX — a Next.js sneaker storefront with real Postgres inventory, orders, and checkout — and FlowTodo, a cross-platform Expo + Supabase app with auth and RLS. Alongside that: conversion-focused landing pages, a flashcard SPA on Supabase, and other production-style builds. React, TypeScript, and Next.js are my daily tools.",
+				p3: "I'm open to engineering roles and freelance collaborations. If you need someone who writes clean code, takes ownership, and ships — let's talk.",
 				facts: {
 					projects: '12 Projects Shipped',
-					projectsSub: 'landing pages · web apps · full-stack',
+					projectsSub: 'storefront · apps · landing pages',
 					availability: 'Available for Hire',
 					availabilitySub: 'Katowice / Remote · Full-time or Freelance',
-					stack: 'React · TypeScript · Expo',
-					stackSub: 'Web + mobile, built across real projects',
+					stack: 'React · TypeScript · Next.js',
+					stackSub: 'Web + mobile · Prisma · Supabase · Expo',
 				},
 			},
 			projects: {
@@ -168,12 +169,12 @@ const resources = {
 			},
 			skills: {
 				title: 'Tech Stack',
-				subtitle: 'Technologies I use to build fast and scalable web applications.',
+				subtitle: 'React, TypeScript, Next.js — plus the data and auth layer behind real product flows.',
 			},
 			contact: {
 				label: 'CONTACT',
 				title: 'Get In Touch',
-				desc: "Have a project in mind or want to collaborate? Let's talk.",
+				desc: "Hiring, freelance, or a project idea? Let's talk.",
 				formTitle: 'Send a message',
 				name: 'Name',
 				email: 'Email',
@@ -242,10 +243,11 @@ const resources = {
 			hero: {
 				greeting: 'Cześć, jestem ',
 				name: 'Pavel',
-				phrase1: 'Frontend Developer',
-				phrase2: 'Buduję szybkie i intuicyjne aplikacje webowe',
-				phrase3: 'Tworzę strony, które pracują na Twój biznes.',
-				description: "Buduję nowoczesne, responsywne aplikacje webowe oraz skuteczne landing page'e.",
+				phrase1: 'Frontend / Full-Stack Developer',
+				phrase2: 'Dowożę pełne flow — auth, dane i checkout',
+				phrase3: 'Tworzę produkty webowe, które pracują na Twój biznes.',
+				description:
+					'React · TypeScript · Next.js — sklepy, aplikacje i landing page’e. Otwarty na etat i projekty freelance.',
 				viewProjects: 'Portfolio',
 				contactMe: 'Kontakt',
 				scrollDown: 'Przewiń niżej',
@@ -253,19 +255,19 @@ const resources = {
 			about: {
 				title: 'O mnie',
 
-				p1: 'Jestem Pavel — frontend developerem z Warszawy. Do web developmentu trafiłem z branży przemysłowej, co nauczyło mnie myślenia systemowego, dobrej komunikacji w zespole i skupienia na dowożeniu realnych efektów.',
+				p1: 'Jestem Pavel — frontend / full-stack developerem z Katowic. Do web developmentu trafiłem z branży przemysłowej, co nauczyło mnie myślenia systemowego, komunikacji między zespołami i skupienia na tym, co realnie zostaje dowiezione.',
 
-				p2: "W ciągu ostatniego roku zbudowałem 12 projektów — od landing page’y dla lokalnych firm, przez full-stackowy manager zadań (REST API + SQLite) i cross-platformowy todo na Expo z Supabase, po platformę fitness z autoryzacją i rezerwacjami oraz aplikację do fiszek na Supabase. Na co dzień pracuję głównie w React, TypeScript i skupiam się na wydajnych, dopracowanych interfejsach.",
+				p2: 'Ostatnio: DROPX — sklep sneakerowy na Next.js z prawdziwym Postgres (magazyn, zamówienia, checkout) oraz FlowTodo — cross-platformowa aplikacja Expo + Supabase z auth i RLS. Obok tego landing page’e pod konwersję, SPA z fiszkami na Supabase i inne projekty produkcyjne. Na co dzień: React, TypeScript i Next.js.',
 
-				p3: 'Aktywnie szukam swojej pierwszej pełnoetatowej roli jako frontend developer, ale jestem też otwarty na współprace freelance. Jeśli szukasz osoby, która pisze czysty kod, bierze odpowiedzialność i dowozi projekty — chętnie porozmawiam.',
+				p3: 'Jestem otwarty na role inżynierskie i współpracę freelance. Jeśli szukasz osoby, która pisze czysty kod, bierze ownership i dowozi — chętnie porozmawiam.',
 
 				facts: {
 					projects: '12 projektów',
-					projectsSub: "landing page'e · aplikacje webowe · full-stack",
-					availability: 'Szukam pracy',
+					projectsSub: "sklep · aplikacje · landing page'e",
+					availability: 'Otwarty na współpracę',
 					availabilitySub: 'Katowice / Zdalnie · Etat lub Freelance',
-					stack: 'React · TypeScript · Expo',
-					stackSub: 'Web + mobile, projekty praktyczne',
+					stack: 'React · TypeScript · Next.js',
+					stackSub: 'Web + mobile · Prisma · Supabase · Expo',
 				},
 			},
 			projects: {
@@ -388,12 +390,12 @@ const resources = {
 			},
 			skills: {
 				title: 'Stack technologiczny',
-				subtitle: 'Technologie, których używam do tworzenia szybkich i skalowalnych aplikacji webowych.',
+				subtitle: 'React, TypeScript, Next.js — oraz warstwa danych i auth za realnymi product flow.',
 			},
 			contact: {
 				label: 'KONTAKT',
 				title: 'Skontaktuj się',
-				desc: 'Masz pomysł na projekt albo chcesz nawiązać współpracę? Napisz — chętnie porozmawiam o szczegółach.',
+				desc: 'Rekrutacja, freelance albo pomysł na projekt? Napisz — chętnie porozmawiam.',
 				formTitle: 'Napisz do mnie',
 				name: 'Imię',
 				email: 'E-mail',
@@ -463,26 +465,27 @@ const resources = {
 			hero: {
 				greeting: 'Привет, меня зовут ',
 				name: 'Павел',
-				phrase1: 'Я frontend-разработчик',
-				phrase2: 'Я делаю быстрые и удобные веб-приложения',
-				phrase3: 'Я создаю веб-продукты, которые работают на ваш бизнес.',
-				description: 'Создаю современные, адаптивные веб-приложения и лендинги.',
+				phrase1: 'Я frontend / full-stack разработчик',
+				phrase2: 'Доставляю продуктовые флоу — auth, данные и checkout',
+				phrase3: 'Создаю веб-продукты, которые работают на ваш бизнес.',
+				description:
+					'React · TypeScript · Next.js — магазины, приложения и лендинги. Открыт к full-time и freelance.',
 				viewProjects: 'Проекты',
 				contactMe: 'Контакт',
 				scrollDown: 'Листайте вниз',
 			},
 			about: {
 				title: 'Обо мне',
-				p1: 'Я Павел — frontend-разработчик Катовиц. В веб-разработку я пришёл из промышленной сферы, где научился системно мыслить, работать в команде и доводить задачи до результата.',
-				p2: 'За последний год я создал 12 проектов — от лендингов для локального бизнеса до full-stack менеджера задач (REST API + SQLite), кроссплатформенного todo на Expo с Supabase, фитнес-платформы с авторизацией и бронированием и приложения для карточек на Supabase. React, TypeScript и производительность интерфейсов — мои основные инструменты в повседневной работе.',
-				p3: 'Сейчас я активно ищу свою первую full-time позицию frontend-разработчика и также открыт к freelance-проектам. Если вам нужен разработчик, который пишет чистый код, берёт ответственность за результат и умеет доводить проекты до конца — буду рад пообщаться.',
+				p1: 'Я Павел — frontend / full-stack разработчик из Катовице. В веб я пришёл из промышленной сферы: системное мышление, кросс-командная коммуникация и фокус на том, что реально уходит в прод.',
+				p2: 'Недавние проекты: DROPX — sneaker-storefront на Next.js с реальным Postgres (склад, заказы, checkout) и FlowTodo — кроссплатформенное приложение на Expo + Supabase с auth и RLS. Плюс лендинги под конверсию, SPA с карточками на Supabase и другие production-style сборки. В ежедневной работе — React, TypeScript и Next.js.',
+				p3: 'Открыт к инженерным ролям и freelance-сотрудничеству. Если нужен разработчик, который пишет чистый код, берёт ownership и доводит до релиза — давайте поговорим.',
 				facts: {
 					projects: '12 проектов',
-					projectsSub: 'лендинги · веб-приложения · full-stack',
+					projectsSub: 'магазин · приложения · лендинги',
 					availability: 'Открыт к работе',
 					availabilitySub: 'Катовице / Удалённо · Full-time или Freelance',
-					stack: 'React · TypeScript · Expo',
-					stackSub: 'Web + mobile, реальные проекты',
+					stack: 'React · TypeScript · Next.js',
+					stackSub: 'Web + mobile · Prisma · Supabase · Expo',
 				},
 			},
 			projects: {
@@ -587,12 +590,12 @@ const resources = {
 			},
 			skills: {
 				title: 'Технологии, с которыми я работаю',
-				subtitle: 'Технологии, которые я использую для разработки быстрых и масштабируемых веб-приложений.',
+				subtitle: 'React, TypeScript, Next.js — плюс слой данных и auth за реальными product flow.',
 			},
 			contact: {
 				label: 'КОНТАКТЫ',
 				title: 'Связаться со мной',
-				desc: 'Есть идея или проект? Давайте обсудим.',
+				desc: 'Найм, freelance или идея проекта? Давайте поговорим.',
 				formTitle: 'Напишите мне',
 				name: 'Имя',
 				email: 'E-mail',
