@@ -163,7 +163,7 @@ function Header() {
 						</div>
 
 						<a
-							href='/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf'
+							href='/Frontend-Dev-Pavlo-Kovalchuk-CV.pdf'
 							target='_blank'
 							rel='noopener noreferrer'
 							className={styles.cvBtn}>
@@ -175,7 +175,7 @@ function Header() {
 					{/* Mobile controls */}
 					<div className={styles.mobileControls}>
 						<a
-							href='/Pavlo_Kovalchuk_Frontend_Developer_CV.pdf'
+							href='/Frontend-Dev-Pavlo-Kovalchuk-CV.pdf'
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Download CV'>
